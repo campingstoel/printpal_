@@ -1,17 +1,28 @@
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
-import Button from "../atoms/Button";
+import React, { useEffect } from 'react';
+import Button from '../atoms/Button';
 import button from '../../styles/button';
-import Header from '../atoms/Header';
-import header from '../../styles/header';
+import Navbar from '../molecules/Navbar';
+import SearchBar from '../molecules/SearchBar';
+
 
 export default function Home() {
   const navigation = useNavigation();
+
   return (
-    <View>
-      <Header style={header.header} text={"Home"} />
-        <Button icon={'add-outline'} onPress={() => navigation.navigate("About")} style={[button.thumb, button.circle]} />
+    <View style={styles.wrapper}>
+      <SearchBar />
+      <Button text='Map' icon='map-outline' onPress={() => navigation.navigate('Map')} style={button.circle} />
+      <Navbar page='Home' />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  wrapper: {
+    flex: 1,
+    alignItems: 'center'
+  }
+});
 
