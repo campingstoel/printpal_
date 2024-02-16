@@ -29,6 +29,17 @@ const navbar = StyleSheet.create({
     color: "black",
     fontWeight: "bold",
   },
+
+  grey: {
+    color: "grey",
+  },
+
+  pressed : {
+    borderBottomColor: '#c83564',
+    borderBottomWidth: 2,
+  }
+
+
 });
 
 export default navbar;
