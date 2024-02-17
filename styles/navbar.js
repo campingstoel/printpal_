@@ -19,6 +19,7 @@ const navbar = StyleSheet.create({
     justifyContent: "center",
     display: "flex",
     flexDirection: "column",
+
   },
 
   active: {
@@ -32,6 +33,8 @@ const navbar = StyleSheet.create({
 
   grey: {
     color: "grey",
+    borderBottomColor: 'transparent',
+    borderBottomWidth: 2,
   },
 
   pressed : {
