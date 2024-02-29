@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import button from "../../styles/button";
 import Ionicons from '@expo/vector-icons/Ionicons';

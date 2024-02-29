@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import Button from '../atoms/Button';
 import Navbar from '../molecules/Navbar';
@@ -6,6 +6,7 @@ import SearchBar from '../molecules/SearchBar';
 import Filters from '../organisms/Filters';
 import index from '../../styles/index';
 import button from '../../styles/button';
+import ListView from '../organisms/ListView';
 
 export default function Home() {
   const navigation = useNavigation();
@@ -13,10 +14,15 @@ export default function Home() {
   return (
     <View style={index.wrapper}>
       <SearchBar />
+      <View style={index.body}>
       <Filters />
-      <Button text='Map' icon='map-outline' onPress={() => navigation.navigate('Map')} style={[button.circle, { position: 'absolute', bottom: '15%' }]} />
-      <Navbar page='Home' />
+      <ListView />
     </View>
+    <Button text='Map' icon='map-outline' onPress={() => navigation.navigate('Map')} style={[button.circle, { position: 'absolute', bottom: '13%' }]} />
+    <Navbar page='Home' />
+
+    </View>
+
   );
 }
 

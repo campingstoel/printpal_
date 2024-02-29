@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 const header =  StyleSheet.create({
     header : {
         color: 'black',
-        padding: 10,
         fontSize: 30,
+        fontFamily: 'Montserrat-Regular',
     },
     large : {
         fontSize: 50,
@@ -16,10 +16,14 @@ const header =  StyleSheet.create({
         fontSize: 30,
     },
     tiny : {
-        fontSize: 20,
+        fontSize: 18,
+    },
+    paragraph : {
+        fontSize: 13,
     },
     bold : {
         fontWeight: 'bold',
+        fontFamily: 'Montserrat-Bold',
     },
     white : {
         color: 'white',

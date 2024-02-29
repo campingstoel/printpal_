@@ -6,11 +6,13 @@ const navbar = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     backgroundColor: "white",
-    position: "absolute",
-    bottom: 0,
     width: "100%",
     paddingVertical: 10,
     paddingHorizontal: 20,
+    flex: 1,
+    position: "absolute",
+    bottom: '0%',
+    maxHeight: 80,
 
   },
   button: {
