@@ -1,0 +1,54 @@
+export const questions = [
+    {
+      id: 1,
+      question: 'Welcome to PrintPal! Tell us your name.',
+      questionType: 'Open'
+    },
+    {
+        id: 2,
+        question: 'What will be your business name?',
+        questionType: 'Open'
+    },
+    {
+        id: 3,
+        question: 'What will be your contact e-mail?',
+        questionType: 'Open'
+    },
+    {
+        id: 4,
+        question: 'What is your business address?',
+        questionType: 'Open'
+    },
+    {
+        id: 5,
+        question: 'Is this address correct?',
+        questionType: 'true/false'
+
+    },
+    {
+        id: 6,
+        question: 'What printing services do you offer?',
+        questionType: 'multiple',
+        answers: [
+            'A4', 'A3', 'Color', 'B&W', 'Lamination', 'Poster'
+        ]
+    },
+    {
+        id: 7,
+        question: 'What will be your availability?',
+        questionType: 'multiple',
+        answers: [
+            'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'
+        ]
+    },
+    {
+        id: 8,
+        question: 'Do you allow in-app messaging?',
+        questionType: 'true/false'
+    },
+    {
+        id: 9,
+        question: 'We will handle your request as soon as possible. Untill then, you will be able to access customer app features.',
+        questionType: 'confirm'
+    }
+]

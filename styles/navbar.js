@@ -27,7 +27,7 @@ const navbar = StyleSheet.create({
   },
 
   active: {
-    color: "#c83564",
+    color: "#6b9080",
   },
 
   text: {
