@@ -6,11 +6,13 @@ const navbar = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     backgroundColor: "white",
-    position: "absolute",
-    bottom: 0,
     width: "100%",
     paddingVertical: 10,
     paddingHorizontal: 20,
+    flex: 1,
+    position: "absolute",
+    bottom: '0%',
+    maxHeight: 80,
 
   },
   button: {
@@ -19,6 +21,7 @@ const navbar = StyleSheet.create({
     justifyContent: "center",
     display: "flex",
     flexDirection: "column",
+
   },
 
   active: {
@@ -29,6 +32,19 @@ const navbar = StyleSheet.create({
     color: "black",
     fontWeight: "bold",
   },
+
+  grey: {
+    color: "grey",
+    borderBottomColor: 'transparent',
+    borderBottomWidth: 2,
+  },
+
+  pressed : {
+    borderBottomColor: '#c83564',
+    borderBottomWidth: 2,
+  }
+
+
 });
 
 export default navbar;

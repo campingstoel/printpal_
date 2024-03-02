@@ -1,28 +1,25 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import {
-    SafeAreaView,
-    SafeAreaProvider,
-    SafeAreaInsetsContext,
-    useSafeAreaInsets,
-  } from 'react-native-safe-area-context';
-import { StyleSheet, View } from "react-native";
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Home from "./Home";
+import Navbar from "../molecules/Navbar";
 
 const Stack = createStackNavigator();
 
 export default function Index() {
 
   return (
+    <SafeAreaProvider>
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        <Stack.Screen 
           name="Home"
           component={Home}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 

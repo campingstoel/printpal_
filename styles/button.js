@@ -44,10 +44,10 @@ const button =  StyleSheet.create({
     icon : {
         padding: 0,
         gap: 0,
-        width: 25,
-        justifyContent: 'left',
+        width: 'auto',
         
     },
+
 });
 
 export default button;

@@ -1,7 +1,6 @@
-import { TouchableOpacity, Text, StyleSheet, View, TextInput } from "react-native";
+import { View, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import React, { useEffect, useState } from "react";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import React, { useState } from "react";
 import searchBar from "../../styles/searchbar";
 import Icon from "../atoms/Icon";
 import button from "../../styles/button";
