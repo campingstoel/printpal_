@@ -12,7 +12,7 @@ export default function SearchSuggestion({ style, title, onPress, address }) {
         <View style={[searchsuggestion.wrapper, index.row]}>
         <TouchableOpacity style={[searchsuggestion.listItem, index.row]} onPress={onPress}>
         <View style={searchsuggestion.iconWrapper}>
-            <Icon icon={'location-outline'} iconColor={'black'}/>
+            <Icon icon={'print-outline'} iconColor={'black'}/>
         </View>
         <View style={index.column}>
         <Header text={title} style={[header.text, header.paragraph, header.bold]} />

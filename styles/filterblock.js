@@ -8,7 +8,7 @@ const filterblock =  StyleSheet.create({
         width:'22.5%',
         height: 100,
         gap: 5,
-        marginVertical: 10,
+        marginBottom: 10,
 
 
     },
@@ -32,8 +32,8 @@ const filterblock =  StyleSheet.create({
     },
 
     image : {
-        width: 50,
-        height:50,
+        width: 45,
+        height:45,
         alignSelf:'center',
         aspectRatio: 1/1,
         

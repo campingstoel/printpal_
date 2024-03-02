@@ -29,8 +29,8 @@ const navbar = StyleSheet.create({
   },
 
   text: {
-    color: "black",
-    fontWeight: "bold",
+    color: "#a1a1a1",
+    fontFamily: "Poppins-Regular"
   },
 
   grey: {
