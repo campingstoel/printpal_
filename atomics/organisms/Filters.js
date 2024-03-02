@@ -1,27 +1,29 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import NavIcon from "../atoms/NavIcon";
 import filters from "../../styles/filters";
-import navbar from "../../styles/navbar";
 import { filterNames } from "../../data/filterNames";
-import { active } from "../../scripts/Filters";
-
+import filterblock from "../../styles/filterblock";
+import FilterBlock from "../molecules/FilterBlock";
+import Header from "../atoms/Header";
+import header from "../../styles/header";
 
 export default function Filters() {
-    const filterProps = filterNames
-    const [activeFilters, setActiveFilters] = useState([])
+  const filterProps = filterNames.slice(0,4);
 
   return (
     <View style={filters.wrapper}>
-      {filterProps.map((item) => (
-        <NavIcon
-          key={item.id}
-          icon={item.icon}
-          text={item.text}
-          styles={[navbar.borderbottom, navbar.grey, activeFilters.includes(item.id) ? navbar.pressed : null]}
-          onPress={() => active(item.id, activeFilters, setActiveFilters)} // Pass necessary data
-                  />
-      ))}
+      <View style={filters.header}>
+      <Header style={[header.tiny, header.bold]} text='Services'/>
+      <TouchableOpacity>
+      <Header style={[header.paragraph, header.bold]} text='See all'/>
+      </TouchableOpacity>
+      </View>
+      <View style={filters.buttons}>
+        {filterProps.map((item) => (
+          <FilterBlock key={item.id} text={item.text} important={item.important} image={item.image} />
+        ))}
+      </View>
     </View>
   );
 }

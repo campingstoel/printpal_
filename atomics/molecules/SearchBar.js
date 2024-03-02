@@ -11,10 +11,10 @@ export default function SearchBar() {
     
     return (
         <View style={searchBar.searchBar}>
-        <Icon icon='search' iconColor='black' style={[button.transparent, button.small, button.icon]} />
+        <Icon icon='search' iconColor='black' style={[button.transparent, button.small, button.icon]} customSize={20} />
         <TextInput
-            style={{ textAlignVertical: 'center', height: 30, padding: 0, flex: 1, marginLeft: 10}}
-            placeholder='What are you looking for?'
+            style={{ textAlignVertical: 'center', height: 30, padding: 0, flex: 1, marginLeft: 10, fontFamily:'Poppins-Bold', color:'#575757'}}
+            placeholder='What do you need?'
             value={search}
             onChangeText={setSearch}
         />

@@ -7,22 +7,14 @@ export const navbarNames = [
     },
     {
         id: 2,
-        icon: "map-outline",
-        text: "Map"
+        icon: "grid-outline",
+        text: "Services"
     },
     {
         id: 3,
-        icon: "home-outline",
-        text: "Home"
+        icon: "map-outline",
+        text: "Map"
     },
-    {
-        id: 4,
-        icon: "bar-chart-outline",
-        text: "Stats"
-    },
-    {
-        id: 5,
-        icon: "person-outline",
-        text: "Profile"
-    }
+
+ 
 ];

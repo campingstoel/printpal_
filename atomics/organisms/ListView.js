@@ -7,15 +7,6 @@ export default function ListView({ data, onPress }) {
     <ScrollView showsVerticalScrollIndicator={false}>
         <ListItem title="Printshop Zoetermeer" city="Zoetermeer" availability="Mon, Tue, Wed, Thu, Fri" onPress={onPress} />
         <ListItem title="Printshop Zoetermeer" city="Zoetermeer" availability="Mon, Tue, Wed, Thu, Fri" onPress={onPress} />
-        <ListItem title="Printshop Zoetermeer" city="Zoetermeer" availability="Mon, Tue, Wed, Thu, Fri" onPress={onPress} />
-        <ListItem title="Printshop Zoetermeer" city="Zoetermeer" availability="Mon, Tue, Wed, Thu, Fri" onPress={onPress} />
-        <ListItem title="Printshop Zoetermeer" city="Zoetermeer" availability="Mon, Tue, Wed, Thu, Fri" onPress={onPress} />
-        <ListItem title="Printshop Zoetermeer" city="Zoetermeer" availability="Mon, Tue, Wed, Thu, Fri" onPress={onPress} />
-        <ListItem title="Printshop Zoetermeer" city="Zoetermeer" availability="Mon, Tue, Wed, Thu, Fri" onPress={onPress} />
-        <ListItem title="Printshop Zoetermeer" city="Zoetermeer" availability="Mon, Tue, Wed, Thu, Fri" onPress={onPress} />
-        <ListItem title="Printshop Zoetermeer" city="Zoetermeer" availability="Mon, Tue, Wed, Thu, Fri" onPress={onPress} />
-
-
     </ScrollView>
   );
 }
