@@ -13,6 +13,8 @@ const navbar = StyleSheet.create({
     position: "absolute",
     bottom: '0%',
     maxHeight: 80,
+    borderTopWidth: 1,
+    borderColor: '#a1a1a1'
 
   },
   button: {

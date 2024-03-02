@@ -9,13 +9,23 @@ const homeheader =  StyleSheet.create({
         marginTop: 50,
         alignItems:'center',
         paddingHorizontal:40,
-        gap:20
+        gap:20,
+        justifyContent:'center'
+
+    },
+    button : {
+        alignItems:'center',
+        gap:5
 
     },
     image : {
-        width:70,
-        height:70,
-        borderRadius:50,
+        maxWidth:40,
+        maxHeight:40,
+        resizeMode:'contain'
+    },
+    active :{
+        borderBottomWidth: 2,
+        borderBottomColor: 'black',
     }
 })
 
