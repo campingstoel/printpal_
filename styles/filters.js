@@ -23,6 +23,7 @@ const filters =  StyleSheet.create({
         alignItems:'center',
         justifyContent: 'space-between',
         padding: 10,
+        marginVertical: 15
     }
 });
 

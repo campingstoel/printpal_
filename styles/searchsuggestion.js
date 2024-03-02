@@ -25,9 +25,10 @@ const searchsuggestion = StyleSheet.create({
         height: 80,
         borderRadius: 15,
         borderBottomColor:'#ededed',
-        borderBottomWidth:1,
+        borderBottomWidth:2,
         paddingHorizontal:40,
         gap: 15,
+        alignItems:'center'
 
     },
 

@@ -11,8 +11,9 @@ const searchBar =  StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         width: '85%',
-        marginTop: 50,
-        marginBottom:20,
+        height:60,
+        marginTop: 20,
+        marginBottom:10,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
