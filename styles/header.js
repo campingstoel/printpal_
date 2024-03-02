@@ -4,7 +4,7 @@ const header =  StyleSheet.create({
     header : {
         color: 'black',
         fontSize: 30,
-        fontFamily: 'Montserrat-Regular',
+        fontFamily: 'Poppins-Regular',
     },
     large : {
         fontSize: 50,
@@ -16,18 +16,22 @@ const header =  StyleSheet.create({
         fontSize: 30,
     },
     tiny : {
-        fontSize: 18,
+        fontSize: 20,
     },
     paragraph : {
-        fontSize: 13,
+        fontSize: 15,
     },
     bold : {
         fontWeight: 'bold',
-        fontFamily: 'Montserrat-Bold',
+        fontFamily: 'Poppins-Bold',
     },
     white : {
         color: 'white',
     },
+
+    centered: {
+        alignSelf:'center'
+    }
     
 
 

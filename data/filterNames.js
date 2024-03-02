@@ -2,32 +2,44 @@
 export const filterNames = [
     {
         id: 1,
-        icon: "document-outline",
-        text: "A4"
+        text: "A4 paper",
+        important: false,
+        image: `${require('../images/document.png')}`,
+
     },
     {
         id: 2,
-        icon: "newspaper-outline",
-        text: "A3"
+        text: "A3 paper",
+        important: false,
+        image: `${require('../images/newspaper.png')}`,
+
     },
     {
         id: 3,
-        icon: "aperture-outline",
-        text: "Poster"
+        text: "Poster",
+        important: false,
+        image: `${require('../images/poster-icon.png')}`,
+
+        
     },
     {
         id: 4,
-        icon: "color-palette-outline",
-        text: "Color"
+        text: "Color",
+        important: false,
+        image: `${require('../images/poster.png')}`,
+
     },
     {
         id: 5,
-        icon: "color-filter-outline",
-        text: "B&W"
+        text: "B&W",
+        important: false,
+        image: `${require('../images/varnish.png')}`,
+
     },
     {
         id: 6,
-        icon: "color-wand-outline",
-        text: "Lamination"
+        text: "Lamination",
+        important: false,
+        image: `${require('../images/lamination.png')}`,
     }
 ];

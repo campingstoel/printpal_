@@ -4,17 +4,27 @@ const index =  StyleSheet.create({
     wrapper : {
         flex: 1,
         alignItems: 'center',
-        backgroundColor: '#FFFDF7',
         maxHeight: '100%',
+        backgroundColor:'white'
         
     },
 
     body : {
         width: '100%',
-        alignItems: 'center',
         flex: 1,
-        paddingBottom: 100
+        paddingBottom: 100,
+        backgroundColor: '#e7e7e7',
     },  
+
+    row : {
+        display:'flex',
+        flexDirection:'row'
+
+    },
+    column : {
+        display:'flex',
+        flexDirection:'column'
+    }
 });
 
 export default index;
