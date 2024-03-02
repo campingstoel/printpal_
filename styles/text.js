@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const header =  StyleSheet.create({
+const text =  StyleSheet.create({
     header : {
         color: 'black',
         fontSize: 30,
@@ -22,23 +22,17 @@ const header =  StyleSheet.create({
         fontSize: 15,
     },
     bold : {
+        fontWeight: 'bold',
         fontFamily: 'Poppins-Bold',
     },
     white : {
         color: 'white',
     },
 
-    centered: {
-        alignSelf:'center'
-    },
-
-    black : {
-        color: "black"
-    }
     
 
 
 });
 
-export default header;
+export default text;
 

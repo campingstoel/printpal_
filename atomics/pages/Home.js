@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <View style={index.wrapper}>
-      <HomeHeader username={'Camryn'} />
+      <HomeHeader active={'Printing'} />
       <SearchBar />
       <SearchSuggestions />
       <View style={index.body}>
