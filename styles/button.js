@@ -9,7 +9,6 @@ const button =  StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
-        gap: 10,
 
     },
     transparent : {
@@ -25,7 +24,7 @@ const button =  StyleSheet.create({
         width: '25%',
     },
     thumb : {
-        width: '10%',
+        width: '20%',
         aspectRatio: 1,
     },
     rounded: {

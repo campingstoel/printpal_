@@ -24,6 +24,10 @@ const index =  StyleSheet.create({
     column : {
         display:'flex',
         flexDirection:'column'
+    },
+    centered: {
+        alignItems:'center',
+        justifyContent: 'center'
     }
 });
 

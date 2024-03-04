@@ -1,19 +1,40 @@
-import { View, TextInput, Image, TouchableOpacity } from "react-native";
+import { View, TextInput, Image, TouchableOpacity, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { questions } from "../../data/questions";
 import questionsForm from "../../styles/questions";
+import Header from "../atoms/Header";
+import header from "../../styles/header";
+import Answer from "../molecules/Answer";
+import { useQuestionState } from "../../scripts/questions";
+import * as Progress from 'react-native-progress';
+import index from "../../styles";
 
 export default function QuestionPopUp({}) {
     const questionProps = questions
-    const [questionNumber, setQuestionNumber] = useState(0)
+    const { questionNumber, progressText} = useQuestionState();
+    const progress = questionNumber/questionProps.length
     return (
         <View style={questionsForm.wrapper}>
-      {questionProps.map((question) => (
-        <View key={question.id} style={questionsForm.question}>
+          <View style={[index.column]}>
+          <Progress.Bar progress={progress} width={null} color="black" />
+          <Header text={progressText} style={[header.header, header.paragraph]}/>
+          </View>
 
-        </View>
-      ))};
+          {
+            questionProps.map((question) => (
+              questionNumber == question.id ?
+              <View key={question.id} style={questionsForm.question}>
+                
+                  <Header style={[header.small]} text={question.question}/>
+                  <Answer questionType={question.questionType} placeholder={question.placeholder}/>
+                </View>
+                : null
+            ))
+          }
+
+          
+
 
         </View>
     )

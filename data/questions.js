@@ -1,28 +1,32 @@
 export const questions = [
     {
       id: 1,
-      question: 'Welcome to PrintPal! Tell us your name.',
-      questionType: 'Open'
+      question: "Welcome to PrintPal! Tell us your name.",
+      questionType: 'Open',
+      placeholder: 'Your name',
     },
     {
         id: 2,
-        question: 'What will be your business name?',
-        questionType: 'Open'
+        question: "What will be your business name?",
+        questionType: 'Open',
+        placeholder: 'Business name',
     },
     {
         id: 3,
-        question: 'What will be your contact e-mail?',
-        questionType: 'Open'
+        question: "What will be your contact e-mail?",
+        questionType: 'Open',
+        placeholder: 'E-mail',
     },
     {
         id: 4,
         question: 'What is your business address?',
-        questionType: 'Open'
+        questionType: 'address'
+        
     },
     {
         id: 5,
         question: 'Is this address correct?',
-        questionType: 'true/false'
+        questionType: 'map'
 
     },
     {

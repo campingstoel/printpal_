@@ -12,7 +12,7 @@ import QuestionPopUp from "../organisms/QuestionPopup";
 
 export default function Home() {
   const navigation = useNavigation();
-  const [completed, setCompleted] = useState(true)
+  const [completed, setCompleted] = useState(false)
 
   return (
        completed ?
