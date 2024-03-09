@@ -1,4 +1,3 @@
-//exportable array of strings
 export const navbarNames = [
     {
         id: 1,
