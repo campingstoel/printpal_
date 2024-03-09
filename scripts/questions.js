@@ -16,6 +16,15 @@ export const QuestionProvider = ({ children }) => {
         { threshold: 1, message: 'Done!' },
     ];
     
+    const [allAnswers, setAllAnswers] = useState({}); // State for all answers
+
+    const updateAnswer = (objectSubType, answerData) => {
+      setAllAnswers((prevAnswers) => ({
+        ...prevAnswers,
+        [objectSubType]: answerData,
+      }));
+      console.log(allAnswers)
+    };
 
     const incrementQuestionNumber = () => {
         setQuestionNumber(prevNumber => prevNumber + 1);
@@ -30,8 +39,7 @@ export const QuestionProvider = ({ children }) => {
     useEffect(() => {
         const progressRatio = questionNumber / questions.length;
     
-        // Find the message where the ratio is GREATER THAN OR EQUAL TO the threshold
-        // but LESS THAN the next threshold (if any)
+
         const matchingMessage = progressMessages.find((item, index) => {
             const nextItem = progressMessages[index + 1];
             return progressRatio >= item.threshold &&
@@ -44,7 +52,7 @@ export const QuestionProvider = ({ children }) => {
     }, [questionNumber]);
 
     return (
-        <QuestionContext.Provider value={{ questionNumber, incrementQuestionNumber, decrementQuestionNumber, progressText }}>
+        <QuestionContext.Provider value={{ questionNumber, incrementQuestionNumber, decrementQuestionNumber, progressText, allAnswers, updateAnswer }}>
             {children}
         </QuestionContext.Provider>
     );

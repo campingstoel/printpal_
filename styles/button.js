@@ -46,6 +46,17 @@ const button =  StyleSheet.create({
         width: 'auto',
         
     },
+    white : {
+        backgroundColor: 'white',
+        borderWidth: 1,
+    },
+    selected : {
+        backgroundColor: 'black',
+        color: 'white',
+    },
+    blackText : {
+        color: 'black',
+    },
 
 });
 
