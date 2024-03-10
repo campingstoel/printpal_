@@ -6,6 +6,8 @@ import button from "../../styles/button";
 import textinput from "../../styles/text";
 import index from "../../styles";
 import { useQuestionState } from "../../scripts/questions";
+import { useLocationState } from "../../scripts/location";
+import Mapbox from "../atoms/Mapbox";
 
 export default function Answers({ props }) {
   const {
@@ -15,8 +17,9 @@ export default function Answers({ props }) {
     allAnswers,
     updateAnswer,
   } = useQuestionState();
+
+  const { location, getLocation } = useLocationState();
   const handleInputChange = (fieldName, text) => {
-    //remove spaces if field is email
     if (fieldName == "email") {
       text = text.replace(/\s/g, "");
     }
@@ -24,18 +27,33 @@ export default function Answers({ props }) {
     updateAnswer(fieldName, text);
   };
 
-  const handleNextQuestion = () => {
-    //check if the input is empty
+  const handleNextQuestion = async () => {
     if (props.questionType == "Open") {
-      if (allAnswers[props.objectSubType] == "" || allAnswers[props.objectSubType] == null) {
+      if (
+        allAnswers[props.objectSubType] == "" ||
+        allAnswers[props.objectSubType] == null
+      ) {
         return;
       }
       incrementQuestionNumber();
-
+      return;
     }
-
-  
+    if (props.questionType == "true/false") {
+      if (!allAnswers[props.objectSubType]) {
+        return;
+      }
+      if (props.objectSubType == "locationServices") {
+        getLocation().then((location) => {
+          console.log(location);
+            if (location) {
+                updateAnswer("locationcoords", location);
+                incrementQuestionNumber();
+            }
+        }); 
+    }
+    }
   };
+  
   return (
     <View style={questionsForm.answer}>
       {props.questionType == "Open" ? (
@@ -56,7 +74,8 @@ export default function Answers({ props }) {
               button.white,
               allAnswers[props.objectSubType] ? button.selected : null,
             ]}
-            textStyle={allAnswers[props.objectSubType] ? null : button.blackText
+            textStyle={
+              allAnswers[props.objectSubType] ? null : button.blackText
             }
             text={"Yes"}
           />
@@ -68,12 +87,19 @@ export default function Answers({ props }) {
               button.white,
               !allAnswers[props.objectSubType] ? button.selected : null,
             ]}
-            textStyle={!allAnswers[props.objectSubType] ? null : button.blackText}
-              text={"No"}
+            textStyle={
+              !allAnswers[props.objectSubType] ? null : button.blackText
+            }
+            text={"No"}
           />
         </View>
-      ) : null
-        }
+      ) : null}
+      {props.questionType == "Map" ? (
+        <Mapbox
+          style={questionsForm.map}
+          location={allAnswers["locationcoords"]}
+        />
+      ) : null}
 
       <View style={[index.row, index.centered, questionsForm.buttons]}>
         {questionNumber !== 1 ? (

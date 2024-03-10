@@ -8,7 +8,6 @@ const Stack = createStackNavigator();
 
 export default function Index() {
   return (
-    <QuestionProvider>
       <SafeAreaProvider>
         <NavigationContainer>
           <Stack.Navigator>
@@ -20,6 +19,5 @@ export default function Index() {
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
-    </QuestionProvider>
   );
 }

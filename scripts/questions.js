@@ -16,14 +16,13 @@ export const QuestionProvider = ({ children }) => {
         { threshold: 1, message: 'Done!' },
     ];
     
-    const [allAnswers, setAllAnswers] = useState({}); // State for all answers
+    const [allAnswers, setAllAnswers] = useState({}); 
 
     const updateAnswer = (objectSubType, answerData) => {
       setAllAnswers((prevAnswers) => ({
         ...prevAnswers,
         [objectSubType]: answerData,
       }));
-      console.log(allAnswers)
     };
 
     const incrementQuestionNumber = () => {
