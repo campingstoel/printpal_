@@ -9,7 +9,6 @@ export const LocationProvider = ({ children }) => {
     const [locationError, setLocationError] = useState(null);
 
     const getLocation = async () => {
-        console.log('getting location');
         let { status } = await Location.requestForegroundPermissionsAsync();
         if (status !== 'granted') {
           setLocationError('Permission to access location was denied');
