@@ -6,6 +6,7 @@ const AnswerContext = createContext();
 
 export const AnswerProvider = ({ children }) => {
     const [questionNumber, setQuestionNumber] = useState(1);
+    const [finished, setFinished] = useState(false);
     const [progressText, setProgressText] = useState('Lets begin...')
     const progressMessages = [
         { threshold: 0, message: 'Lets begin...' },
@@ -19,6 +20,7 @@ export const AnswerProvider = ({ children }) => {
     const [allAnswers, setAllAnswers] = useState({}); 
 
     const updateAnswer = (objectSubType, answerData) => {
+        console.log(objectSubType, answerData);
       setAllAnswers((prevAnswers) => ({
         ...prevAnswers,
         [objectSubType]: answerData,
@@ -51,7 +53,7 @@ export const AnswerProvider = ({ children }) => {
     }, [questionNumber]);
 
     return (
-        <AnswerContext.Provider value={{ questionNumber, incrementQuestionNumber, decrementQuestionNumber, progressText, allAnswers, updateAnswer }}>
+        <AnswerContext.Provider value={{ questionNumber, incrementQuestionNumber, decrementQuestionNumber, progressText, allAnswers, updateAnswer, finished, setFinished }}>
             {children}
         </AnswerContext.Provider>
     );

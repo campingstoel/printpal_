@@ -56,7 +56,7 @@ export const questions = [
         question: 'What will be your availability?',
         questionType: 'Multiple',
         answers: [
-            'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'
+            'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'
         ],
         objectSubType: 'availability',
         falseAction: 'Please select at least one day.',
@@ -65,12 +65,12 @@ export const questions = [
         id: 8,
         question: 'Do you allow in-app messaging?',
         questionType: 'true/false',
-        objectSubType: 'messaging',
+        objectSubType: 'Messaging',
         falseAction: '',
     },
     {
         id: 9,
         question: 'We will handle your request as soon as possible. Untill then, you will be able to access customer app features.',
-        questionType: 'confirm'
+        questionType: 'Confirm'
     }
 ]

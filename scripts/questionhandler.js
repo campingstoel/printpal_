@@ -5,61 +5,82 @@ import { createContext, useState, useContext } from "react";
 const QuestionHandlerContext = createContext();
 
 export const QuestionHandlerProvider = ({ children }) => {
-    const {
-        questionNumber,
-        incrementQuestionNumber,
-        decrementQuestionNumber,
-        allAnswers,
-        updateAnswer,
-      } = useAnswerState();
-      const [error, setError] = useState('');
+  const {
+    incrementQuestionNumber,
+    allAnswers,
+    updateAnswer,
+    finished,
+    setFinished,
+  } = useAnswerState();
+  const [error, setError] = useState("");
 
-    const { location, getLocation } = useLocationState();
+  const { location, getLocation } = useLocationState();
 
-    const nextQuestionHandler = (props) => {
+  const nextQuestionHandler = (props) => {
+    if (props.questionType === "Open" &&
+        !answerValidationHandler(props.objectSubType, allAnswers[props.objectSubType], props.falseAction)
+    ) {
+        return;  
+    } 
 
-    if (props.questionType == "Open") {
-        if (
-          allAnswers[props.objectSubType] == "" ||
-          allAnswers[props.objectSubType] == null
-        ) {
-          return;
+    if (props.questionType === "true/false" && props.objectSubType === "locationServices") {
+        if (allAnswers[props.objectSubType]) { 
+            getLocation().then((location) => {
+                if (location) {
+                    updateAnswer("locationcoords", location);
+                    incrementQuestionNumber();
+                    setError("");
+                }
+            });
+        } else {
+            setError(props.falseAction);
         }
-        console.log("incrementing question number");
-        incrementQuestionNumber();
-      }
-      if (props.questionType == "true/false") {
-        if (!allAnswers[props.objectSubType]) {
-          return;
-        }
-        if (props.objectSubType == "locationServices") {
-          getLocation().then((location) => {
-              if (location) {
-                  updateAnswer("locationcoords", location);
-                  incrementQuestionNumber();
-              }
-          }); 
-      }
-     
-    };
-    if(props.questionType == "Map") {
-      if (!allAnswers[props.objectSubType]) {
-        setError(props.falseAction);
-
-      }
-      else {
-        incrementQuestionNumber();
-      }
-      if (props.objectSubType == "locationServices") {
-        incrementQuestionNumber();
-      }       
+        return; 
     }
-}
-    return (
-        <QuestionHandlerContext.Provider value={{ error, nextQuestionHandler}}>
-            {children}
-        </QuestionHandlerContext.Provider>
-    );
-}
+
+    if (!allAnswers[props.objectSubType] && props.questionType !== "Confirm") {
+        setError(props.falseAction);
+        return; 
+    }
+
+    setError("");
+    incrementQuestionNumber();
+
+    if (props.questionType === "Confirm") {
+        setFinished(true);
+    }
+};
+
+  const answerValidationHandler = (fieldName, text, falseAction) => {
+    if (text !== undefined && text !== "" && text.length >= 3) {
+      if (fieldName == "email") {
+        if (text.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+          setError("");
+          return true;
+        } else {
+          setError(falseAction);
+        }
+      }
+      if (fieldName == "name" || fieldName == "businessName") {
+        if (text.match(/^[a-zA-Z]+$/) && text.length <= 20) {
+          setError("");
+          return true;
+        } else {
+          setError("Please enter a valid name below 20 characters.");
+        }
+      }
+    } else {
+      setError("This field is required.");
+    }
+  };
+
+  return (
+    <QuestionHandlerContext.Provider
+      value={{ error, nextQuestionHandler, answerValidationHandler }}
+    >
+      {children}
+    </QuestionHandlerContext.Provider>
+  );
+};
 
 export const useQuestionHandlerState = () => useContext(QuestionHandlerContext);
