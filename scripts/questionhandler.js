@@ -55,7 +55,7 @@ export const QuestionHandlerProvider = ({ children }) => {
   };
 
   const answerValidationHandler = (fieldName, text) => {
-    if (text !== undefined && text !== "" && text >= 3) {
+    if (text !== undefined && text !== "" && text.length >= 3) {
       if (fieldName == "email") {
         if (text.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
           setError("");
@@ -66,6 +66,7 @@ export const QuestionHandlerProvider = ({ children }) => {
       }
       if (fieldName == "name" || fieldName == "businessName") {
         if (text.match(/^[a-zA-Z]+$/) && text.length <= 20) {
+        console.log("name validation");
           setError("");
           return true;
         } else {

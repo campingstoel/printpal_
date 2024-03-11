@@ -10,9 +10,12 @@ const textinput =  StyleSheet.create({
     paddingHorizontal:20
    },
 
-   error : {
-    width:'100%',
-    color:'red'
+   errorBorder : {
+    borderColor:'red',
+   },
+
+   errorText : {
+    color:'red',
    }
     
 
