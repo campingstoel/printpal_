@@ -6,13 +6,13 @@ import questionsForm from "../../styles/questions";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
 import Answers from "../molecules/Answers";
-import { useQuestionState } from "../../scripts/questions";
+import { useAnswerState } from "../../scripts/answers";
 import * as Progress from "react-native-progress";
 import index from "../../styles";
 
 export default function QuestionPopUp({}) {
   const questionProps = questions;
-  const { questionNumber, progressText } = useQuestionState();
+  const { questionNumber, progressText } = useAnswerState();
   const progress = questionNumber / questionProps.length;
   return (
     <View style={questionsForm.wrapper}>
@@ -31,6 +31,7 @@ export default function QuestionPopUp({}) {
                 placeholder: question.placeholder,
                 objectSubType: question.objectSubType,
                 maxLength: question.maxLength,
+                falseAction: question.falseAction,
               }}
             />
           </View>
