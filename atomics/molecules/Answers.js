@@ -13,25 +13,48 @@ import { useQuestionHandlerState } from "../../scripts/questionhandler";
 export default function Answers({ props }) {
   const {
     questionNumber,
-    incrementQuestionNumber,
     decrementQuestionNumber,
     allAnswers,
     updateAnswer,
   } = useAnswerState();
 
-  const { error, nextQuestionHandler } = useQuestionHandlerState();
+  const { error, nextQuestionHandler, answerValidationHandler } = useQuestionHandlerState();
 
-  const { location, getLocation } = useLocationState();
   const handleInputChange = (fieldName, text) => {
-    if (fieldName == "email") {
-      text = text.replace(/\s/g, "");
-    }
-
     updateAnswer(fieldName, text);
   };
 
   const handleNextQuestion = async () => {
    nextQuestionHandler(props);
+}
+
+const trueFalseView = () => {
+  return (
+    <View style={[index.row, index.centered, questionsForm.buttons]}>
+      <Button
+        onPress={() => handleInputChange(props.objectSubType, true)}
+        style={[
+          button.rounded,
+          button.small,
+          button.white,
+          allAnswers[props.objectSubType] ? button.selected : null,
+        ]}
+        textStyle={allAnswers[props.objectSubType] ? null : button.blackText}
+        text={"Yes"}
+      />
+      <Button
+        onPress={() => handleInputChange(props.objectSubType, false)}
+        style={[
+          button.rounded,
+          button.small,
+          button.white,
+          !allAnswers[props.objectSubType] ? button.selected : null,
+        ]}
+        textStyle={!allAnswers[props.objectSubType] ? null : button.blackText}
+        text={"No"}
+      />
+    </View>
+  );
 }
   
   return (
@@ -45,34 +68,7 @@ export default function Answers({ props }) {
         />
       ) : null}
       {props.questionType == "true/false" ? (
-        <View style={[index.row, index.centered, questionsForm.buttons]}>
-          <Button
-            onPress={() => handleInputChange(props.objectSubType, true)}
-            style={[
-              button.rounded,
-              button.small,
-              button.white,
-              allAnswers[props.objectSubType] ? button.selected : null,
-            ]}
-            textStyle={
-              allAnswers[props.objectSubType] ? null : button.blackText
-            }
-            text={"Yes"}
-          />
-          <Button
-            onPress={() => handleInputChange(props.objectSubType, false)}
-            style={[
-              button.rounded,
-              button.small,
-              button.white,
-              !allAnswers[props.objectSubType] ? button.selected : null,
-            ]}
-            textStyle={
-              !allAnswers[props.objectSubType] ? null : button.blackText
-            }
-            text={"No"}
-          />
-        </View>
+        trueFalseView()
       ) : null}
       {props.questionType == "Map" ? (
         <View>
@@ -80,34 +76,7 @@ export default function Answers({ props }) {
           style={questionsForm.map}
           location={allAnswers["locationcoords"]}
         />
-        <View style={[index.row, index.centered, questionsForm.buttons]}>
-        <Button
-          onPress={() => handleInputChange(props.objectSubType, true)}
-          style={[
-            button.rounded,
-            button.small,
-            button.white,
-            allAnswers[props.objectSubType] ? button.selected : null,
-          ]}
-          textStyle={
-            allAnswers[props.objectSubType] ? null : button.blackText
-          }
-          text={"Yes"}
-        />
-        <Button
-          onPress={() => handleInputChange(props.objectSubType, false)}
-          style={[
-            button.rounded,
-            button.small,
-            button.white,
-            !allAnswers[props.objectSubType] ? button.selected : null,
-          ]}
-          textStyle={
-            !allAnswers[props.objectSubType] ? null : button.blackText
-          }
-          text={"No"}
-        />
-      </View>
+        {trueFalseView()}
       </View>
       ) : null}
       <Text style={textinput.error}>{error}</Text>
