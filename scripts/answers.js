@@ -2,9 +2,9 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { questions } from '../data/questions';
 
-const QuestionContext = createContext();
+const AnswerContext = createContext();
 
-export const QuestionProvider = ({ children }) => {
+export const AnswerProvider = ({ children }) => {
     const [questionNumber, setQuestionNumber] = useState(1);
     const [progressText, setProgressText] = useState('Lets begin...')
     const progressMessages = [
@@ -16,14 +16,13 @@ export const QuestionProvider = ({ children }) => {
         { threshold: 1, message: 'Done!' },
     ];
     
-    const [allAnswers, setAllAnswers] = useState({}); // State for all answers
+    const [allAnswers, setAllAnswers] = useState({}); 
 
     const updateAnswer = (objectSubType, answerData) => {
       setAllAnswers((prevAnswers) => ({
         ...prevAnswers,
         [objectSubType]: answerData,
       }));
-      console.log(allAnswers)
     };
 
     const incrementQuestionNumber = () => {
@@ -52,10 +51,10 @@ export const QuestionProvider = ({ children }) => {
     }, [questionNumber]);
 
     return (
-        <QuestionContext.Provider value={{ questionNumber, incrementQuestionNumber, decrementQuestionNumber, progressText, allAnswers, updateAnswer }}>
+        <AnswerContext.Provider value={{ questionNumber, incrementQuestionNumber, decrementQuestionNumber, progressText, allAnswers, updateAnswer }}>
             {children}
-        </QuestionContext.Provider>
+        </AnswerContext.Provider>
     );
 };
 
-export const useQuestionState = () => useContext(QuestionContext);
+export const useAnswerState = () => useContext(AnswerContext);
