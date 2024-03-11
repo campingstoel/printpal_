@@ -32,6 +32,7 @@ export default function QuestionPopUp({}) {
                 objectSubType: question.objectSubType,
                 maxLength: question.maxLength,
                 falseAction: question.falseAction,
+                answers : question.answers
               }}
             />
           </View>
