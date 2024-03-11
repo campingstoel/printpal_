@@ -2,7 +2,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Home from "./Home";
-import { QuestionProvider } from "../../scripts/questions";
 
 const Stack = createStackNavigator();
 

@@ -9,30 +9,26 @@ import index from "../../styles/index";
 import SearchSuggestions from "../organisms/SearchSuggestions";
 import HomeHeader from "../organisms/HomeHeader";
 import QuestionPopUp from "../organisms/QuestionPopup";
-import { QuestionProvider } from "../../scripts/questions";
-import { LocationProvider } from "../../scripts/location";
-
+import { ContextHandlerProvider } from "../../scripts/contexthandler";
 export default function Home() {
   const navigation = useNavigation();
   const [completed, setCompleted] = useState(false);
 
   return (
-    <LocationProvider>
-      <QuestionProvider>
-        {completed ? (
-          <View style={index.wrapper}>
-            <HomeHeader active={"Printing"} />
-            <SearchBar />
-            <SearchSuggestions />
-            <View style={index.body}>
-              <Filters />
-            </View>
-            <Navbar page="Services" />
+    <ContextHandlerProvider>
+      {completed ? (
+        <View style={index.wrapper}>
+          <HomeHeader active={"Printing"} />
+          <SearchBar />
+          <SearchSuggestions />
+          <View style={index.body}>
+            <Filters />
           </View>
-        ) : (
-          <QuestionPopUp />
-        )}
-      </QuestionProvider>
-    </LocationProvider>
+          <Navbar page="Services" />
+        </View>
+      ) : (
+        <QuestionPopUp />
+      )}
+    </ContextHandlerProvider>
   );
 }

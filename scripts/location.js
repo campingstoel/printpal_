@@ -19,7 +19,7 @@ export const LocationProvider = ({ children }) => {
         let location = await Location.getCurrentPositionAsync({});
         setLocation(location.coords);
         setLocationState('done');
-        return location.coords
+        return location.coords;
     };
 
 

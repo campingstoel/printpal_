@@ -8,6 +8,11 @@ const textinput =  StyleSheet.create({
     borderWidth:2,
     borderColor:'black',
     paddingHorizontal:20
+   },
+
+   error : {
+    width:'100%',
+    color:'red'
    }
     
 

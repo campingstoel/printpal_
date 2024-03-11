@@ -2,9 +2,9 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { questions } from '../data/questions';
 
-const QuestionContext = createContext();
+const AnswerContext = createContext();
 
-export const QuestionProvider = ({ children }) => {
+export const AnswerProvider = ({ children }) => {
     const [questionNumber, setQuestionNumber] = useState(1);
     const [progressText, setProgressText] = useState('Lets begin...')
     const progressMessages = [
@@ -51,10 +51,10 @@ export const QuestionProvider = ({ children }) => {
     }, [questionNumber]);
 
     return (
-        <QuestionContext.Provider value={{ questionNumber, incrementQuestionNumber, decrementQuestionNumber, progressText, allAnswers, updateAnswer }}>
+        <AnswerContext.Provider value={{ questionNumber, incrementQuestionNumber, decrementQuestionNumber, progressText, allAnswers, updateAnswer }}>
             {children}
-        </QuestionContext.Provider>
+        </AnswerContext.Provider>
     );
 };
 
-export const useQuestionState = () => useContext(QuestionContext);
+export const useAnswerState = () => useContext(AnswerContext);
