@@ -6,11 +6,11 @@ const QuestionHandlerContext = createContext();
 
 export const QuestionHandlerProvider = ({ children }) => {
   const {
-    questionNumber,
     incrementQuestionNumber,
-    decrementQuestionNumber,
     allAnswers,
     updateAnswer,
+    finished,
+    setFinished,
   } = useAnswerState();
   const [error, setError] = useState("");
 
@@ -21,7 +21,8 @@ export const QuestionHandlerProvider = ({ children }) => {
       if (
         answerValidationHandler(
           props.objectSubType,
-          allAnswers[props.objectSubType]
+          allAnswers[props.objectSubType],
+          props.falseAction
         )
       ) {
         incrementQuestionNumber();
@@ -29,44 +30,57 @@ export const QuestionHandlerProvider = ({ children }) => {
       }
     }
     if (props.questionType == "true/false") {
-      if (!allAnswers[props.objectSubType]) {
-        return;
-      }
+      console.log(props.objectSubType);
       if (props.objectSubType == "locationServices") {
-        getLocation().then((location) => {
-          if (location) {
-            updateAnswer("locationcoords", location);
-            incrementQuestionNumber();
-            setError("");
-          }
-        });
+        if (!allAnswers[props.objectSubType]) {
+          setError(props.falseAction);
+          return;
+        } else {
+          getLocation().then((location) => {
+            if (location) {
+              updateAnswer("locationcoords", location);
+              incrementQuestionNumber();
+              setError("");
+            }
+          });
+        }
+      } else {
+        incrementQuestionNumber();
       }
     }
     if (props.questionType == "Map") {
       if (!allAnswers[props.objectSubType]) {
         setError(props.falseAction);
       } else {
-        incrementQuestionNumber();
-      }
-      if (props.objectSubType == "locationServices") {
+        setError("");
         incrementQuestionNumber();
       }
     }
+    if (props.questionType == "Multiple") {
+      if (allAnswers[props.objectSubType].length > 0) {
+        console.log(allAnswers[props.objectSubType]);
+        incrementQuestionNumber();
+      } else {
+        setError(props.falseAction);
+      }
+    }
+    if (props.questionType == "Confirm") {
+      setFinished(true);
+    }
   };
 
-  const answerValidationHandler = (fieldName, text) => {
+  const answerValidationHandler = (fieldName, text, falseAction) => {
     if (text !== undefined && text !== "" && text.length >= 3) {
       if (fieldName == "email") {
         if (text.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
           setError("");
           return true;
         } else {
-          setError("Please enter a valid e-mail address.");
+          setError(falseAction);
         }
       }
       if (fieldName == "name" || fieldName == "businessName") {
         if (text.match(/^[a-zA-Z]+$/) && text.length <= 20) {
-        console.log("name validation");
           setError("");
           return true;
         } else {

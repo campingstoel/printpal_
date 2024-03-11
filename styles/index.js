@@ -28,7 +28,16 @@ const index =  StyleSheet.create({
     centered: {
         alignItems:'center',
         justifyContent: 'center'
-    }
+    },
+    flexWrap: {
+        flexWrap: 'wrap'
+    },
+    spaceAround: {
+        justifyContent: 'space-around'
+    },
+    spaceBetween: {
+        justifyContent: 'space-between'
+    },
 });
 
 export default index;

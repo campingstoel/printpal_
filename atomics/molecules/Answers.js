@@ -13,7 +13,7 @@ export default function Answers({ props }) {
   const { questionNumber, decrementQuestionNumber, allAnswers, updateAnswer } =
     useAnswerState();
 
-  const { error, nextQuestionHandler, answerValidationHandler } =
+  const { error, nextQuestionHandler } =
     useQuestionHandlerState();
 
   const handleInputChange = (fieldName, text) => {
@@ -53,6 +53,47 @@ export default function Answers({ props }) {
     );
   };
 
+  const MultipleChoiceView = () => {  
+    return (
+        props.answers.map((answer) => (
+          <Button
+            key={answer}
+            onPress={() => {
+              if (allAnswers[props.objectSubType]) {
+                if (allAnswers[props.objectSubType].includes(answer)) {
+                  let newAnswers = allAnswers[props.objectSubType].filter(
+                    (item) => item !== answer
+                  );
+                  updateAnswer(props.objectSubType, newAnswers);
+                } else {
+                  let newAnswers = [...allAnswers[props.objectSubType], answer];
+                  updateAnswer(props.objectSubType, newAnswers);
+                }
+              } else {
+                updateAnswer(props.objectSubType, [answer]);
+              }
+            }}
+            style={[
+              button.rounded,
+              button.medium2,
+              button.white,
+              allAnswers[props.objectSubType] &&
+              allAnswers[props.objectSubType].includes(answer)
+                ? button.selected
+                : null,
+            ]}
+            textStyle={
+              allAnswers[props.objectSubType] &&
+              allAnswers[props.objectSubType].includes(answer)
+                ? null
+                : button.blackText
+            }
+            text={answer}
+          />
+        ))
+    );
+  };
+
   return (
     <View style={questionsForm.answer}>
       {props.questionType == "Open" ? (
@@ -73,6 +114,13 @@ export default function Answers({ props }) {
           {trueFalseView()}
         </View>
       ) : null}
+
+{props.questionType == "Multiple" ? (
+  <View style={[index.spaceBetween, index.flexWrap, index.row, {rowGap:10}]}>
+    {MultipleChoiceView()}
+    </View>
+
+) : null}
       <Text style={textinput.errorText}>{error}</Text>
 
       <View style={[index.row, index.centered, questionsForm.buttons]}>

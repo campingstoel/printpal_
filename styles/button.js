@@ -20,6 +20,9 @@ const button =  StyleSheet.create({
     medium : {
         width: '50%',
     },
+    medium2 : { 
+        width: '45%',
+    },
     small : {
         width: '25%',
     },
