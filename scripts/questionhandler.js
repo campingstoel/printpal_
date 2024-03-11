@@ -17,57 +17,39 @@ export const QuestionHandlerProvider = ({ children }) => {
   const { location, getLocation } = useLocationState();
 
   const nextQuestionHandler = (props) => {
-    if (props.questionType == "Open") {
-      if (
-        answerValidationHandler(
-          props.objectSubType,
-          allAnswers[props.objectSubType],
-          props.falseAction
-        )
-      ) {
-        incrementQuestionNumber();
-        setError("");
-      }
-    }
-    if (props.questionType == "true/false") {
-      console.log(props.objectSubType);
-      if (props.objectSubType == "locationServices") {
-        if (!allAnswers[props.objectSubType]) {
-          setError(props.falseAction);
-          return;
+    if (props.questionType === "Open" &&
+        !answerValidationHandler(props.objectSubType, allAnswers[props.objectSubType], props.falseAction)
+    ) {
+        return;  
+    } 
+
+    if (props.questionType === "true/false" && props.objectSubType === "locationServices") {
+        if (allAnswers[props.objectSubType]) { 
+            getLocation().then((location) => {
+                if (location) {
+                    updateAnswer("locationcoords", location);
+                    incrementQuestionNumber();
+                    setError("");
+                }
+            });
         } else {
-          getLocation().then((location) => {
-            if (location) {
-              updateAnswer("locationcoords", location);
-              incrementQuestionNumber();
-              setError("");
-            }
-          });
+            setError(props.falseAction);
         }
-      } else {
-        incrementQuestionNumber();
-      }
+        return; 
     }
-    if (props.questionType == "Map") {
-      if (!allAnswers[props.objectSubType]) {
+
+    if (!allAnswers[props.objectSubType] && props.questionType !== "Confirm") {
         setError(props.falseAction);
-      } else {
-        setError("");
-        incrementQuestionNumber();
-      }
+        return; 
     }
-    if (props.questionType == "Multiple") {
-      if (allAnswers[props.objectSubType].length > 0) {
-        console.log(allAnswers[props.objectSubType]);
-        incrementQuestionNumber();
-      } else {
-        setError(props.falseAction);
-      }
+
+    setError("");
+    incrementQuestionNumber();
+
+    if (props.questionType === "Confirm") {
+        setFinished(true);
     }
-    if (props.questionType == "Confirm") {
-      setFinished(true);
-    }
-  };
+};
 
   const answerValidationHandler = (fieldName, text, falseAction) => {
     if (text !== undefined && text !== "" && text.length >= 3) {
