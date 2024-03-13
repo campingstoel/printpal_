@@ -2,14 +2,14 @@ export const filterNames = [
     {
         id: 1,
         text: "A4 paper",
-        important: false,
+        important: true,
         image: require('../images/document.png'),
 
     },
     {
         id: 2,
         text: "A3 paper",
-        important: false,
+        important: true,
         image: require('../images/newspaper.png'),
     },
     {

@@ -3,10 +3,12 @@ import { StyleSheet } from 'react-native';
 const index =  StyleSheet.create({
     wrapper : {
         flex: 1,
-        alignItems: 'center',
         maxHeight: '100%',
         backgroundColor:'white'
         
+    },
+    screenAware : {
+        marginTop:50
     },
 
     body : {
@@ -16,6 +18,11 @@ const index =  StyleSheet.create({
         backgroundColor: '#e7e7e7',
     },  
 
+    header : {
+        backgroundColor: 'white',
+        marginBottom: 10,
+    },
+
     row : {
         display:'flex',
         flexDirection:'row'
@@ -24,6 +31,9 @@ const index =  StyleSheet.create({
     column : {
         display:'flex',
         flexDirection:'column'
+    },
+    alignCenter: {
+        alignItems: 'center'
     },
     centered: {
         alignItems:'center',
@@ -37,6 +47,12 @@ const index =  StyleSheet.create({
     },
     spaceBetween: {
         justifyContent: 'space-between'
+    },
+    fullWidth : {
+        width: '100%',
+    },
+    pad20: {
+        marginHorizontal: 20
     },
 });
 

@@ -13,8 +13,8 @@ const filters =  StyleSheet.create({
         flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'space-around',
-
         width: '100%',
+        marginBottom: 10
     },
 
     header : {
