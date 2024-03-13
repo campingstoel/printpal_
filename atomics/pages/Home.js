@@ -15,7 +15,7 @@ export default function Home() {
 
   const { finished } = useAnswerState();
   
-  const [completed, setCompleted] = useState(false);
+  const [completed, setCompleted] = useState(true);
 
   useEffect(() => {
     if (finished) {
@@ -35,7 +35,7 @@ export default function Home() {
           <View style={index.body}>
             <Filters />
           </View>
-          <Navbar page="Services" />
+          <Navbar page="Home" />
         </View>
       ) : (
         <QuestionPopUp />

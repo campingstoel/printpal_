@@ -1,8 +1,8 @@
 export const navbarNames = [
     {
         id: 1,
-        icon: "chatbubble-outline",
-        text: "Chat"
+        icon: "home-outline",
+        text: "Home"
     },
     {
         id: 2,
@@ -11,8 +11,13 @@ export const navbarNames = [
     },
     {
         id: 3,
-        icon: "map-outline",
-        text: "Map"
+        icon: "chatbubble-outline",
+        text: "Chat"
+    },
+    {
+        id: 4,
+        icon: "person-outline",
+        text: "Profile"
     },
 
  
