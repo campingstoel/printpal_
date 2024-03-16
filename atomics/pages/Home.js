@@ -9,13 +9,16 @@ import SearchSuggestions from "../organisms/SearchSuggestions";
 import HomeHeader from "../organisms/HomeHeader";
 import QuestionPopUp from "../organisms/QuestionPopup";
 import { useAnswerState } from "../../scripts/answers";
+import {Dimensions} from 'react-native'; 
+import { Platform } from "react-native";
+const { height } = Dimensions.get('window');
 
 export default function Home() {
   const navigation = useNavigation();
 
   const { finished } = useAnswerState();
 
-  const [completed, setCompleted] = useState(true);
+  const [completed, setCompleted] = useState(false);
 
   useEffect(() => {
     if (finished) {
@@ -24,7 +27,7 @@ export default function Home() {
   }, [finished]);
 
   return completed ? (
-    <View style={[index.wrapper, index.alignCenter]}>
+    <View style={[index.wrapper, index.alignCenter, {height:height}]}>
       <HomeHeader active={"Printing"} />
       <SearchBar />
       <SearchSuggestions />

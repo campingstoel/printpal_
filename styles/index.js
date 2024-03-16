@@ -2,8 +2,6 @@ import { StyleSheet } from 'react-native';
 
 const index =  StyleSheet.create({
     wrapper : {
-        flex: 1,
-        maxHeight: '100%',
         backgroundColor:'white'
         
     },
@@ -53,6 +51,12 @@ const index =  StyleSheet.create({
     },
     pad20: {
         marginHorizontal: 20
+    },
+    bgBlack: {
+        backgroundColor: 'black'
+    },
+    alignSelfCenter: {
+        alignSelf: 'center'
     },
 });
 

@@ -4,7 +4,7 @@ const textinput =  StyleSheet.create({
    textinput : {
     width:'100%',
     height:50,
-    borderRadius:50,
+    borderRadius:15,
     borderWidth:2,
     borderColor:'black',
     paddingHorizontal:20
