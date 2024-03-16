@@ -6,16 +6,18 @@ import filterblock from "../../styles/filterblock";
 import FilterBlock from "../molecules/FilterBlock";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Filters({headerText, page}) {
   
   const filterProps = page == 'Home' ? filterNames.slice(0,3) : filterNames.slice(0,5)
+  const navigation = useNavigation();
 
   return (
     <View style={filters.wrapper}>
       <View style={filters.header}>
       <Header style={[header.tiny, header.bold]} text={headerText}/>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Services')}>
         {page === 'Home' ?
       <Header style={[header.paragraph, header.bold]} text='See all'/>
       : null}

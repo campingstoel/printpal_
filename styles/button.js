@@ -9,6 +9,7 @@ const button =  StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-around',
+        borderRadius: 10,
 
     },
     transparent : {
@@ -27,7 +28,7 @@ const button =  StyleSheet.create({
         width: '25%',
     },
     thumb : {
-        width: '20%',
+        width: 60,
         aspectRatio: 1,
     },
     rounded: {
@@ -39,6 +40,7 @@ const button =  StyleSheet.create({
     text: {
         color: 'white',
         fontSize: 20,
+        fontFamily: 'Poppins-Regular',
     },
     bold : {
         fontWeight: 'bold',
@@ -53,6 +55,10 @@ const button =  StyleSheet.create({
         backgroundColor: 'white',
         borderWidth: 1,
     },
+    grey: {
+        backgroundColor: '#e8e8e8',
+    },
+    
     selected : {
         backgroundColor: 'black',
         color: 'white',

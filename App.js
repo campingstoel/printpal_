@@ -1,7 +1,8 @@
 
 import Index from './atomics/pages/Index';
 import { useFonts } from 'expo-font';
-
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'react-native';
 
 
 export default function App() {
@@ -14,7 +15,11 @@ export default function App() {
 
   return (
     fontsLoaded ?
+    <SafeAreaView style={{flex:1}}>
+      <StatusBar backgroundColor='black'/>
+
       <Index />
+    </SafeAreaView>
       : null
     
  ) 

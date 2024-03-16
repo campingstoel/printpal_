@@ -6,7 +6,7 @@ const homeheader =  StyleSheet.create({
         backgroundColor: 'white',
         height:100,
         width:'100%',
-        marginTop: 50,
+        marginTop: 20,
         alignItems:'center',
         paddingHorizontal:40,
         gap:20,

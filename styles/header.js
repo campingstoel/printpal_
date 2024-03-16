@@ -41,6 +41,9 @@ const header =  StyleSheet.create({
     black : {
         color: "black"
     },
+    grey : {
+        color: "grey"
+    },
     bgWhite : {
         backgroundColor: 'white',
         width: '100%',
