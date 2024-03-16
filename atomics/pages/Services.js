@@ -9,8 +9,11 @@ import SearchSuggestions from "../organisms/SearchSuggestions";
 import HomeHeader from "../organisms/HomeHeader";
 import QuestionPopUp from "../organisms/QuestionPopup";
 import { useAnswerState } from "../../scripts/answers";
+import Header from "../atoms/Header";
+import header from "../../styles/header";
+import homeheader from "../../styles/homeheader";
 
-export default function Home() {
+export default function Services() {
   const navigation = useNavigation();
 
   const { finished } = useAnswerState();
@@ -23,17 +26,13 @@ export default function Home() {
     }
   }, [finished]);
 
-  return completed ? (
-    <View style={[index.wrapper, index.alignCenter]}>
-      <HomeHeader active={"Printing"} />
-      <SearchBar />
-      <SearchSuggestions />
-      <View style={index.body}>
-        <Filters headerText="Suggestions" page="Home" />
+  return (
+    <View style={index.wrapper}>
+      <View style={[index.fullWidth, index.pad20, header.bgWhite, index.screenAware]}>
+        <Header text="Services" style={[header.bgWhite, header.bold]} />
       </View>
-      <Navbar page="Home" />
+        <Filters headerText="Printing options" page="Services" />
+      <Navbar page="Services" />
     </View>
-  ) : (
-    <QuestionPopUp />
   );
 }

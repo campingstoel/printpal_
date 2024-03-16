@@ -5,6 +5,7 @@ const searchsuggestion = StyleSheet.create({
     wrapper: {
         width: "100%",
         justifyContent: "space-between",
+        backgroundColor: "white",
 
     },
     iconWrapper : {

@@ -21,8 +21,14 @@ const header =  StyleSheet.create({
     paragraph : {
         fontSize: 15,
     },
+    smallest : {
+        fontSize: 13,
+    },
     bold : {
         fontFamily: 'Poppins-Bold',
+    },
+    semiBold : {
+        fontFamily: 'Poppins-SemiBold',
     },
     white : {
         color: 'white',
@@ -34,7 +40,12 @@ const header =  StyleSheet.create({
 
     black : {
         color: "black"
-    }
+    },
+    bgWhite : {
+        backgroundColor: 'white',
+        width: '100%',
+    },
+
     
 
 
