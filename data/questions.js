@@ -43,6 +43,12 @@ export const questions = [
     },
     {
         id: 6,
+        question: 'Do you want your location to appear on the map?',
+        questionType: 'true/false',
+        objectSubType: 'locationVisibility',
+    },
+    {
+        id: 7,
         question: 'What printing services do you offer?',
         questionType: 'Multiple',
         answers: [
@@ -52,7 +58,7 @@ export const questions = [
         falseAction: 'Please select at least one service.',
     },
     {
-        id: 7,
+        id: 8,
         question: 'What will be your availability?',
         questionType: 'Multiple',
         answers: [
@@ -62,14 +68,14 @@ export const questions = [
         falseAction: 'Please select at least one day.',
     },
     {
-        id: 8,
+        id: 9,
         question: 'Do you allow in-app messaging?',
         questionType: 'true/false',
         objectSubType: 'Messaging',
         falseAction: '',
     },
     {
-        id: 9,
+        id: 10,
         question: 'We will handle your request as soon as possible. Untill then, you will be able to access customer app features.',
         questionType: 'Confirm'
     }
