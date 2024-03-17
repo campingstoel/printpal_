@@ -13,7 +13,7 @@ const index =  StyleSheet.create({
         width: '100%',
         flex: 1,
         paddingBottom: 100,
-        backgroundColor: '#e7e7e7',
+        alignItems: 'center',
     },  
 
     header : {

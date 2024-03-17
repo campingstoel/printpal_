@@ -4,7 +4,6 @@ const filters =  StyleSheet.create({
     wrapper : {
         backgroundColor:'white',
         paddingHorizontal: 10,
-        marginTop:10,
 
     },
     

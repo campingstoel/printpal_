@@ -5,16 +5,14 @@ const navbar = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    backgroundColor: "white",
+    backgroundColor: "#fafafa",
     width: "100%",
     paddingVertical: 10,
     paddingHorizontal: 20,
     flex: 1,
     position: "absolute",
     bottom: '0%',
-    maxHeight: 80,
-    borderTopWidth: 1,
-    borderColor: '#a1a1a1'
+    maxHeight: 70,
 
   },
   button: {
@@ -32,7 +30,8 @@ const navbar = StyleSheet.create({
 
   text: {
     color: "#a1a1a1",
-    fontFamily: "Poppins-Regular"
+    fontFamily: "Poppins-Regular",
+    fontSize: 12,
   },
 
   grey: {

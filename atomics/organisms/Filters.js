@@ -16,7 +16,7 @@ export default function Filters({headerText, page}) {
   return (
     <View style={filters.wrapper}>
       <View style={filters.header}>
-      <Header style={[header.tiny, header.bold]} text={headerText}/>
+      <Header style={[header.tiny, header.semiBold]} text={headerText}/>
       <TouchableOpacity onPress={() => navigation.navigate('Services')}>
         {page === 'Home' ?
       <Header style={[header.paragraph, header.bold]} text='See all'/>

@@ -1,24 +1,52 @@
-import { View, TextInput, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  TextInput,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  Text,
+  ImageBackground,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import header from "../../styles/header";
 import Header from "../atoms/Header";
 import homeheader from "../../styles/homeheader";
 import index from "../../styles";
+import { headerNames } from "../../data/headerNames";
+import Icon from "../atoms/Icon";
 
-export default function HomeHeader({username, active}) {
+export default function HomeHeader({ active }) {
     
-    return (
-        <View style={[homeheader.wrapper, index.row]}>
-            <TouchableOpacity style={[homeheader.button, index.row, active== 'Printing' ? homeheader.active : null ]}>
-            <Image source={require('../../images/computer.png')} style={homeheader.image}/>
-            <Header text="Printing" style={[header.tiny, {color:'#a1a1a1'}, header.bold, active=='Printing' ? header.black : null]}/>
-            </TouchableOpacity>
-            <TouchableOpacity style={[homeheader.button, index.row]}>
-            <Image source={require('../../images/male-customer.png')} style={homeheader.image}/>
-            <Header text="Service" style={[header.tiny, {color:'#a1a1a1'}, header.bold, active=='Help' ? header.black : null]}/>
-            </TouchableOpacity>
+  return (
+    <View style={[homeheader.wrapper, index.column]}>
+      {/* <ImageBackground
+        source={require("../../images/header.jpg")}
+        style={homeheader.imageBackground}
+      > */}
+        <View style={[homeheader.header]}>
+          <Header
+            style={[header.small, header.bold, header.white]}
+            text={active}
+          />
+          <TouchableOpacity>
+            <Image
+              style={homeheader.image}
+              source={require("../../images/profile.png")}
+            />
+          </TouchableOpacity>
         </View>
-        
-    );  
-    }
+        <View
+          style={[homeheader.filterWrapper]}
+        >
+          {headerNames.map((item) => (
+            <TouchableOpacity key={item.id} style={homeheader.filter}>
+            <Icon icon={item.icon} customSize={30} iconColor={'black'} />
+              <Text style={[homeheader.text]}>{item.text}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      {/* </ImageBackground> */}
+    </View>
+  );
+}
