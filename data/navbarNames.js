@@ -6,7 +6,7 @@ export const navbarNames = [
     },
     {
         id: 2,
-        icon: "grid-outline",
+        icon: "apps-outline",
         text: "Services"
     },
     {
