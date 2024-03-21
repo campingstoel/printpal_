@@ -12,49 +12,44 @@ const stories = StyleSheet.create({
 
     },
     story : {
+        marginTop: 20,
         width: 300,
         height: 200,
         borderRadius: 20,
         overflow: 'hidden',
-        backgroundColor: 'white',
         marginRight: 15,
+        padding: 10,
+        backgroundColor: '#f3f3f3',
     },
 
-    overlay : {
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0,0,0,0.3)',
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
-        padding: 20,
-
-    },
     image : {
         width: '100%',
-        height: 200,
+        height: '65%',
+        resizeMode: 'contain',
+        objectFit: 'cover',
         display: 'flex',
-        justifyContent: 'flex-end',
-        alignItems: 'flex-end',
+        borderRadius: 20,
+        marginBottom: 10,
+
         
     },
 
     text : {
-        fontSize: 20,
-        color: 'white',
-        fontFamily: 'Poppins-Bold',
+        fontSize: 16,
+        color: 'black',
+        fontFamily: 'Poppins-SemiBold',
     },
 
     subText : {
-        fontSize: 15,
-        color: 'white',
+        fontSize: 14,
+        color: 'black',
         fontFamily: 'Poppins-Regular',
     },
 
     button : {
         backgroundColor: 'white',
         borderRadius: 50,
-        padding: 10,
+        padding: 2,
         position: 'absolute',
         top: 20,
         right: 20,

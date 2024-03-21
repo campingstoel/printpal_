@@ -10,23 +10,27 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Filters({headerText, page}) {
   
-  const filterProps = page == 'Home' ? filterNames.slice(0,3) : filterNames.slice(0,5)
+  const filterProps = page == 'Home' ? filterNames.slice(0,7) : filterNames.slice(0,5)
   const navigation = useNavigation();
 
   return (
     <View style={filters.wrapper}>
-      <View style={filters.header}>
-      <Header style={[header.tiny, header.semiBold]} text={headerText}/>
-      <TouchableOpacity onPress={() => navigation.navigate('Services')}>
+      {/* <View style={filters.header}> */}
+      {/* <Header style={[header.tiny, header.bold]} text={headerText}/> */}
+      {/* <TouchableOpacity onPress={() => navigation.navigate('Services')}>
         {page === 'Home' ?
       <Header style={[header.paragraph, header.bold]} text='See all'/>
       : null}
-      </TouchableOpacity>
-      </View>
+      </TouchableOpacity> */}
+      {/* </View> */}
       <View style={filters.buttons}>
         {filterProps.map((item) => (
           <FilterBlock key={item.id} text={item.text} important={page == 'Services' ? item.important : null} image={item.image} />
+
         ))}
+        {page == 'Home' ?
+          <FilterBlock key="View more" text={'View more'} image={require('../../images/menu.png')} />
+          : null}
       </View>
     </View>
   );

@@ -16,25 +16,20 @@ import index from "../../styles";
 import { headerNames } from "../../data/headerNames";
 import Icon from "../atoms/Icon";
 
-export default function HomeHeader({ active }) {
+export default function HomeHeader({ headerText }) {
     
   return (
     <View style={[homeheader.wrapper, index.column]}>
-      {/* <ImageBackground
-        source={require("../../images/header.jpg")}
-        style={homeheader.imageBackground}
-      > */}
+        <ImageBackground
+          source={require("../../images/header.jpg")}
+          style={homeheader.imageBackground}>
+
+  
         <View style={[homeheader.header]}>
           <Header
             style={[header.small, header.bold, header.white]}
-            text={active}
+            text={headerText}
           />
-          <TouchableOpacity>
-            <Image
-              style={homeheader.image}
-              source={require("../../images/profile.png")}
-            />
-          </TouchableOpacity>
         </View>
         <View
           style={[homeheader.filterWrapper]}
@@ -46,7 +41,7 @@ export default function HomeHeader({ active }) {
             </TouchableOpacity>
           ))}
         </View>
-      {/* </ImageBackground> */}
+        </ImageBackground>
     </View>
   );
 }

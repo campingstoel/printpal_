@@ -31,6 +31,9 @@ const button =  StyleSheet.create({
         width: 60,
         aspectRatio: 1,
     },
+    icon : {
+        width: 20,
+    },
     rounded: {
         borderRadius: 10,
     },
@@ -54,6 +57,7 @@ const button =  StyleSheet.create({
     white : {
         backgroundColor: 'white',
         borderWidth: 1,
+        
     },
     grey: {
         backgroundColor: '#e8e8e8',
@@ -65,6 +69,14 @@ const button =  StyleSheet.create({
     },
     blackText : {
         color: 'black',
+    },
+
+    shadow : {
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,  
+        elevation: 5,
     },
 
 });

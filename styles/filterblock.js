@@ -5,22 +5,20 @@ const filterblock =  StyleSheet.create({
     wrapper : {
         display:'flex',
         flexDirection:'column',
-        width:'30%',
+        width:'25%',
         height: 100,
         gap: 5,
-        marginBottom: 10,
+        marginBottom: 5,
 
 
     },
     container : {
-        backgroundColor: '#e8e8e8',
         borderRadius: 20,
         display: 'flex',
-        height:'110%',
+        height:'100%',
         padding:10,
         flexDirection:'column',
         alignItems:"center",
-        justifyContent:'flex-end',
 
         
     },
@@ -37,11 +35,13 @@ const filterblock =  StyleSheet.create({
     },
 
     image : {
-        width: 50,
-        height:50,
+        width: 40,
+        height:40,
         alignSelf:'center',
         aspectRatio: 1/1,
-        marginBottom: 5
+        objectFit: 'cover',
+        resizeMode: 'contain',
+        marginBottom: 10
         
     },
     imageBig : {

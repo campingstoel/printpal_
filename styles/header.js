@@ -48,6 +48,9 @@ const header =  StyleSheet.create({
         backgroundColor: 'white',
         width: '100%',
     },
+    halfWidth : {
+        width: '75%',
+    },
 
     
 

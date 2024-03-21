@@ -45,5 +45,12 @@ export const filterNames = [
         text: "Lamination",
         important: false,
         image: require('../images/lamination.png'),
-    }
+    },
+    {
+        id: 7,
+        icon: 'book-outline',
+        text: "Binding",
+        important: false,
+        image: require('../images/bookmark.png'),
+    },
 ];

@@ -33,7 +33,7 @@ export default function FilterBlock({
         ) : null}
         {
           !important ? (
-            <Header text={text} style={[header.semiBold, header.smallest]} />
+            <Header text={text} style={[header.semiBold, header.smallest, header.grey]} />
           ) : null
         
         }

@@ -2,17 +2,23 @@ import { StyleSheet } from 'react-native';
 
 const searchBar =  StyleSheet.create({
 
+    wrapper : {
+        paddingHorizontal: 20,
+        marginTop: -30,
+
+        
+    },
+
     searchBar : {
-        backgroundColor: '#eeeeee',
-        borderRadius: 30,
-        padding: 10,
+        backgroundColor: 'white',
+        borderRadius: 15,
+        padding: 5,
         justifyContents: 'space-between',
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'row',
-        width: '85%',
+        width: '80%',
         height:60,
-        marginTop: -30,
         marginBottom:10,
         shadowColor: "#000",
         shadowOffset: {
@@ -23,6 +29,7 @@ const searchBar =  StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
     },
+
 
 });
 
