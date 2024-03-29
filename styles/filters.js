@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const filters =  StyleSheet.create({
     wrapper : {
-        backgroundColor:'white',
         paddingHorizontal: 10,
+        width: '100%',
 
     },
     
@@ -11,9 +11,9 @@ const filters =  StyleSheet.create({
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
-        justifyContent: 'space-around',
         width: '100%',
-        marginBottom: 10
+        marginBottom: 10,
+        justifyContent: 'space-between'
     },
 
     header : {
@@ -23,7 +23,16 @@ const filters =  StyleSheet.create({
         justifyContent: 'space-between',
         padding: 10,
         marginVertical: 15
-    }
+    },
+
+    filterButtons : {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        width: '55%',
+        gap: 10,
+        backgroundColor: 'red',
+    }   
 });
 
 export default filters;

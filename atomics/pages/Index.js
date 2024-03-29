@@ -4,7 +4,7 @@ import { ContextHandlerProvider } from "../../scripts/contexthandler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Home from "./Home";
 import Map from "./Map";
-import Services from "./Services";
+import Search from "./Search";
 
 const Stack = createStackNavigator();
 
@@ -20,8 +20,8 @@ export default function Index() {
               options={{ headerShown: false }}
             />
                         <Stack.Screen
-              name="Services"
-              component={Services}
+              name="Search"
+              component={Search}
               options={{ headerShown: false }}
             />
             <Stack.Screen

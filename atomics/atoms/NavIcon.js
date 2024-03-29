@@ -9,7 +9,7 @@ export default function NavIcon({ icon, text, active, onPress, styles }) {
       <Ionicons
         name={icon}
         size={25}
-        color={active ? '#6b9080' : '#a1a1a1'}
+        color={active ? 'black' : '#a1a1a1'}
       />
       <Text style={[navbar.text, active ? navbar.active : null, styles]}>{text}</Text>
     </TouchableOpacity>

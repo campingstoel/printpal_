@@ -11,7 +11,7 @@ export const filterNames = [
         id: 2,
         text: "A3 paper",
         icon: 'newspaper-outline',
-        important: true,
+        important: false,
         image: require('../images/newspaper.png'),
     },
     {

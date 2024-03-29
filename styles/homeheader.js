@@ -9,16 +9,17 @@ const homeheader =  StyleSheet.create({
         display:'flex',
         flexDirection:'column',
         justifyContent:'center',
+        backgroundColor:'#0d1743'
 
     },
     header : {
         display:'flex',
-        flexDirection:'row',
         width:'100%',
-        alignItems:'center',
-        height:100,
-        gap:20,
+        height:70,
         paddingHorizontal:20,
+        marginTop:20,
+        justifyContent:'center',
+        
     },
     button : {
         alignItems:'center',

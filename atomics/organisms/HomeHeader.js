@@ -16,12 +16,12 @@ import index from "../../styles";
 import { headerNames } from "../../data/headerNames";
 import Icon from "../atoms/Icon";
 
-export default function HomeHeader({ headerText }) {
+export default function HomeHeader({ headerText, headerImage, page, styles }) {
     
   return (
-    <View style={[homeheader.wrapper, index.column]}>
+    <View style={[homeheader.wrapper, index.column, styles]}>
         <ImageBackground
-          source={require("../../images/header.jpg")}
+          source={headerImage}
           style={homeheader.imageBackground}>
 
   
@@ -30,7 +30,24 @@ export default function HomeHeader({ headerText }) {
             style={[header.small, header.bold, header.white]}
             text={headerText}
           />
+          {page == 'Search' ?
+                    <View style={[index.row, {gap:10}]}>
+
+          <Header
+            style={[header.small, header.white]}
+            text='for'
+          />
+          <Header
+            style={[header.small, header.bold, header.hlBlue]}
+            text='Printshops'
+          />
+          </View>
+          
+
+          : null
+          }
         </View>
+        {page == 'Home' ?
         <View
           style={[homeheader.filterWrapper]}
         >
@@ -41,6 +58,7 @@ export default function HomeHeader({ headerText }) {
             </TouchableOpacity>
           ))}
         </View>
+        : null}
         </ImageBackground>
     </View>
   );

@@ -6,24 +6,28 @@ const filterblock =  StyleSheet.create({
         display:'flex',
         flexDirection:'column',
         width:'25%',
-        height: 100,
+        height: 120,
         gap: 5,
         marginBottom: 5,
 
 
+
     },
     container : {
-        borderRadius: 20,
+        borderRadius: 15,
         display: 'flex',
         height:'100%',
         padding:10,
         flexDirection:'column',
         alignItems:"center",
+        backgroundColor: 'white',
+        
 
         
     },
+
     important : {
-        width:'47.5%',
+        width:'35%',
     },
 
     big : {
@@ -32,6 +36,12 @@ const filterblock =  StyleSheet.create({
         flexDirection:'row',
         alignItems:'flex-end',
 
+    },
+
+    search : {
+        width:'100%',
+        height: '37.5%',
+        borderRadius: 10,
     },
 
     image : {

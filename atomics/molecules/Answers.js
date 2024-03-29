@@ -26,6 +26,11 @@ export default function Answers({ props }) {
     nextQuestionHandler(props);
   };
 
+  //create a variable of all answers except the locationCorrectness 
+  let allAnswersExceptLocation = {...allAnswers}
+  delete allAnswersExceptLocation['locationcoords']
+  console.log(allAnswersExceptLocation)
+
   const trueFalseView = () => {
     return (
       <View style={[index.row, index.centered, {gap:15}]}>
@@ -131,6 +136,18 @@ export default function Answers({ props }) {
           {MultipleChoiceView()}
         </View>
       ) : null}
+      {
+        props.questionType == 'Overview' ? (
+          <View style={[index.row, index.spaceBetween]}>
+          {/* show all the input on the keys of the ansers */}
+          
+            
+          
+          </View>
+
+        ) : null
+
+      }
       <Text style={textinput.errorText}>{error}</Text>
       {questionNumber !== 1 ? (
       <View style={[index.row, index.spaceBetween, questionsForm.buttons]}>

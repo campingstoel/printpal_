@@ -12,7 +12,8 @@ const listItem = StyleSheet.create({
         flexDirection: "row",
         width: "100%",
         justifyContent: "space-between",
-        padding: 10,
+        paddingHorizontal: 20,
+        marginTop: 10,
 
     },
     listItem: {
@@ -25,14 +26,7 @@ const listItem = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-around",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+
     },
     contactButton: {
         padding: 10,
@@ -41,14 +35,6 @@ const listItem = StyleSheet.create({
         width: "20%",
         height: 100,
         borderRadius: 15,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
         alignItems: "center",
         justifyContent: "center",
     },

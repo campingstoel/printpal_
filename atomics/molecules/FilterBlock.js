@@ -6,7 +6,7 @@ import Header from "../atoms/Header";
 import header from "../../styles/header";
 
 export default function FilterBlock({
-  style,
+  styles,
   text,
   onPress,
   image,
@@ -16,7 +16,7 @@ export default function FilterBlock({
 
   return (
     <TouchableOpacity
-      style={[filterblock.wrapper, important ? filterblock.important : null]}
+      style={[filterblock.wrapper, important ? filterblock.important : null, styles]}
       onPress={onPress}
     >
       <View style={[filterblock.container, important ? filterblock.big : null]}>

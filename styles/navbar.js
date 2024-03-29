@@ -25,7 +25,7 @@ const navbar = StyleSheet.create({
   },
 
   active: {
-    color: "#6b9080",
+    color: 'black',
   },
 
   text: {
@@ -41,7 +41,7 @@ const navbar = StyleSheet.create({
   },
 
   pressed : {
-    borderBottomColor: '#c83564',
+    borderBottomColor: 'black',
     borderBottomWidth: 2,
   }
 

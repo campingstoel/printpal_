@@ -20,7 +20,7 @@ export default function Home() {
 
   const { finished } = useAnswerState();
 
-  const [completed, setCompleted] = useState(false);
+  const [completed, setCompleted] = useState(true);
 
   useEffect(() => {
     if (finished) {
@@ -30,7 +30,7 @@ export default function Home() {
 
   return completed ? (
     <View style={[index.wrapper, index.alignCenter, {height:height}]}>
-      <HomeHeader headerText={'Find printshops and \nservices near you'} />
+      <HomeHeader headerText={'Find printshops and \nservices near you'} headerImage={require("../../images/header.jpg")} page={'Home'} />
       <SearchBar />
       <View style={index.body}>
         <ScrollView>

@@ -6,8 +6,8 @@ export const navbarNames = [
     },
     {
         id: 2,
-        icon: "apps-outline",
-        text: "Services"
+        icon: "search-outline",
+        text: "Search"
     },
     {
         id: 3,
