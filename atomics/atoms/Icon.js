@@ -1,14 +1,17 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import button from "../../styles/button";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import Ionicons from "@expo/vector-icons/Ionicons";
 
-export default function Icon({ style, onPress, icon, iconColor, customSize }) {
-
+export default function Icon({ style, icon, iconColor, customSize }) {
   return (
-    <TouchableOpacity style={[button.icon, style]} onPress={onPress}>
-      <Ionicons name={icon} size={customSize ? customSize : 25} color={iconColor ? iconColor : 'white'} />
-    </TouchableOpacity>
+    <View style={[button.icon, style]}>
+      <Ionicons
+        name={icon}
+        size={customSize ? customSize : 25}
+        color={iconColor ? iconColor : "white"}
+      />
+    </View>
   );
 }

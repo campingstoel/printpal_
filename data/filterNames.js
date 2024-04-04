@@ -11,7 +11,7 @@ export const filterNames = [
         id: 2,
         text: "A3 paper",
         icon: 'newspaper-outline',
-        important: true,
+        important: false,
         image: require('../images/newspaper.png'),
     },
     {
@@ -45,5 +45,12 @@ export const filterNames = [
         text: "Lamination",
         important: false,
         image: require('../images/lamination.png'),
-    }
+    },
+    {
+        id: 7,
+        icon: 'book-outline',
+        text: "Binding",
+        important: false,
+        image: require('../images/bookmark.png'),
+    },
 ];

@@ -21,9 +21,9 @@ export const headerNames = [
     },
     {
         id: 4,
-        text: "Payment",
+        text: "Payments",
         icon: 'card-outline',
-        onPress: 'Payment',
+        onPress: 'Payments',
     },
  
 ];

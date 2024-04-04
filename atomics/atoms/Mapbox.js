@@ -3,10 +3,11 @@ import MapView from 'react-native-maps';
 import { View } from 'react-native';
 import mapbox from '../../styles/mapbox';
 import { mapstyles } from '../../styles/mapStyles';
+import index from '../../styles';
 
 export default function Mapbox({style, location}) {
     return (
-        <View style={[mapbox.container, style]}>
+        <View style={[mapbox.container, index.fullWidth, index.mb20, style]}>
         <MapView
           style={{ flex: 1, borderRadius: 20 }}
           initialRegion={{

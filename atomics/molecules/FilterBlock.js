@@ -4,9 +4,11 @@ import { useNavigation } from "@react-navigation/native";
 import filterblock from "../../styles/filterblock";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
+import index from "../../styles";
+import colors from "../../styles/colors";
 
 export default function FilterBlock({
-  style,
+  styles,
   text,
   onPress,
   image,
@@ -16,24 +18,24 @@ export default function FilterBlock({
 
   return (
     <TouchableOpacity
-      style={[filterblock.wrapper, important ? filterblock.important : null]}
+      style={[filterblock.wrapper, index.column, important ? filterblock.important : null, styles]}
       onPress={onPress}
     >
-      <View style={[filterblock.container, important ? filterblock.big : null]}>
+      <View style={[filterblock.container, index.alignCenter, index.column, index.pad10, important ? [filterblock.big, index.row, index.spaceBetween] : null]}>
         {important ? (
           <Header text={text} style={[header.semiBold, header.paragraph]} />
         ) : null}
         {filterblock.image ? (
           <Image
             source={image}
-            style={[filterblock.image, important ? filterblock.imageBig : null]}
+            style={[filterblock.image, index.mb10, index.mdImg, important ? filterblock.imageBig : null]}
           />
         
           
         ) : null}
         {
           !important ? (
-            <Header text={text} style={[header.semiBold, header.smallest]} />
+            <Header text={text} style={[header.semiBold, header.smallest, colors.grey]} />
           ) : null
         
         }
