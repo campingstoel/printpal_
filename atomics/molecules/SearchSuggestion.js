@@ -5,15 +5,24 @@ import Header from "../atoms/Header";
 import header from "../../styles/header";
 import searchsuggestion from "../../styles/searchsuggestion";
 import index from "../../styles";
+import colors from "../../styles/colors";
 
 export default function SearchSuggestion({ style, title, onPress, address }) {
   return (
     <View style={[searchsuggestion.container, index.row]}>
       <TouchableOpacity
-        style={[searchsuggestion.listItem, index.row]}
+        style={[searchsuggestion.listItem, index.row, index.pad10, colors.bgWhite, index.fullWidth, index.br15, index.gap15]}
         onPress={onPress}
       >
-        <View style={searchsuggestion.iconWrapper}>
+        <View
+          style={[
+            searchsuggestion.iconWrapper,
+            index.row,
+            index.centered,
+            index.mdImg,
+            { backgroundColor: "#ededed" },
+          ]}
+        >
           <Icon icon={"print-outline"} iconColor={"black"} />
         </View>
         <View style={index.column}>

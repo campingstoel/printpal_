@@ -1,11 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const header =  StyleSheet.create({
-    header : {
-        color: 'black',
-        fontSize: 30,
-        fontFamily: 'Poppins-Regular',
-    },
     large : {
         fontSize: 35,
     },
@@ -30,30 +25,14 @@ const header =  StyleSheet.create({
     semiBold : {
         fontFamily: 'Poppins-SemiBold',
     },
-    white : {
-        color: 'white',
-    },
-
     centered: {
         alignSelf:'center'
     },
 
-    black : {
-        color: "black"
-    },
-    grey : {
-        color: "grey"
-    },
-    bgWhite : {
-        backgroundColor: 'white',
-        width: '100%',
-    },
     hlBlue : {
         color: '#49b3b7'
     },
     
-
-
 });
 
 export default header;

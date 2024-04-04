@@ -5,6 +5,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import Home from "./Home";
 import Map from "./Map";
 import Search from "./Search";
+import Profile from "./Profile";
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,11 @@ export default function Index() {
             <Stack.Screen
               name="Map"
               component={Map}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Profile"
+              component={Profile}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

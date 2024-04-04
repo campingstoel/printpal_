@@ -2,32 +2,36 @@ import { View, TextInput, Image, TouchableOpacity, Text, KeyboardAvoidingView } 
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { questions } from "../../data/questions";
-import questionsForm from "../../styles/questions";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
 import Answers from "../molecules/Answers";
 import { useAnswerState } from "../../scripts/answers";
+import { useQuestionHandlerState } from "../../scripts/questionhandler";
 import index from "../../styles";
-import Icon from "../atoms/Icon";
+import Button from "../atoms/Button";
 import {useWindowDimensions} from 'react-native';
 import Mapbox from "../atoms/Mapbox";
+import button from "../../styles/button";
+import colors from "../../styles/colors";
 
 export default function QuestionPopUp({}) {
   const questionProps = questions;
   const { questionNumber, allAnswers} =
     useAnswerState();
   const { height } = useWindowDimensions();
+  const {changeQuestionShown} = useQuestionHandlerState();
+
 
   return (
 <View
-    style={[questionsForm.wrapper, {height: height}]}
+    style={[index.fullWidth, index.column, {height: height}]}
     >
     <View style={[index.column, index.bgBlack, index.fullWidth, {paddingHorizontal:20, height:50}]}>
-        <Icon
+        <Button
           onPress={() => {
-            console.log("Back button pressed");
+            changeQuestionShown();
           }}
-          textStyle={[header.small, {color: "white"}]}
+          style={[button.thumb, button.circle]}
           icon={"close-outline"}
           iconColor={"white"}
           customSize={35}
@@ -36,7 +40,7 @@ export default function QuestionPopUp({}) {
 
       {questionProps.map((question) =>
         questionNumber == question.id ? (
-          <View key={question.id} style={[questionsForm.question]}>
+          <View key={question.id} style={[index.fullWidth, index.fullFlex, index.column, index.justifyCenter]}>
             {questionProps[questionNumber -1].questionType === "Map" ? (
               console.log("Map question"),
                         <Mapbox
@@ -46,10 +50,10 @@ export default function QuestionPopUp({}) {
             ) : (
             <Image
               source={question.image}
-              style={questionsForm.image}/>
+              style={[index.fullWidth, index.mb20, {height:250}]}/>
             )}
             <Header style={[header.tiny, header.bold, {paddingHorizontal:20}]} text={question.title} />
-            <Header style={[header.paragraph, header.grey, {paddingHorizontal:20}]} text={question.question} />
+            <Header style={[header.paragraph, colors.grey, {paddingHorizontal:20}]} text={question.question} />
             <Answers
               props={{
                 questionType: question.questionType,

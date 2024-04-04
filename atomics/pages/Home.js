@@ -33,7 +33,7 @@ export default function Home() {
       <HomeHeader headerText={'Find printshops and \nservices near you'} headerImage={require("../../images/header.jpg")} page={'Home'} />
       <SearchBar />
       <View style={index.body}>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
         <Filters headerText="Services" page="Home" />
         <Stories />
         </ScrollView>

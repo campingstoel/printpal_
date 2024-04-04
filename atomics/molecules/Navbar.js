@@ -4,6 +4,7 @@ import NavIcon from "../atoms/NavIcon";
 import navbar from "../../styles/navbar";
 import { navbarNames } from "../../data/navbarNames";
 import { useNavigation } from "@react-navigation/native";
+import index from "../../styles";
 
 
 export default function Navbar({ page }) {
@@ -11,7 +12,7 @@ export default function Navbar({ page }) {
   const navigation = useNavigation();
 
   return (
-    <View style={navbar.wrapper}>
+    <View style={[navbar.wrapper, index.row, index.spaceAround, index.fullWidth, index.padVer10, index.padHor20]}>
       {navbarProps.map((item) => (
         <NavIcon
           key={item.id}

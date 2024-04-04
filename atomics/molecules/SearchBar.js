@@ -1,19 +1,18 @@
 import { View, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import searchBar from "../../styles/searchbar";
-import Icon from "../atoms/Icon";
 import button from "../../styles/button";
 import Button from "../atoms/Button";
 import index from "../../styles";
+import colors from "../../styles/colors";
 
 export default function SearchBar({ styles, iconStyles }) {
   const navigation = useNavigation();
   const [search, setSearch] = useState("");
 
   return (
-    <View style={[index.row, searchBar.wrapper, { gap: 10 }, styles]}>
-      <View style={searchBar.searchBar}>
+    <View style={[index.row, index.padHor20, { gap: 10, marginTop:-30 }, styles]}>
+      <View style={[colors.bgWhite, index.br15, index.pad5, index.row, index.shadow, index.spaceBetween, index.alignCenter, index.mb10, {height:60, width:'80%'}]}>
         <TextInput
           style={{
             textAlignVertical: "center",

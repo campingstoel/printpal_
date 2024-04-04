@@ -14,7 +14,14 @@ export const QuestionHandlerProvider = ({ children }) => {
   } = useAnswerState();
   const [error, setError] = useState("");
 
+  const [questionsShown, setQuestionsShown] = useState(false);
+
   const { location, getLocation } = useLocationState();
+
+  const changeQuestionShown = () => {
+    setQuestionsShown(!questionsShown);
+  };
+
 
   const nextQuestionHandler = (props) => {
     if (props.questionType === "Open" &&
@@ -76,7 +83,7 @@ export const QuestionHandlerProvider = ({ children }) => {
 
   return (
     <QuestionHandlerContext.Provider
-      value={{ error, nextQuestionHandler, answerValidationHandler }}
+      value={{ error, nextQuestionHandler, answerValidationHandler, questionsShown, changeQuestionShown}}
     >
       {children}
     </QuestionHandlerContext.Provider>
