@@ -20,16 +20,17 @@ export default function QuestionPopUp({}) {
     useAnswerState();
   const { height } = useWindowDimensions();
   const {changeQuestionShown} = useQuestionHandlerState();
+  const navigation = useNavigation();
 
 
   return (
 <View
     style={[index.fullWidth, index.column, {height: height}]}
     >
-    <View style={[index.column, index.bgBlack, index.fullWidth, {paddingHorizontal:20, height:50}]}>
+    <View style={[index.column, colors.bgBlack, index.fullWidth, {paddingHorizontal:20, height:50}]}>
         <Button
           onPress={() => {
-            changeQuestionShown();
+            navigation.goBack();
           }}
           style={[button.thumb, button.circle]}
           icon={"close-outline"}
@@ -42,9 +43,7 @@ export default function QuestionPopUp({}) {
         questionNumber == question.id ? (
           <View key={question.id} style={[index.fullWidth, index.fullFlex, index.column, index.justifyCenter]}>
             {questionProps[questionNumber -1].questionType === "Map" ? (
-              console.log("Map question"),
                         <Mapbox
-                        style={questionsForm.map}
                         location={allAnswers["locationcoords"]}
                       />
             ) : (

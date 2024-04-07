@@ -1,39 +1,45 @@
-import { View } from "react-native";
+import { View,   RefreshControl, FlatList, ScrollView, StatusBar 
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Navbar from "../molecules/Navbar";
 import index from "../../styles/index";
-import { useAnswerState } from "../../scripts/answers";
 import {Dimensions} from 'react-native'; 
 import ProfileHeader from "../organisms/ProfileHeader";
-import { useQuestionHandlerState } from "../../scripts/questionhandler";
-import QuestionPopUp from "../organisms/QuestionPopup";
+import ProfileSettings from "../organisms/ProfileSettings";
+import ProfileStatistics from "../organisms/ProfileStatistics";
+import { usePopupState } from "../../scripts/popuphandler";
+import Popup from "../organisms/Popup";
+import darkmodeColors from "../../styles/darkmodecolors";
+import { useThemeState } from "../../scripts/themehandler";
+import colors from "../../styles/colors";
 
 
 const { height } = Dimensions.get('window');
 
 export default function Profile() {
 
-  const { finished } = useAnswerState();
+  const [refreshing, setRefreshing] = useState(false);
+  const {showPopup, changePopupVisibility, popupSubject} = usePopupState();
+  const {theme, changeTheme} = useThemeState();
+  const themeColors = theme === 'Light mode' ? colors : darkmodeColors;
 
-  const {questionsShown} = useQuestionHandlerState();
-
-  const [completed, setCompleted] = useState(true);
-
-  useEffect(() => {
-    if (finished) {
-      setCompleted(true);
-    }
-  }, [finished]);
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    setRefreshing(false)
+  }, []);
 
   return (
-    !questionsShown && completed ?
-    <View style={[index.wrapper, index.alignCenter, {height:height}]}>
-        <ProfileHeader name={'Camryn Terlouw'} rating={'5.0'} profileType={'Customer'} />
-
-      <Navbar page="Profile" />
+    <View style={[index.wrapper, index.alignCenter, themeColors.bgWhite, {height:height}]}>
+            <StatusBar backgroundColor={`${themeColors.bgWhite.backgroundColor}`} />
+        <ProfileHeader name={'Camryn Terlouw'} rating={'5.0'} profileType={'Customer'} themeColors={themeColors}/>
+        <ScrollView>
+        <ProfileStatistics  themeColors={themeColors} />
+        <ProfileSettings themeColors={themeColors} />
+        </ScrollView>
+      <Navbar page="Profile" themeColors={themeColors} />
+      {showPopup && <Popup subject={popupSubject} themeColors={themeColors} />}
     </View>
-    : <QuestionPopUp />
   );
 
 }

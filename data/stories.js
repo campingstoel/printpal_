@@ -10,7 +10,7 @@ export const storiesData = [
     },
     {
         id: 2,
-        title: "How your money is safe",
+        title: "How SecurePay works",
         description: "We have a secure payment system",
         image: require("../images/mapstory.png"),
         onPress: "Story",

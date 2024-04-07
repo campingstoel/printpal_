@@ -14,24 +14,25 @@ export default function ListItem({
   rating,
   distance,
   services,
+  themeColors,
 }) {
   return (
-    <View style={[index.alignCenter, index.row, index.fullWidth, index.padHor20, index.spaceBetween, index.mt10]}>
+    <View style={[index.alignCenter, index.row, index.fullWidth, index.spaceBetween, index.mt10]}>
       <TouchableOpacity style={[listItem.listItem, index.pad10, index.m5, index.column, index.spaceAround, style]} onPress={onPress}>
-        <Header text={title} style={[header.text, header.tiny, header.bold]} />
+        <Header text={title} style={[header.interMedium, header.bold, themeColors.black]} />
         <View style={[index.row, index.alignCenter, { gap: 5 }]}>
           <Icon icon="star" customSize={18} iconColor={"#f1c40f"} />
           <Header
             text={rating}
-            style={[header.text, header.paragraph, colors.grey]}
+            style={[header.text, header.paragraph, themeColors.grey]}
           />
-          <Header text="*" style={[header.text, header.paragraph]} />
+          <Header text="*" style={[header.text, header.paragraph, themeColors.grey]} />
           <Header
             text={`${distance}m`}
-            style={[header.text, header.paragraph, colors.grey]}
+            style={[header.text, header.paragraph, themeColors.grey]}
           />
         </View>
-        <Text style={[header.text, header.paragraph, colors.grey]}>
+        <Text style={[header.text, header.paragraph, themeColors.grey]}>
           {services}
         </Text>
       </TouchableOpacity>
@@ -42,7 +43,7 @@ export default function ListItem({
         <Icon
           icon="arrow-forward-outline"
           customSize={30}
-          iconColor={"black"}
+          iconColor={`${themeColors.bgBlack.backgroundColor}`}
         />
       </TouchableOpacity>
     </View>

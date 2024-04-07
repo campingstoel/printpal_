@@ -150,7 +150,7 @@ export default function Answers({ props }) {
       }
       <Text style={colors.red}>{error}</Text>
       {questionNumber !== 1 ? (
-      <View style={[index.row, index.spaceBetween, index.fullWidth, index.column, index.alignSelfCenter, index.absolute, {bottom:20}]}>
+      <View style={[index.spaceBetween, index.fullWidth, index.row, index.alignSelfCenter, index.absolute, {bottom:20}]}>
           <Button
             onPress={decrementQuestionNumber}
             style={[

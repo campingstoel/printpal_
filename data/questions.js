@@ -100,14 +100,6 @@ export const questions = [
     image: require("../images/messaging.png"),
   },
   {
-    id: 10,
-    title: "Overview",
-    question:
-      "Please review your information. If you are sure, please confirm.",
-    questionType: "Overview",
-    
-  },
-  {
     id: 11,
     title: "Confirm",
     question:

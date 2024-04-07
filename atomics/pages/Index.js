@@ -6,21 +6,27 @@ import Home from "./Home";
 import Map from "./Map";
 import Search from "./Search";
 import Profile from "./Profile";
+import SettingsPopUp from "./Settings";
+import QuestionPopUp from "./QuestionPopup";
 
 const Stack = createStackNavigator();
 
 export default function Index() {
+  
   return (
-      <SafeAreaProvider>
-        <ContextHandlerProvider>
+    <SafeAreaProvider>
+      <ContextHandlerProvider>
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
               component={Home}
-              options={{ headerShown: false }}
+              options={{ headerShown: false,
+              
+
+               }}
             />
-                        <Stack.Screen
+            <Stack.Screen
               name="Search"
               component={Search}
               options={{ headerShown: false }}
@@ -33,11 +39,35 @@ export default function Index() {
             <Stack.Screen
               name="Profile"
               component={Profile}
-              options={{ headerShown: false }}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Settings"
+              component={SettingsPopUp}
+              options={{
+                headerShown: false,
+                presentation: "modal",
+                animationTypeForReplace: "push",
+                animation: "slide_from_right",
+                
+              }}
+              
+            />
+            <Stack.Screen
+              name="Question"
+              component={QuestionPopUp}
+              options={{
+                headerShown: false,
+                presentation: "modal",
+                animationTypeForReplace: "push",
+                animation: "slide_from_right",
+              }}
             />
           </Stack.Navigator>
         </NavigationContainer>
-        </ContextHandlerProvider>
-      </SafeAreaProvider>
+      </ContextHandlerProvider>
+    </SafeAreaProvider>
   );
 }

@@ -13,29 +13,30 @@ export default function FilterBlock({
   onPress,
   image,
   important,
+  themeColors,
 }) {
   const navigation = useNavigation();
 
   return (
     <TouchableOpacity
-      style={[filterblock.wrapper, index.column, important ? filterblock.important : null, styles]}
+      style={[filterblock.wrapper, index.column, themeColors.bgGrey, index.br10, index.pad5, important ? filterblock.important : null, styles]}
       onPress={onPress}
     >
-      <View style={[filterblock.container, index.alignCenter, index.column, index.pad10, important ? [filterblock.big, index.row, index.spaceBetween] : null]}>
+      <View style={[index.column, index.alignCenter, index.fullFlex, index.flexEnd, important ? [filterblock.big, index.row, index.spaceBetween] : null]}>
         {important ? (
-          <Header text={text} style={[header.semiBold, header.paragraph]} />
+          <Header text={text} style={[header.semiBold, header.paragraph, themeColors.black]} />
         ) : null}
         {filterblock.image ? (
           <Image
             source={image}
-            style={[filterblock.image, index.mb10, index.mdImg, important ? filterblock.imageBig : null]}
+            style={[filterblock.image, index.lgImg, index.mb10, important ? filterblock.imageBig : null]}
           />
         
           
         ) : null}
         {
           !important ? (
-            <Header text={text} style={[header.semiBold, header.smallest, colors.grey]} />
+            <Header text={text} style={[header.bold, header.smallest, themeColors.black]} />
           ) : null
         
         }

@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import button from "../../styles/button";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-export default function Button({ style, text, onPress, icon, iconColor, textStyle }) {
+export default function Button({ style, text, onPress, icon, iconColor, textStyle, customSize }) {
   const navigation = useNavigation();
 
   return (
@@ -12,7 +12,7 @@ export default function Button({ style, text, onPress, icon, iconColor, textStyl
       <Text style={[button.text 
       , textStyle
       ]}>{text}</Text>
-      {icon && <Ionicons name={icon} size={25} color={iconColor ? iconColor : 'white'} />}
+      {icon && <Ionicons name={icon} size={customSize ? customSize : 25} color={iconColor ? iconColor : 'white'} />}
     </TouchableOpacity>
   );
 }

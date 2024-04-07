@@ -1,33 +1,34 @@
 import { StyleSheet } from "react-native";
 
-const colors =  StyleSheet.create({
+const darkModeColors =  StyleSheet.create({
 
     bgWhite : {
-        backgroundColor: 'white',
+        backgroundColor: '#161616',
     },
     bgBlack : {
-        backgroundColor: 'black',
+        backgroundColor: 'white',
     },
     bgNavyBlue : {
         backgroundColor: '#0d1743',
     },
     bgGrey : {
-        backgroundColor: '#f3f3f3',
+        backgroundColor: '#292929',
     },
-
     bgButtonWhite : {
-        backgroundColor: 'white',
+        backgroundColor: '#292929',
+
+
     },
     
 
     black : {
-        color: 'black',
-    },
-    white : {
         color: 'white',
     },
+    white : {
+        color: 'black',
+    },
     grey : {
-        color: 'grey',
+        color: 'lightgrey',
     },
     hlBlue : {
         color: '#49b3b7'
@@ -39,11 +40,11 @@ const colors =  StyleSheet.create({
         borderColor: 'red',
     },
     borderBlack : {
-        borderColor: 'black',
+        borderColor: 'white',
     },
 
 
 
 });
 
-export default colors;
+export default darkModeColors;

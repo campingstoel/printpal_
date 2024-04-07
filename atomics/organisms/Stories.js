@@ -10,7 +10,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import index from "../../styles";
 import colors from "../../styles/colors";
 
-export default function Stories({}) {
+export default function Stories({translations, themeColors}) {
   const navigation = useNavigation();
 
   return (
@@ -19,11 +19,10 @@ export default function Stories({}) {
         index.fullWidth,
         index.spaceBetween,
         index.mt20,
-        colors.bgWhite,
-        index.padHor20,
+        themeColors.bgWhite,
       ]}
     >
-      <Header style={[header.bold, header.tiny]} text={"Discover PrintPal"} />
+      <Header style={[header.bold, header.tiny, themeColors.black]} text={translations.storyHeaderTitle} />
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {storiesData.map((story) => (
           <View
@@ -34,7 +33,8 @@ export default function Stories({}) {
               index.br20,
               index.mh5,
               index.pad10,
-              { width: 300, height: 200, backgroundColor: "#f3f3f3" },
+              themeColors.bgGrey,
+              { width: 300, height: 200 },
             ]}
           >
             <Image source={story.image} style={[stories.image, index.fullWidth, index.mb10, index.br20]} />
@@ -51,8 +51,8 @@ export default function Stories({}) {
                 iconColor={"black"}
               />
             </TouchableOpacity>
-            <Header style={[header.bold, header.paragraph]} text={story.title} />
-            <Header style={[header.tiny, header.paragraph]} text={story.description.length > 24
+            <Header style={[header.bold, header.paragraph, themeColors.black]} text={story.title} />
+            <Header style={[header.tiny, header.paragraph, themeColors.black]} text={story.description.length > 24
                 ? story.description.substring(0, 24) + "..."
                 : story.description} />
           </View>

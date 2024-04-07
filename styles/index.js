@@ -232,6 +232,10 @@ const index = StyleSheet.create({
   fixed: {
     position: "fixed",
   },
+  overflowHidden: {
+    overflow: "hidden",
+  },
+  
 });
 
 export default index;
