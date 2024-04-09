@@ -8,23 +8,38 @@ import Search from "./Search";
 import Profile from "./Profile";
 import SettingsPopUp from "./Settings";
 import QuestionPopUp from "./QuestionPopup";
+import AccountPage from "./AccountPage";
+import Login from "./Login";
+import Register from "./Register";
 
 const Stack = createStackNavigator();
 
 export default function Index() {
-  
   return (
     <SafeAreaProvider>
       <ContextHandlerProvider>
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
+              name="AccountPage"
+              component={AccountPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Register"
+              component={Register}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
               name="Home"
               component={Home}
-              options={{ headerShown: false,
-              
-
-               }}
+              options={{ headerShown: false }}
             />
             <Stack.Screen
               name="Search"
@@ -51,9 +66,7 @@ export default function Index() {
                 presentation: "modal",
                 animationTypeForReplace: "push",
                 animation: "slide_from_right",
-                
               }}
-              
             />
             <Stack.Screen
               name="Question"

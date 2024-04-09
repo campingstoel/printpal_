@@ -39,5 +39,16 @@ export default  {
     aboutUsDescription: 'Learn more about us',
     logOut: 'Log Out',
     logOutDescription: 'Log out of your account',
+    logIn: 'Log In',
+    register: 'Register',
+    emailQuestion: 'What is your e-mail address?',
+    fullNameQuestion: 'What is your full name?',
+    fullName: 'Full name',
+    passwordQuestion: 'What is your password?',
+    password: 'Password',
+    confirmPasswordQuestion: 'Please confirm your password.',
+    confirmPassword: 'Confirm password',
+
+
 
 }

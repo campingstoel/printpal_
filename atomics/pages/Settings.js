@@ -1,111 +1,151 @@
-import { View, TextInput, Image, TouchableOpacity, Text, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  TextInput,
+  Image,
+  TouchableOpacity,
+  Text,
+  KeyboardAvoidingView,
+  StatusBar,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import index from "../../styles";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
-import {useWindowDimensions} from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { useWindowDimensions } from "react-native";
+import { useRoute } from "@react-navigation/native";
 import { useLanguageState } from "../../scripts/languagehandler";
 import { useThemeState } from "../../scripts/themehandler";
 import Icon from "../atoms/Icon";
+import colors from "../../styles/colors";
+import darkmodeColors from "../../styles/darkmodecolors";
+import { usePopupState } from "../../scripts/popuphandler";
+import Popup from "../organisms/Popup";
 
-
-export default function Settings({params}) {
+export default function Settings({ params }) {
   const route = useRoute();
   const settingName = route.params.settingName;
-  const {language, changeLanguage} = useLanguageState();
-  const {theme, changeTheme} = useThemeState();
+  const { language, changeLanguage } = useLanguageState();
+  const { theme, changeTheme } = useThemeState();
+  const themeColors = theme === "Light mode" ? colors : darkmodeColors;
+  const { showPopup, changePopupVisibility, popupSubject } = usePopupState();
 
-    const { height } = useWindowDimensions();
-    const navigation = useNavigation();
-  
-  const languageOptions = [
-    {id: 1, language: 'English', abbreviation: 'EN'},
-    {id: 2, language: 'Dutch', abbreviation: 'NL'},
-    {id: 3, language: 'German', abbreviation: 'DE'},
+  const { height } = useWindowDimensions();
+  const navigation = useNavigation();
+
+  const privacyOptions = [
+    {
+      id: 1,
+      title: "Chatting",
+      description: "Who can chat with me?",
+    },
+    {
+      id: 2,
+      title: "Location",
+      description: "Who can see my location?",
+    },
+    {
+      id: 3,
+      title: "Profile",
+      description: "Who can see my profile?",
+    },
   ];
-
-  const themeOptions = [
-    {id: 1, theme: 'Light mode'},
-    {id: 2, theme: 'Dark mode'},
-    {id: 3, theme: 'System default'},
-  ];
-
-
-
-
-  const setTheme = (theme) => {
-    changeTheme(theme);
-  }
-
-  const setLanguage = (language) => {
-    changeLanguage(language);
-  }
 
   const optionsField = (subject) => {
     return (
-      <View style={[index.fullWidth, index.column, index.alignCenter, index.justifyCenter, index.pad20]}>
-        {subject === 'Language' ? (
-          <View style={[index.fullWidth, index.column, index.alignCenter, index.justifyCenter]}>
-            {languageOptions.map((option) => (
+      <View
+        style={[
+          index.fullWidth,
+          index.column,
+          index.alignCenter,
+          index.justifyCenter,
+          index.pad20,
+        ]}
+      >
+        {subject === "Privacy" ? (
+          <View
+            style={[
+              index.fullWidth,
+              index.column,
+              index.alignCenter,
+              index.justifyCenter,
+            ]}
+          >
+            {privacyOptions.map((option) => (
               <TouchableOpacity
                 key={option.id}
-                onPress={() => setLanguage(option.language)}
-                style={[index.fullWidth, index.row, index.justifyCenter, {height: 50}]}
+                style={[
+                  index.fullWidth,
+                  index.row,
+                  index.justifyCenter,
+                  { height: 80 },
+                ]}
+                onPress={() => {
+                  changePopupVisibility(option.title);
+                }}
               >
-                <Text>{option.language}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        ) : subject === 'Theme' ? (
-          <View style={[index.fullWidth, index.column, index.alignCenter, index.justifyCenter]}>
-            {themeOptions.map((option) => (
-              <TouchableOpacity
-                key={option.id}
-                onPress={() => setTheme(option.theme)}
-                style={[index.fullWidth, index.row, index.spaceBetween, {height: 50, borderBottomWidth: 0.3, borderBottomColor: 'lightgrey', padding: 10}]}
-              >
-                <Header style={[header.paragraph, header.semiBold]} text={option.theme} />
-                {theme === option.theme ? <Icon icon="checkmark" iconColor="black" customSize={20} /> : null}
-
+                <View
+                  style={[index.fullWidth, index.column, index.justifyCenter]}
+                >
+                  <Header
+                    style={[header.interMedium, header.bold, themeColors.black]}
+                    text={option.title}
+                  />
+                  <Header
+                    style={[header.paragraph, themeColors.grey]}
+                    text={option.description}
+                  />
+                </View>
               </TouchableOpacity>
             ))}
           </View>
         ) : null}
       </View>
-
-
     );
-  }
-
-
+  };
 
   return (
-<View
-    style={[index.fullWidth, index.column, {height: height}]}
+    <View
+      style={[
+        index.fullWidth,
+        index.column,
+        themeColors.bgWhite,
+        { height: height },
+      ]}
     >
-      {settingName === 'Appearance' ? (
-        <View style={[index.fullWidth, index.column, index.alignCenter, index.justifyCenter]}>
-          <Header style={[header.medium, header.bold]} text={'Appearance'} />
-          {optionsField('Theme')}
+      <StatusBar backgroundColor={`${themeColors.bgWhite.backgroundColor}`} />
 
-        </View>
-      ) : settingName === 'Language' ? (
-        <View style={[index.fullWidth, index.column, index.alignCenter, index.justifyCenter]}>
-          <Text>Language</Text>
-          {optionsField('Language')}
-        </View>
-      ) : settingName === 'Notifications' ? (
-        <View style={[index.fullWidth, index.column, index.alignCenter, index.justifyCenter]}>
-          <Text>Notifications</Text>
-        </View>
-      ) :
-      null 
+      <View
+        style={[
+          index.column,
+          index.fullWidth,
+          { paddingHorizontal: 20, height: 50 },
+        ]}
+      >
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Icon
+            icon="close-outline"
+            customSize={30}
+            iconColor={`${themeColors.bgBlack.backgroundColor}`}
+          />
+        </TouchableOpacity>
+      </View>
 
-        }
-
-    
+      {settingName === "Privacy" ? (
+        <View>
+          <Header
+            style={[
+              header.tiny,
+              header.bold,
+              index.padHor20,
+              themeColors.black,
+            ]}
+            text="Privacy"
+          />
+          {optionsField("Privacy")}
+        </View>
+      ) : null}
+      {showPopup && <Popup subject={popupSubject} themeColors={themeColors} />}
     </View>
   );
 }

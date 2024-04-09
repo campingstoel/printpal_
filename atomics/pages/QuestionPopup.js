@@ -1,4 +1,4 @@
-import { View, TextInput, Image, TouchableOpacity, Text, KeyboardAvoidingView } from "react-native";
+import { View, TextInput, Image, TouchableOpacity, Text, KeyboardAvoidingView, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { questions } from "../../data/questions";
@@ -27,6 +27,7 @@ export default function QuestionPopUp({}) {
 <View
     style={[index.fullWidth, index.column, {height: height}]}
     >
+      <StatusBar backgroundColor={'black'} />
     <View style={[index.column, colors.bgBlack, index.fullWidth, {paddingHorizontal:20, height:50}]}>
         <Button
           onPress={() => {

@@ -39,4 +39,13 @@ export default {
         aboutUsDescription: 'Leer meer over ons',
         logOut: 'Uitloggen',
         logOutDescription: 'Log uit van je account',
+        logIn: 'Inloggen',
+        register: 'Registreren',
+        emailQuestion: 'Wat is je e-mail adres?',
+        fullNameQuestion: 'Wat is je volledige naam?',
+        fullName: 'Volledige naam',
+        passwordQuestion: 'Wat is je wachtwoord?',
+        password: 'Wachtwoord',
+        confirmPasswordQuestion: 'Bevestig je wachtwoord.',
+        confirmPassword: 'Bevestig wachtwoord',
 }

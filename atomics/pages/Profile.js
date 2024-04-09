@@ -13,6 +13,7 @@ import Popup from "../organisms/Popup";
 import darkmodeColors from "../../styles/darkmodecolors";
 import { useThemeState } from "../../scripts/themehandler";
 import colors from "../../styles/colors";
+import { useAccountState } from "../../scripts/accounthandler";
 
 
 const { height } = Dimensions.get('window');
@@ -23,6 +24,19 @@ export default function Profile() {
   const {showPopup, changePopupVisibility, popupSubject} = usePopupState();
   const {theme, changeTheme} = useThemeState();
   const themeColors = theme === 'Light mode' ? colors : darkmodeColors;
+  const {getProfileData} = useAccountState();
+  const [fullName, setFullName] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log(await getProfileData())
+    setFullName(await getProfileData())
+   
+    }
+    fetchData();
+  }
+  , []);
+
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
@@ -32,7 +46,7 @@ export default function Profile() {
   return (
     <View style={[index.wrapper, index.alignCenter, themeColors.bgWhite, {height:height}]}>
             <StatusBar backgroundColor={`${themeColors.bgWhite.backgroundColor}`} />
-        <ProfileHeader name={'Camryn Terlouw'} rating={'5.0'} profileType={'Customer'} themeColors={themeColors}/>
+        <ProfileHeader name={fullName} rating={'5.0'} profileType={'Customer'} themeColors={themeColors}/>
         <ScrollView>
         <ProfileStatistics  themeColors={themeColors} />
         <ProfileSettings themeColors={themeColors} />

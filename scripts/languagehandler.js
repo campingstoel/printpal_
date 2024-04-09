@@ -7,6 +7,7 @@ export const LanguageProvider = ({ children }) => {
     const [languageState, setLanguageState] = useState('idle');
     const [languageError, setLanguageError] = useState(null);
     const [translations, setTranslations] = useState(en);
+    const [languages, setLanguages] = useState(['en', 'nl']);
 
     
   const changeLanguage = async (language) => {

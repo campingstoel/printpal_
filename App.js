@@ -3,7 +3,11 @@ import Index from './atomics/pages/Index';
 import { useFonts } from 'expo-font';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
 
+
+
+SplashScreen.hideAsync();
 
 export default function App() {
 

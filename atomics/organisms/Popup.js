@@ -16,6 +16,9 @@ export default function Popup({subject, themeColors}) {
   const {language, changeLanguage} = useLanguageState();
   const {theme, changeTheme} = useThemeState();
   const {showPopup, changePopupVisibility, popupSubject} = usePopupState();
+  const [chatSettings, setChatSettings] = useState('Everyone');
+  const [locationSettings, setLocationSettings] = useState('Everyone');
+  const [profileSettings, setProfileSettings] = useState('Everyone');
 
     const { height } = useWindowDimensions();
     const navigation = useNavigation();
@@ -31,6 +34,50 @@ export default function Popup({subject, themeColors}) {
     {id: 2, theme: 'Dark mode'},
     {id: 3, theme: 'System default'},
   ];
+
+  const chattingOptions = [
+    {
+      id: 1,
+      title: 'Everyone',
+    },
+    {
+      id: 2,
+      title: 'Only I can start a chat',
+    },
+    {
+      id: 3,
+      title: 'No chat allowed',
+    }
+  ];
+
+  const locationOptions = [
+    {
+      id: 1,
+      title: 'Everyone',
+    },
+    {
+      id: 3,
+      title: 'Nobody',
+    }
+  ];
+
+  const profileOptions = [
+    {
+      id: 1,
+      title: 'Everyone',
+    },
+    {
+      id: 2,
+      title: 'Only people I chat with',
+    },
+    {
+      id: 3,
+      title: 'Nobody',
+    }
+
+  ];
+
+
 
 
 
@@ -74,9 +121,62 @@ export default function Popup({subject, themeColors}) {
                 {theme === option.theme ? <Icon icon="checkmark" iconColor={`${themeColors.bgBlack.backgroundColor}`} customSize={20} /> : null}
 
               </TouchableOpacity>
+            )
+            
+            )}
+          </View>
+        ) : 
+        
+        subject === 'Chatting' ? (
+          <View style={[index.fullWidth, index.column, index.alignCenter, index.justifyCenter, themeColors.bgWhite]}>
+            {chattingOptions.map((option) => (
+              <TouchableOpacity
+                key={option.id}
+                style={[index.fullWidth, index.row, index.spaceBetween, index.alignCenter, {height: 60, borderBottomWidth: 0.3, borderBottomColor: 'lightgrey', padding: 10}]}
+                onPress={() => {setChatSettings(option.title)}}
+              >
+                <Header style={[header.interMedium, header.semiBold, themeColors.black]} text={option.title} />
+                {chatSettings === option.title ? <Icon icon="checkmark" iconColor={`${themeColors.bgBlack.backgroundColor}`} customSize={20} /> : null}
+
+              </TouchableOpacity>
             ))}
           </View>
-        ) : null}
+        ) : 
+        subject === 'Location' ? (
+          <View style={[index.fullWidth, index.column, index.alignCenter, index.justifyCenter, themeColors.bgWhite]}>
+            {locationOptions.map((option) => (
+              <TouchableOpacity
+                key={option.id}
+                style={[index.fullWidth, index.row, index.spaceBetween, index.alignCenter, {height: 60, borderBottomWidth: 0.3, borderBottomColor: 'lightgrey', padding: 10}]}
+                onPress={() => {setLocationSettings(option.title)}}
+              >
+                <Header style={[header.interMedium, header.semiBold, themeColors.black]} text={option.title} />
+                {locationSettings === option.title ? <Icon icon="checkmark" iconColor={`${themeColors.bgBlack.backgroundColor}`} customSize={20} /> : null}
+
+              </TouchableOpacity>
+            ))}
+          </View>
+        ) : 
+        subject === 'Profile' ? (
+          <View style={[index.fullWidth, index.column, index.alignCenter, index.justifyCenter, themeColors.bgWhite]}>
+            {profileOptions.map((option) => (
+              <TouchableOpacity
+                key={option.id}
+                style={[index.fullWidth, index.row, index.spaceBetween, index.alignCenter, {height: 60, borderBottomWidth: 0.3, borderBottomColor: 'lightgrey', padding: 10}]}
+                onPress={() => {setProfileSettings(option.title)}}
+              >
+                <Header style={[header.interMedium, header.semiBold, themeColors.black]} text={option.title} />
+                {profileSettings === option.title ? <Icon icon="checkmark" iconColor={`${themeColors.bgBlack.backgroundColor}`} customSize={20} /> : null}
+
+              </TouchableOpacity>
+            ))}
+          </View>
+        ) : null
+        
+
+
+
+          }
         <Button text={"Close"} onPress={() => changePopupVisibility()} style={[index.fullWidth, index.alignCenter, index.justifyCenter, index.mt20, themeColors.bgBlack, {height: 50, borderRadius: 10}]} textStyle={themeColors.white} />
       </View>
 
