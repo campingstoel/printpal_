@@ -1,43 +1,58 @@
-export const filterNames = [
-    {
-        id: 1,
-        text: "A4 paper",
-        important: true,
-        image: require('../images/document.png'),
+import { useLanguageState } from "../scripts/languagehandler";
 
+export default function FilterNames() {
+  const { translations } = useLanguageState();
+  const filterNames = [
+    {
+      id: 1,
+      text: translations.a4Paper,
+      icon: "document-outline",
+      important: true,
+      image: require("../images/document.png"),
     },
     {
-        id: 2,
-        text: "A3 paper",
-        important: true,
-        image: require('../images/newspaper.png'),
+      id: 2,
+      text: translations.a3Paper,
+      icon: "newspaper-outline",
+      important: false,
+      image: require("../images/newspaper.png"),
     },
     {
-        id: 3,
-        text: "Poster",
-        important: false,
-        image: require('../images/poster-icon.png'),
+      id: 3,
+      icon: "color-palette-outline",
+      text: translations.color,
+      important: false,
+      image: require("../images/poster.png"),
+    },
+    {
+      id: 4,
+      text: translations.poster,
+      icon: "aperture-outline",
+      important: false,
+      image: require("../images/poster-icon.png"),
+    },
+    {
+      id: 5,
+      icon: "contrast-outline",
+      text: translations.blackAndWhite,
+      important: false,
+      image: require("../images/varnish.png"),
+    },
+    {
+      id: 6,
+      icon: "layers-outline",
+      text: translations.lamination,
+      important: false,
+      image: require("../images/lamination.png"),
+    },
+    {
+      id: 7,
+      icon: "book-outline",
+      text: translations.binding,
+      important: false,
+      image: require("../images/bookmark.png"),
+    },
+  ];
 
-        
-    },
-    {
-        id: 4,
-        text: "Color",
-        important: false,
-        image: require('../images/poster.png'),
-
-    },
-    {
-        id: 5,
-        text: "B&W",
-        important: false,
-        image: require('../images/varnish.png'),
-
-    },
-    {
-        id: 6,
-        text: "Lamination",
-        important: false,
-        image: require('../images/lamination.png'),
-    }
-];
+  return filterNames;
+}

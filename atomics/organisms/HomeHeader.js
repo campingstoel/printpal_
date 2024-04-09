@@ -1,24 +1,45 @@
-import { View, TextInput, Image, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import React, { useState } from "react";
+import {
+  View,
+  TextInput,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+  Text,
+  ImageBackground,
+} from "react-native";
+import React from "react";
 import header from "../../styles/header";
 import Header from "../atoms/Header";
 import homeheader from "../../styles/homeheader";
 import index from "../../styles";
+import HeaderNames from "../../data/headerNames";
+import Icon from "../atoms/Icon";
+import colors from "../../styles/colors";
 
-export default function HomeHeader({username, active}) {
-    
-    return (
-        <View style={[homeheader.wrapper, index.row]}>
-            <TouchableOpacity style={[homeheader.button, index.row, active== 'Printing' ? homeheader.active : null ]}>
-            <Image source={require('../../images/computer.png')} style={homeheader.image}/>
-            <Header text="Printing" style={[header.tiny, {color:'#a1a1a1'}, header.bold, active=='Printing' ? header.black : null]}/>
-            </TouchableOpacity>
-            <TouchableOpacity style={[homeheader.button, index.row]}>
-            <Image source={require('../../images/male-customer.png')} style={homeheader.image}/>
-            <Header text="Service" style={[header.tiny, {color:'#a1a1a1'}, header.bold, active=='Help' ? header.black : null]}/>
-            </TouchableOpacity>
+export default function HomeHeader({ headerText, headerImage, page, styles, translations, themeColors }) {
+  const headerNames = HeaderNames()
+  return (
+    <View style={[index.fullWidth, index.column, index.mb20, themeColors.bgWhite, styles]}>
+        <View style={[homeheader.header, index.fullWidth, index.column, index.justifyCenter, index.mt20, index.padHor20, {height:70}]}>
+          <Header
+            style={[header.small, header.bold, themeColors.black]}
+            text={headerText}
+          />
+          
         </View>
-        
-    );  
-    }
+        <View
+          style={[index.alignCenter, index.row, index.fullWidth, index.justifyCenter, index.mt30, index.flexWrap, index.padHor10, index.gap10, page == "Search" ? {marginTop:100} : null]
+             }
+        >
+          {
+            headerNames.map((item) => (
+              <TouchableOpacity key={item.id} style={[homeheader.filter, index.row, index.flexStart, index.alignCenter, index.padHor20, index.shadow, themeColors.bgButtonWhite, index.br50, index.gap10]}>
+                <Icon icon={item.icon} customSize={30} iconColor={`${themeColors.bgBlack.backgroundColor}`} />
+                <Header style={[header.smallest, header.semiBold, themeColors.black]} text={item.text} />
+              </TouchableOpacity>
+            ))
+        }
+        </View>
+    </View>
+  );
+}

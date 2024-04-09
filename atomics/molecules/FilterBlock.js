@@ -4,36 +4,39 @@ import { useNavigation } from "@react-navigation/native";
 import filterblock from "../../styles/filterblock";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
+import index from "../../styles";
+import colors from "../../styles/colors";
 
 export default function FilterBlock({
-  style,
+  styles,
   text,
   onPress,
   image,
   important,
+  themeColors,
 }) {
   const navigation = useNavigation();
 
   return (
     <TouchableOpacity
-      style={[filterblock.wrapper, important ? filterblock.important : null]}
+      style={[filterblock.wrapper, index.column, themeColors.bgGrey, index.br10, index.pad5, important ? filterblock.important : null, styles]}
       onPress={onPress}
     >
-      <View style={[filterblock.container, important ? filterblock.big : null]}>
+      <View style={[index.column, index.alignCenter, index.fullFlex, index.flexEnd, important ? [filterblock.big, index.row, index.spaceBetween] : null]}>
         {important ? (
-          <Header text={text} style={[header.semiBold, header.paragraph]} />
+          <Header text={text} style={[header.semiBold, header.paragraph, themeColors.black]} />
         ) : null}
         {filterblock.image ? (
           <Image
             source={image}
-            style={[filterblock.image, important ? filterblock.imageBig : null]}
+            style={[filterblock.image, index.lgImg, index.mb10, important ? filterblock.imageBig : null]}
           />
         
           
         ) : null}
         {
           !important ? (
-            <Header text={text} style={[header.semiBold, header.smallest]} />
+            <Header text={text} style={[header.bold, header.smallest, themeColors.black]} />
           ) : null
         
         }

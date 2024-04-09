@@ -1,32 +1,24 @@
 import { StyleSheet } from "react-native";
 
-const homeheader =  StyleSheet.create({
+const homeheader = StyleSheet.create({
+  filter: {
+    height: 50,
+    width: "45%",
+  },
+  searchFilter: {
+    height: 50,
+    width: "25%",
+  },
 
-    wrapper : {
-        backgroundColor: 'white',
-        height:100,
-        width:'100%',
-        marginTop: 50,
-        alignItems:'center',
-        paddingHorizontal:40,
-        gap:20,
-        justifyContent:'center'
+  imageBackground: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    resizeMode: "contain",
+    objectFit: "cover",
+  },
 
-    },
-    button : {
-        alignItems:'center',
-        gap:5
 
-    },
-    image : {
-        maxWidth:40,
-        maxHeight:40,
-        resizeMode:'contain'
-    },
-    active :{
-        borderBottomWidth: 2,
-        borderBottomColor: 'black',
-    }
-})
+});
 
-export default homeheader
+export default homeheader;
