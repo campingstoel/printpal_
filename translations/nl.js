@@ -23,7 +23,7 @@ export default {
             home: 'Home',
             search: 'Zoeken',
             map: 'Kaart',
-            chat: 'Chat',
+            chats: 'Chats',
             profile: 'Profiel',
         },
         services: {

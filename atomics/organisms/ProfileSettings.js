@@ -46,7 +46,7 @@ import {
                     },
                     ]}
                     key={setting.id}
-                    onPress={setting.dataTitle === 'Business Profile' ? () => {  navigation.navigate('Question') } : setting.onPress === 'popup' ? () => {changePopupVisibility(setting.dataTitle) } : setting.onPress === 'logout' ? () => {appSignOut() }: () => {navigation.navigate('Settings', {settingName: setting.dataTitle}) }}
+                    onPress={setting.dataTitle === 'Business Profile' ? () => {  navigation.navigate('Question') } : setting.onPress === 'popup' ? () => {changePopupVisibility(setting.dataTitle) } : setting.onPress === 'logout' ? () => {appSignOut() }: setting.onPress }
                 >
                     <View style={[index.row, index.gap10, index.alignCenter]}>
                     <Icon icon={setting.icon} customSize={20} iconColor={`${themeColors.bgBlack.backgroundColor}`} />

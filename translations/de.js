@@ -23,7 +23,7 @@ export default {
         home: 'Startseite',
         search: 'Suche',
         map: 'Karte',
-        chat: 'Chat',
+        chats: 'Chats',
         profile: 'Profil',
     },
     services: {

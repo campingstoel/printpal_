@@ -18,7 +18,7 @@ const storiesData = [
     },
     {
         id: 2,
-        title: "How SecurePay works",
+        title: "How PrintSafe",
         description: "We have a secure payment system",
         image: {
             uri: images.find((image) => image.includes("secure"))

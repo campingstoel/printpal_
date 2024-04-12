@@ -1,4 +1,6 @@
 import { useLanguageState } from "../scripts/languagehandler";
+import * as WebBrowser from 'expo-web-browser'
+
 
 export default function ProfileSettings () {
     const { translations } = useLanguageState();
@@ -47,6 +49,8 @@ const profileSettingsList = [
         dataTitle: "About Us",
         subTitle: translations.profile.aboutUsDescription,
         icon: 'information-circle',
+        onPress: () => WebBrowser.openBrowserAsync('https://www.printpal.app/about-us')
+        
 
     },
 

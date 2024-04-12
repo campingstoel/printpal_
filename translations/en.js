@@ -23,7 +23,7 @@ export default {
         home: 'Home',
         search: 'Search',
         map: 'Map',
-        chat: 'Chat',
+        chats: 'Chats',
         profile: 'Profile',
     },
     services: {
