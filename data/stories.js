@@ -1,10 +1,18 @@
-export const storiesData = [
+import { imageStore } from "../auth/store";
+
+export default function StoriesList() {
+  const {images} = imageStore.useState();
+
+const storiesData = [
 
     {
         id: 1,
         title: "Find printshops easier",
         description: "Take a look on the map",
-        image: require("../images/mapstory.png"),
+        image: {
+          uri: images.find((image) => image.includes("map"))
+        
+        },
         onPress: "Map",
         active : true
     },
@@ -12,8 +20,14 @@ export const storiesData = [
         id: 2,
         title: "How SecurePay works",
         description: "We have a secure payment system",
-        image: require("../images/mapstory.png"),
+        image: {
+            uri: images.find((image) => image.includes("secure"))
+        },
         onPress: "Story",
         active : true
     },
 ]
+
+return storiesData;
+}
+

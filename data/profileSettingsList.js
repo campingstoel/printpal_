@@ -5,55 +5,56 @@ export default function ProfileSettings () {
 const profileSettingsList = [
     {
         id: 2,
-        title: translations.appearance,
+        title: translations.profile.appearance,
         dataTitle: "Appearance",
-        subTitle: "Change the app theme",
+        subTitle: translations.profile.appearanceDescription,
         icon: 'color-palette',
         onPress: 'popup'
     },
     {
         id: 3,
-        title: translations.language,
+        title: translations.profile.language,
         dataTitle: "Language",
-        subTitle: "Change the app language",
+        subTitle: translations.profile.languageDescription,
         icon: 'globe',
         onPress: 'popup'
     },
     {
         id: 4,
-        title: translations.businessProfile,
+        title: translations.profile.businessProfile,
         dataTitle: "Business Profile",
-        subTitle: "Set up your business profile",
+        subTitle: translations.profile.businessProfileDescription,
         icon: 'briefcase',
     },
     
     {
         id: 5,
-        title: translations.privacy,
+        title: translations.profile.privacy,
         dataTitle: "Privacy",
-        subTitle: "Manage your privacy settings",
+        subTitle: translations.profile.privacyDescription,
         icon: 'lock-closed',
     },
     {
         id: 6,
-        title: translations.contactUs,
+        title: translations.profile.contactUs,
         dataTitle: "Contact Us",
-        subTitle: "Get in touch with us",
+        subTitle: translations.profile.contactUsDescription,
         icon: 'mail',
     },
     {
         id: 7,
-        title: translations.aboutUs,
+        title: translations.profile.aboutUs,
         dataTitle: "About Us",
-        subTitle: "Learn more about us",
+        subTitle: translations.profile.aboutUsDescription,
         icon: 'information-circle',
 
     },
 
     {
         id: 8,
-        title: translations.logOut,
-        subTitle: "Log out of your account",
+        title: translations.profile.logOut,
+        dataTitle: "Log Out",
+        subTitle: translations.profile.logOutDescription,
         icon: 'log-out',
     },
 

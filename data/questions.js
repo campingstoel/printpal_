@@ -1,103 +1,129 @@
-export const questions = [
+
+import { useLanguageState } from "../scripts/languagehandler";
+import { imageStore } from "../auth/store";
+
+export default function QuestionsList() {
+  const {images} = imageStore.useState();
+  const { translations } = useLanguageState();
+
+
+const questions = [
   {
     id: 1,
-    title: "Welcome to your PrintPal Business!",
+    title: translations.questionnaire.welcomeTitle,
     question:
-      "Tell us your name and let's get started with your business profile.",
+      translations.questionnaire.welcomeDescription,
     questionType: "Open",
-    placeholder: "Your name",
+    placeholder: translations.questionnaire.nameLabel,
     objectSubType: "name",
     maxLength: 20,
     falseAction: "Please enter a valid name.",
-    image: require("../images/name.png"),
+    image: {uri:
+      images.find((image) => image.includes("name"))
+    },
   },
   {
     id: 2,
-    title: "Business Name",
+    title: translations.questionnaire.businessNameTitle,
     question:
-      "This is the name that will be shown to your customers. What will be your business name?",
+      translations.questionnaire.businessNameDescription,
     questionType: "Open",
-    placeholder: "Business name",
+    placeholder: translations.questionnaire.businessNameLabel,
     objectSubType: "businessName",
     maxLength: 20,
-    falseAction: "Please enter a valid business name.",
-    image: require("../images/business.png"),
+    falseAction: translations.questionnaire.businessNameFalseAction,
+    image : {
+      uri: images.find((image) => image.includes("business")),
+    },
   },
   {
     id: 3,
-    title: "Contact E-mail",
-    question: "We will use this e-mail to contact you. What is your e-mail?",
+    title: translations.questionnaire.contactEmailTitle,
+    question: translations.questionnaire.contactEmailDescription,
     questionType: "Open",
-    placeholder: "E-mail",
+    placeholder: translations.questionnaire.contactEmailLabel,
     objectSubType: "email",
     maxLength: 64,
-    falseAction: "Please enter a valid e-mail address.",
-    image: require("../images/email.png"),
+    falseAction: translations.questionnaire.contactEmailFalseAction,
+    image : {
+      uri: images.find((image) => image.includes("email")),
+    },
   },
   {
     id: 4,
-    title: "Location Services",
+    title: translations.questionnaire.locationServicesTitle,
     question:
-      "We use location services to make potential customers find you. Do you allow location services?",
+      translations.questionnaire.locationServicesDescription,
     objectSubType: "locationServices",
     questionType: "true/false",
     falseAction:
-      "Please make sure location services are enabled. If you are still having trouble, please contact us.",
-    image: require("../images/location.png"),
+      translations.questionnaire.locationServicesFalseAction,
+      image : {
+        uri: images.find((image) => image.includes("location")),
+      },
   },
   {
     id: 5,
-    title: "Location Correctness",
-    question: "Is this address correct? (within 100 meter radius)",
+    title: translations.questionnaire.locationCorrectnessTitle,
+    question: translations.questionnaire.locationCorrectnessDescription,
     questionType: "Map",
     objectSubType: "locationCorrectness",
     falseAction:
-      "Please make sure no VPN is active and make sure you are at the location. If you are not at the location, please close the app and try again later. If you are at the location, please make sure location services are enabled. If you are still having trouble, please contact us.",
+      translations.questionnaire.locationCorrectnessFalseAction,
   },
   {
     id: 6,
-    title: "Location Visibility",
-    question: "Do you want your location to appear on the map?",
+    title: translations.questionnaire.locationVisibilityTitle,
+    question: translations.questionnaire.locationVisibilityDescription,
     questionType: "true/false",
     objectSubType: "locationVisibility",
-    image: require("../images/location.png"),
+    image : {
+      uri: images.find((image) => image.includes("location")),
+    },
   },
   {
     id: 7,
-    title: "Printing Services",
-    question: "What printing services do you offer?",
+    title: translations.questionnaire.printingServicesTitle,
+    question: translations.questionnaire.printingServicesDescription,
     questionType: "Multiple",
-    answers: ["A4", "A3", "Color", "B&W", "Lamination", "Poster"],
+    answers: [translations.questionnaire.printingServicesAnswers.a4, translations.questionnaire.printingServicesAnswers.a3, translations.questionnaire.printingServicesAnswers.color, translations.questionnaire.printingServicesAnswers.blackAndWhite, translations.questionnaire.printingServicesAnswers.poster, translations.questionnaire.printingServicesAnswers.binding, translations.questionnaire.printingServicesAnswers.lamination],
     objectSubType: "services",
-    falseAction: "Please select at least one service.",
-    image: require("../images/services.png"),
+    falseAction: translations.questionnaire.printingServicesFalseAction,
+    image : {
+      uri: images.find((image) => image.includes("services")),
+    },
   },
   {
     id: 8,
-    title: "Availability",
-    question: "What will be your availability?",
+    title: translations.questionnaire.availabilityTitle,
+    question: translations.questionnaire.availabilityDescription,
     questionType: "Multiple",
     answers: [
-      "monday",
-      "tuesday",
-      "wednesday",
-      "thursday",
-      "friday",
-      "saturday",
-      "sunday",
+      translations.questionnaire.availabilityAnswers.monday,
+      translations.questionnaire.availabilityAnswers.tuesday,
+      translations.questionnaire.availabilityAnswers.wednesday,
+      translations.questionnaire.availabilityAnswers.thursday,
+      translations.questionnaire.availabilityAnswers.friday,
+      translations.questionnaire.availabilityAnswers.saturday,
+      translations.questionnaire.availabilityAnswers.sunday,
+
     ],
     objectSubType: "availability",
-    falseAction: "Please select at least one day.",
-    image: require("../images/business.png"),
+    falseAction: translations.questionnaire.availabilityFalseAction,
+    image : {
+      uri: images.find((image) => image.includes("business")),
+    },
   },
   {
     id: 9,
-    title: "In-App Messaging",
-    question: "Do you allow in-app messaging?",
+    title: translations.questionnaire.inAppMessagingTitle,
+    question: translations.questionnaire.inAppMessagingDescription,
     questionType: "true/false",
     objectSubType: "Messaging",
     falseAction: "",
-    image: require("../images/messaging.png"),
+    image : {
+      uri: images.find((image) => image.includes("messaging")),
+    },
   },
   {
     id: 11,
@@ -105,6 +131,12 @@ export const questions = [
     question:
       "We will handle your request as soon as possible. Untill then, you will be able to access customer app features.",
     questionType: "Confirm",
-    image: require("../images/name.png"),
+    image : {
+      uri: images.find((image) => image.includes("name")),
+    },
   },
-];
+]
+
+return questions;
+}
+

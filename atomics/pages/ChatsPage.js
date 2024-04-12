@@ -34,7 +34,7 @@ export default function ChatsPage() {
             <StatusBar backgroundColor={`${themeColors.bgWhite.backgroundColor}`}/>
             
       <View style={[index.padHor20, themeColors.bgWhite]}>
-      <Header text={accountType == 'Customer' ? 'Chat with nearby print shops' : 'Chat with your customers'} style={[header.bold, header.medium, index.mt20, themeColors.black]} />
+      <Header text={accountType == 'Customer' ? translations.chats.titleCustomer : translations.chats.titleBusiness} style={[header.bold, header.medium, index.mt20, themeColors.black]} />
 
         <ScrollView showsVerticalScrollIndicator={false}>
         </ScrollView>

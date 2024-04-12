@@ -44,8 +44,8 @@ export default function Search() {
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }
       style={[index.fullWidth, index.padHor20]}>
-      <Header text='Search' style={[header.bold, header.large, index.mt20, themeColors.black]} />
-      <Filters page='Search' styles={{paddingHorizontal:0}} themeColors={themeColors} />
+      <Header text={translations.navigation.search} style={[header.bold, header.large, index.mt20, themeColors.black]} />
+      <Filters page='Search' styles={{paddingHorizontal:0}} themeColors={themeColors} translations={translations} />
             <SearchBar styles={{marginTop: 20, padding:0}} translations={translations} themeColors={themeColors}/>
             <Header text='Printshops' style={[header.bold, header.tiny, index.mt20, themeColors.black]} />
       <ListView themeColors={themeColors} />

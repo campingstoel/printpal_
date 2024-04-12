@@ -38,7 +38,7 @@ export default function Profile() {
         <ProfileSettings themeColors={themeColors} translations={translations} />
         </ScrollView>
       <Navbar page="Profile" themeColors={themeColors} />
-      {showPopup && <Popup subject={popupSubject} themeColors={themeColors} />}
+      {showPopup && <Popup subject={popupSubject} themeColors={themeColors} translations={translations} />}
     </View>
   );
 

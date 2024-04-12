@@ -7,7 +7,7 @@ export default function FilterNames() {
   const filterNames = [
     {
       id: 1,
-      text: translations.a4Paper,
+      text: translations.services.a4Paper,
       icon: "document-outline",
       important: true,
       image: {uri:
@@ -16,7 +16,7 @@ export default function FilterNames() {
     },
     {
       id: 2,
-      text: translations.a3Paper,
+      text: translations.services.a3Paper,
       icon: "newspaper-outline",
       important: false,
       image: {
@@ -26,7 +26,7 @@ export default function FilterNames() {
     {
       id: 3,
       icon: "color-palette-outline",
-      text: translations.color,
+      text: translations.services.color,
       important: false,
       image: {
         uri: images.find((image) => image.includes("color")),
@@ -34,7 +34,7 @@ export default function FilterNames() {
     },
     {
       id: 4,
-      text: translations.poster,
+      text: translations.services.poster,
       icon: "aperture-outline",
       important: false,
       image: {
@@ -44,7 +44,7 @@ export default function FilterNames() {
     {
       id: 5,
       icon: "contrast-outline",
-      text: translations.blackAndWhite,
+      text: translations.services.blackAndWhite,
       important: false,
       image: {
         uri: images.find((image) => image.includes("varnish")),
@@ -53,7 +53,7 @@ export default function FilterNames() {
     {
       id: 6,
       icon: "layers-outline",
-      text: translations.lamination,
+      text: translations.services.lamination,
       important: false,
       image: {
         uri: images.find((image) => image.includes("lamination")),
@@ -63,7 +63,7 @@ export default function FilterNames() {
     {
       id: 7,
       icon: "book-outline",
-      text: translations.binding,
+      text: translations.services.binding,
       important: false,
       image: {
         uri: images.find((image) => image.includes("bookmark")),

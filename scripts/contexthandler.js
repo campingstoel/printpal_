@@ -15,17 +15,17 @@ export const ContextHandlerProvider = ({ children }) => {
   return (
     <AccountProvider>
       <RegistrationProvider>
-        <LocationProvider>
-          <AnswerProvider>
-            <LanguageProvider>
-              <ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider>
+            <LocationProvider>
+              <AnswerProvider>
                 <PopupProvider>
                   <QuestionHandlerProvider>{children}</QuestionHandlerProvider>
                 </PopupProvider>
-              </ThemeProvider>
-            </LanguageProvider>
-          </AnswerProvider>
-        </LocationProvider>
+              </AnswerProvider>
+            </LocationProvider>
+          </ThemeProvider>
+        </LanguageProvider>
       </RegistrationProvider>
     </AccountProvider>
   );

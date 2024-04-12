@@ -28,7 +28,7 @@ import {
           >
             <Header
               style={[header.tiny, header.semiBold, themeColors.black]}
-              text={translations.printPalSettings}
+              text={translations.profile.printPalSettings}
             />
             {profileSettingsList.map((setting) => (
                 <TouchableOpacity
