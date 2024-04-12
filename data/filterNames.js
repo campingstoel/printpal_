@@ -1,56 +1,75 @@
-export const filterNames = [
-    {
-        id: 1,
-        text: "A4 paper",
-        icon: 'document-outline',
-        important: true,
-        image: require('../images/document.png'),
+import { useLanguageState } from "../scripts/languagehandler";
+import { imageStore } from "../auth/store";
 
+export default function FilterNames() {
+  const { translations } = useLanguageState();
+  const {images} = imageStore.useState();
+  const filterNames = [
+    {
+      id: 1,
+      text: translations.services.a4Paper,
+      icon: "document-outline",
+      important: true,
+      image: {uri:
+        images.find((image) => image.includes("document"))
+      },
     },
     {
-        id: 2,
-        text: "A3 paper",
-        icon: 'newspaper-outline',
-        important: false,
-        image: require('../images/newspaper.png'),
+      id: 2,
+      text: translations.services.a3Paper,
+      icon: "newspaper-outline",
+      important: false,
+      image: {
+        uri: images.find((image) => image.includes("newspaper")),
+      },
     },
     {
-        id: 3,
-        text: "Poster",
-        icon: 'aperture-outline',
-        important: false,
-        image: require('../images/poster-icon.png'),
+      id: 3,
+      icon: "color-palette-outline",
+      text: translations.services.color,
+      important: false,
+      image: {
+        uri: images.find((image) => image.includes("color")),
+      },
+    },
+    {
+      id: 4,
+      text: translations.services.poster,
+      icon: "aperture-outline",
+      important: false,
+      image: {
+        uri: images.find((image) => image.includes("poster")),
+      },
+    },
+    {
+      id: 5,
+      icon: "contrast-outline",
+      text: translations.services.blackAndWhite,
+      important: false,
+      image: {
+        uri: images.find((image) => image.includes("varnish")),
+      },
+    },
+    {
+      id: 6,
+      icon: "layers-outline",
+      text: translations.services.lamination,
+      important: false,
+      image: {
+        uri: images.find((image) => image.includes("lamination")),
+      
+      },
+    },
+    {
+      id: 7,
+      icon: "book-outline",
+      text: translations.services.binding,
+      important: false,
+      image: {
+        uri: images.find((image) => image.includes("bookmark")),
+      },
+    },
+  ];
 
-        
-    },
-    {
-        id: 4,
-        icon: 'color-palette-outline',
-        text: "Color",
-        important: false,
-        image: require('../images/poster.png'),
-
-    },
-    {
-        id: 5,
-        icon: 'contrast-outline',
-        text: "B&W",
-        important: false,
-        image: require('../images/varnish.png'),
-
-    },
-    {
-        id: 6,
-        icon: 'layers-outline',
-        text: "Lamination",
-        important: false,
-        image: require('../images/lamination.png'),
-    },
-    {
-        id: 7,
-        icon: 'book-outline',
-        text: "Binding",
-        important: false,
-        image: require('../images/bookmark.png'),
-    },
-];
+  return filterNames;
+}

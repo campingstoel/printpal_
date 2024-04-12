@@ -1,21 +1,31 @@
-export const profileButtons = [
+import { useLanguageState } from "../scripts/languagehandler";
+
+export default function ProfileButtons() {
+    const { translations } = useLanguageState();   
+    const profileButtons = [
     {
         id: 2,
-        text: "Help",
+        text: translations.profile.help,
+        dataTitle: "Help",
         icon: 'help-buoy',
     },
     {
         id: 3,
-        text: "Wallet",
+        text: translations.profile.wallet,
+        dataTitle: "Wallet",
         icon: 'card',
 
         
     },
     {
         id: 4,
-        text: "Activity",
+        text: translations.profile.activity,
+        dataTitle: "Activity",
         icon: 'time',
 
     },
+]
+return profileButtons;
 
-];
+
+};

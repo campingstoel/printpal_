@@ -1,14 +1,19 @@
-import { View } from "react-native";
+import { View, StatusBar } from "react-native";
 import Navbar from "../molecules/Navbar";
 import index from "../../styles/index";
 import { Dimensions } from "react-native";
 import Mapbox from "../atoms/Mapbox";
-const { height } = Dimensions.get("window");
 import { useLocationState } from "../../scripts/location";
 import { useEffect } from "react";
+import { useThemeState } from "../../scripts/themehandler";
+import colors from "../../styles/colors";
+import darkmodeColors from "../../styles/darkmodecolors";
+const { height } = Dimensions.get("window");
 
 export default function Map() {
     const { location, getLocation } = useLocationState();
+    const {theme, changeTheme} = useThemeState();
+    const themeColors = theme === 'Light mode' ? colors : darkmodeColors;
 
     
     useEffect(() => {
@@ -29,7 +34,7 @@ return (
 location={location}
 style={{ flex: 1, borderRadius: 0 }}
      />
-    <Navbar page="Home" />
+    <Navbar page={'Home'} themeColors={themeColors} />
   </View>
     : null
 );

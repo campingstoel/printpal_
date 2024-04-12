@@ -13,6 +13,9 @@ const header =  StyleSheet.create({
     tiny : {
         fontSize: 20,
     },
+    interMedium : {
+        fontSize: 17,
+    },
     paragraph : {
         fontSize: 15,
     },

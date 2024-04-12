@@ -11,6 +11,15 @@ const colors =  StyleSheet.create({
     bgNavyBlue : {
         backgroundColor: '#0d1743',
     },
+    bgGrey : {
+        backgroundColor: '#f3f3f3',
+    },
+
+    bgButtonWhite : {
+        backgroundColor: 'white',
+    },
+    
+
     black : {
         color: 'black',
     },

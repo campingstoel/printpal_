@@ -8,6 +8,7 @@ export const LocationProvider = ({ children }) => {
     const [locationState, setLocationState] = useState('idle');
     const [locationError, setLocationError] = useState(null);
 
+
     const getLocation = async () => {
         let { status } = await Location.requestForegroundPermissionsAsync();
         if (status !== 'granted') {
