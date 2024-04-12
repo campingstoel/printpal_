@@ -56,6 +56,7 @@ const profileSettingsList = [
         dataTitle: "Log Out",
         subTitle: translations.profile.logOutDescription,
         icon: 'log-out',
+        onPress: 'logout'
     },
 
 
