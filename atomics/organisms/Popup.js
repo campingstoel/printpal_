@@ -12,7 +12,7 @@ import Icon from "../atoms/Icon";
 import Button from "../atoms/Button";
 
 
-export default function Popup({subject, themeColors}) {
+export default function Popup({subject, themeColors, translations}) {
   const {language, changeLanguage} = useLanguageState();
   const {theme, changeTheme} = useThemeState();
   const {showPopup, changePopupVisibility, popupSubject} = usePopupState();
@@ -24,15 +24,15 @@ export default function Popup({subject, themeColors}) {
     const navigation = useNavigation();
   
   const languageOptions = [
-    {id: 1, language: 'English', abbreviation: 'en'},
-    {id: 2, language: 'Dutch', abbreviation: 'nl'},
-    {id: 3, language: 'German', abbreviation: 'de'},
+    {id: 1, language: translations.languageOptions.english, abbreviation: 'en'},
+    {id: 2, language: translations.languageOptions.dutch, abbreviation: 'nl'},
+    {id: 3, language: translations.languageOptions.german, abbreviation: 'de'},
   ];
 
   const themeOptions = [
-    {id: 1, theme: 'Light mode'},
-    {id: 2, theme: 'Dark mode'},
-    {id: 3, theme: 'System default'},
+    {id: 1, theme: translations.themeOptions.light},
+    {id: 2, theme: translations.themeOptions.dark},
+    {id: 3, theme: translations.themeOptions.systemDefault},
   ];
 
   const chattingOptions = [

@@ -10,7 +10,7 @@ import header from "../../styles/header";
 import { imageStore } from "../../auth/store";
 import ShimmerPlaceHolder from "../atoms/Shimmer";
 
-export default function Filters({ page, styles, themeColors }) {
+export default function Filters({ page, styles, themeColors, translations }) {
   const filterNames = FilterNames();
   const filterProps =
     page == "Home" ? filterNames.slice(0, 5) : filterNames.slice(0, 3);
@@ -53,7 +53,7 @@ export default function Filters({ page, styles, themeColors }) {
       ) : 
 
       <View style={[index.spaceBetween, index.row, index.flexWrap, index.fullWidth]}>
-        <Header text='Suggested' style={[index.fullWidth, header.tiny, header.bold, index.mb20, index.mt20, themeColors.black]} />
+        <Header text={translations.search.suggested} style={[index.fullWidth, header.tiny, header.bold, index.mb20, index.mt20, themeColors.black]} />
         {filterProps.map((item) => (
           loadedImages ?
           <FilterBlock

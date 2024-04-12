@@ -5,13 +5,13 @@ export default function ProfileButtons() {
     const profileButtons = [
     {
         id: 2,
-        text: translations.help,
+        text: translations.profile.help,
         dataTitle: "Help",
         icon: 'help-buoy',
     },
     {
         id: 3,
-        text: translations.wallet,
+        text: translations.profile.wallet,
         dataTitle: "Wallet",
         icon: 'card',
 
@@ -19,7 +19,7 @@ export default function ProfileButtons() {
     },
     {
         id: 4,
-        text: translations.activity,
+        text: translations.profile.activity,
         dataTitle: "Activity",
         icon: 'time',
 

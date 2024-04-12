@@ -1,7 +1,7 @@
 import { View, TextInput, Image, TouchableOpacity, Text, KeyboardAvoidingView, StatusBar } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { questions } from "../../data/questions";
+import QuestionsList from "../../data/questions";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
 import Answers from "../molecules/Answers";
@@ -15,7 +15,7 @@ import button from "../../styles/button";
 import colors from "../../styles/colors";
 
 export default function QuestionPopUp({}) {
-  const questionProps = questions;
+  const questionProps = QuestionsList();
   const { questionNumber, allAnswers} =
     useAnswerState();
   const { height } = useWindowDimensions();

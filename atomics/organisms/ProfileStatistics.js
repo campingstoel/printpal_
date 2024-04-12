@@ -83,11 +83,11 @@ import {
               <View style={[index.column]}>
                 <Header
                   style={[header.tiny, header.semiBold, themeColors.black]}
-                  text={translations.profileCompletion}
+                  text={translations.profile.profileCompletion}
                 />
                 <Header
                   style={[header.smallest, themeColors.grey]}
-                  text={translations.profileCompletionDescription}
+                  text={translations.profile.profileCompletionDescription}
                 />
               </View>
             </TouchableOpacity>

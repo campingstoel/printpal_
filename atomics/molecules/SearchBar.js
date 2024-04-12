@@ -24,7 +24,7 @@ export default function SearchBar({ styles, iconStyles, translations, themeColor
             color: `${themeColors.bgBlack.backgroundColor}`,
             fontSize: 12,
           }}
-          placeholder= {translations.searchPlaceholder}
+          placeholder= {translations.search.placeholder}
           placeholderTextColor={`${themeColors.bgBlack.backgroundColor}`}
           value={search}
           onChangeText={setSearch}

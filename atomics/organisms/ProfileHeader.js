@@ -11,10 +11,14 @@ import Icon from "../atoms/Icon";
 import colors from "../../styles/colors";
 import Button from "../atoms/Button";
 import button from "../../styles/button";
+import { imageStore, AuthStore } from "../../auth/store";
+import { useState } from "react";
 
 
 export default function ProfileHeader({ name, rating, themeColors }) {
   const navigation = useNavigation();
+  const {images, loadedImages} = imageStore.useState();
+  const {fullName, profileImage} = AuthStore.useState();
 
   return (
     <View style={[index.column, index.fullWidth, index.mb20]}>
@@ -50,7 +54,7 @@ export default function ProfileHeader({ name, rating, themeColors }) {
         >
           <Header style={[header.medium, header.bold, themeColors.black]} text={name} />
           <Image
-            source={require("../../images/profile.png")}
+            source={profileImage ? {uri: profileImage} : {uri: images.find((image) => image.includes("profile"))}}
             style={[index.br50, index.xxlImg]}
           />
         </View>

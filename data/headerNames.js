@@ -6,27 +6,27 @@ export default function HeaderNames() {
   const headerNames = [
     {
       id: 1,
-      text: translations.printing,
+      text: translations.filters.printing,
       icon: "print-outline",
       onPress: "Printshops",
     },
     {
       id: 2,
-      text: translations.binding,
+      text: translations.filters.binding,
       icon: "book-outline",
       onPress: "Printshops",
       filter: "Binding",
     },
     {
       id: 3,
-      text: translations.lamination,
+      text: translations.filters.lamination,
       icon: "layers-outline",
       onPress: "Printshops",
       filter: "Lamination",
     },
     {
       id: 4,
-      text: translations.payments,
+      text: translations.filters.payments,
       icon: "card-outline",
       onPress: "Payments",
     },

@@ -135,17 +135,16 @@ const getImages = async () => {
     const imagesList = await listAll(imagesRef);
 
     await Promise.all(imagesList.items.map(async (itemRef) => {
-        const url = await getDownloadURL(itemRef); // Use getDownloadURL
+        const url = await getDownloadURL(itemRef); 
         images.push(url);
     }));
 
-    imageStore.update(s => {
-        s.images = images;
-        s.loadedImages = true;
-    })
-
-
-    // You now have all the image URLs in the `images` array
+    setTimeout(() => {
+        imageStore.update(s => {
+            s.images = images;
+            s.loadedImages = true;
+        })
+    }, 2000)
 }
 getImages();
 

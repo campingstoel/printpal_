@@ -2,16 +2,17 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import stories from "../../styles/stories";
-import { storiesData } from "../../data/stories";
 import Icon from "../atoms/Icon";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
 import { ScrollView } from "react-native-gesture-handler";
 import index from "../../styles";
 import colors from "../../styles/colors";
+import StoriesList from "../../data/stories";
 
 export default function Stories({translations, themeColors}) {
   const navigation = useNavigation();
+  const storiesData = StoriesList();
 
   return (
     <View
@@ -22,7 +23,7 @@ export default function Stories({translations, themeColors}) {
         themeColors.bgWhite,
       ]}
     >
-      <Header style={[header.bold, header.tiny, themeColors.black]} text={translations.storyHeaderTitle} />
+      <Header style={[header.bold, header.tiny, themeColors.black]} text={translations.story.title} />
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {storiesData.map((story) => (
           <View

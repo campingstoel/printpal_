@@ -45,7 +45,7 @@ export default function Home() {
     <View style={[index.wrapper, index.alignCenter, themeColors.bgWhite, {height:height}]}>
             <StatusBar backgroundColor={`${themeColors.bgWhite.backgroundColor}`}/>
             
-      <HomeHeader headerText={translations.homeHeaderTitle} page={'Home'} translations={translations} themeColors={themeColors} />
+      <HomeHeader headerText={translations.home.title} page={'Home'} translations={translations} themeColors={themeColors} />
 
       <View style={[index.body, index.padHor20, themeColors.bgWhite]}>
 

@@ -21,6 +21,7 @@ import colors from "../../styles/colors";
 import darkmodeColors from "../../styles/darkmodecolors";
 import { usePopupState } from "../../scripts/popuphandler";
 import Popup from "../organisms/Popup";
+import { Linking } from 'react-native'
 
 export default function Settings({ params }) {
   const route = useRoute();
@@ -29,6 +30,7 @@ export default function Settings({ params }) {
   const { theme, changeTheme } = useThemeState();
   const themeColors = theme === "Light mode" ? colors : darkmodeColors;
   const { showPopup, changePopupVisibility, popupSubject } = usePopupState();
+  const aboutUsLink = "https://www.google.com";
 
   const { height } = useWindowDimensions();
   const navigation = useNavigation();
@@ -104,6 +106,16 @@ export default function Settings({ params }) {
     );
   };
 
+  const openInAppBrowser = async (url) => { 
+    try {
+      await WebBrowser.openBrowserAsync(url);
+
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <View
       style={[
@@ -145,6 +157,7 @@ export default function Settings({ params }) {
           {optionsField("Privacy")}
         </View>
       ) : null}
+    
       {showPopup && <Popup subject={popupSubject} themeColors={themeColors} />}
     </View>
   );

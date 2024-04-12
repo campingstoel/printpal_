@@ -1,11 +1,12 @@
 // questionContext.js
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { questions } from '../data/questions';
+import QuestionsList from '../data/questions';
 
 const AnswerContext = createContext();
 
 export const AnswerProvider = ({ children }) => {
     const [questionNumber, setQuestionNumber] = useState(1);
+    const questions = QuestionsList();
     const [finished, setFinished] = useState(false);
     const [progressText, setProgressText] = useState('Lets begin...')
     const progressMessages = [
