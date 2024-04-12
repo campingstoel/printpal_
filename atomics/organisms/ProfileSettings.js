@@ -9,12 +9,13 @@ import {
   import index from "../../styles";
   import Icon from "../atoms/Icon";
   import colors from "../../styles/colors";
-  import { profileSettingsList } from "../../data/profileSettingsList";
+  import profileSettings from "../../data/profileSettingsList";
   import { usePopupState } from "../../scripts/popuphandler";
   
-  export default function ProfileSettings({themeColors }) {
+  export default function ProfileSettings({themeColors, translations }) {
     const navigation = useNavigation();
     const {showPopup, changePopupVisibility, popupSubject} = usePopupState();
+    const profileSettingsList = profileSettings();
 
     
 
@@ -27,7 +28,7 @@ import {
           >
             <Header
               style={[header.tiny, header.semiBold, themeColors.black]}
-              text={"PrintPal Settings"}
+              text={translations.printPalSettings}
             />
             {profileSettingsList.map((setting) => (
                 <TouchableOpacity
@@ -44,7 +45,7 @@ import {
                     },
                     ]}
                     key={setting.id}
-                    onPress={setting.title === 'Business Profile' ? () => {  navigation.navigate('Question') } : setting.onPress === 'popup' ? () => {changePopupVisibility(setting.title) }: () => {navigation.navigate('Settings', {settingName: setting.title}) }}
+                    onPress={setting.dataTitle === 'Business Profile' ? () => {  navigation.navigate('Question') } : setting.onPress === 'popup' ? () => {changePopupVisibility(setting.dataTitle) }: () => {navigation.navigate('Settings', {settingName: setting.dataTitle}) }}
                 >
                     <View style={[index.row, index.gap10, index.alignCenter]}>
                     <Icon icon={setting.icon} customSize={20} iconColor={`${themeColors.bgBlack.backgroundColor}`} />

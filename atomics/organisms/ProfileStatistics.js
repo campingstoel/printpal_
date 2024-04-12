@@ -6,12 +6,13 @@ import {
   import header from "../../styles/header";
   import Header from "../atoms/Header";
   import index from "../../styles";
-  import { profileButtons } from "../../data/profileButtons";
+  import ProfileButtons from "../../data/profileButtons";
   import Icon from "../atoms/Icon";
   import colors from "../../styles/colors";
   import * as Progress from "react-native-progress";
   
-  export default function ProfileStatistics({themeColors}) {
+  export default function ProfileStatistics({themeColors, translations}) {
+    const profileButtons = ProfileButtons();
 
     return (
       <View style={[index.column, index.fullWidth, index.padHor20]}>
@@ -82,11 +83,11 @@ import {
               <View style={[index.column]}>
                 <Header
                   style={[header.tiny, header.semiBold, themeColors.black]}
-                  text={"Profile Completion"}
+                  text={translations.profileCompletion}
                 />
                 <Header
                   style={[header.smallest, themeColors.grey]}
-                  text={"Complete your profile to get\nmore out of PrintPal"}
+                  text={translations.profileCompletionDescription}
                 />
               </View>
             </TouchableOpacity>

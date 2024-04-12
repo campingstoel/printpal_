@@ -13,7 +13,7 @@ export const navbarNames = [
     {
         id: 3,
         icon: "chatbubble",
-        text: "Chat"
+        text: "Chats"
     },
     {
         id: 4,

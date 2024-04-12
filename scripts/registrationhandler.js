@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { auth, geoFirestore } from '../firebase';
-import db from '../firebase';
+import { auth, geoFirestore } from '../auth/firebase';
+import db from '../auth/firebase';
 import { formValidator } from './formValidator';
 
 const RegistrationContext = createContext();
