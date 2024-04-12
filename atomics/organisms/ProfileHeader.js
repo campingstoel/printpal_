@@ -52,7 +52,7 @@ export default function ProfileHeader({ name, rating, themeColors }) {
             { height: 70 },
           ]}
         >
-          <Header style={[header.medium, header.bold, themeColors.black]} text={name} />
+          <Header style={[header.medium, header.bold, themeColors.black]} text={name.length > 15 ? name.substring(0, 14) + "..." : name } />
           <Image
             source={profileImage ? {uri: profileImage} : {uri: images.find((image) => image.includes("profile"))}}
             style={[index.br50, index.xxlImg]}
