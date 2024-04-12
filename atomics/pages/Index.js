@@ -11,15 +11,30 @@ import QuestionPopUp from "./QuestionPopup";
 import AccountPage from "./AccountPage";
 import Login from "./Login";
 import Register from "./Register";
+import ChatsPage from "./ChatsPage";
+import { auth } from "../../auth/firebase";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { AuthStore } from "../../auth/store";
+
 
 const Stack = createStackNavigator();
 
 export default function Index() {
+  const {initialized, isLoggedIn } = AuthStore.useState();
+
+
+
   return (
     <SafeAreaProvider>
       <ContextHandlerProvider>
         <NavigationContainer>
           <Stack.Navigator>
+          <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{ headerShown: false }}
+            />
             <Stack.Screen
               name="AccountPage"
               component={AccountPage}
@@ -35,12 +50,6 @@ export default function Index() {
               component={Register}
               options={{ headerShown: false }}
             />
-
-            <Stack.Screen
-              name="Home"
-              component={Home}
-              options={{ headerShown: false }}
-            />
             <Stack.Screen
               name="Search"
               component={Search}
@@ -49,6 +58,11 @@ export default function Index() {
             <Stack.Screen
               name="Map"
               component={Map}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Chats"
+              component={ChatsPage}
               options={{ headerShown: false }}
             />
             <Stack.Screen

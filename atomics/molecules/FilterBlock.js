@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TouchableOpacity, Text, Image, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import filterblock from "../../styles/filterblock";
@@ -6,6 +6,7 @@ import Header from "../atoms/Header";
 import header from "../../styles/header";
 import index from "../../styles";
 import colors from "../../styles/colors";
+import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 
 export default function FilterBlock({
   styles,

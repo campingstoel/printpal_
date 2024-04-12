@@ -21,17 +21,18 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { useState } from "react";
 import Icon from "../atoms/Icon";
 import { useNavigation } from "@react-navigation/native";
+import { appSignIn } from "../../auth/store";
+
 
 export default function Form({ themeColors, page, translations}) {
     const registerQuestions = registrationQuestions();
     const { registrationStep, emailInput, setEmailInput, handleNextStep, error } = useRegistrationState();
-    const {login } = useAccountState();
     const [textInput , setTextInput] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const navigation = useNavigation();
-
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
+
 
 
 
@@ -110,7 +111,7 @@ export default function Form({ themeColors, page, translations}) {
         onChangeText={text => setLoginPassword(text)}
         />
         <Text style={[textinput.error, themeColors.red]}>{error}</Text>
-        <Button text={'Log in'} style={[button.large]} onPress={() => login(loginEmail, loginPassword) ? navigation.navigate('Home') : null } />
+        <Button text={'Log in'} style={[button.large]} onPress={() => appSignIn(loginEmail, loginPassword) ? navigation.navigate('Home') : null } />
         </KeyboardAwareScrollView>
 
     }

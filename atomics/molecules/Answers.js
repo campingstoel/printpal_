@@ -29,7 +29,6 @@ export default function Answers({ props }) {
   //create a variable of all answers except the locationCorrectness 
   let allAnswersExceptLocation = {...allAnswers}
   delete allAnswersExceptLocation['locationcoords']
-  console.log(allAnswersExceptLocation)
 
   const trueFalseView = () => {
     return (

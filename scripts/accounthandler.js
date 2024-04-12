@@ -1,7 +1,8 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { auth, geoFirestore } from "../firebase";
-import db from "../firebase";
-import * as SecureStore from 'expo-secure-store';
+import { auth } from "../auth/firebase";
+import { signInWithEmailAndPassword, onAuthStateChanged, fetchSignInMethodsForEmail } from "firebase/auth";
+import db from "../auth/firebase";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const AccountContext = createContext();
 
@@ -13,34 +14,8 @@ export const AccountProvider = ({ children }) => {
   const [emailInput, setEmailInput] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
 
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-    });
-
-    return unsubscribe;
-  }, []);
 
 
-  //attemptSignIn 
-  const attemptSignIn = async () => {
-    const email = await SecureStore.getItemAsync("email");
-    const password = await SecureStore.getItemAsync("password");
-
-    if (email && password) {
-    try {
-        await auth.signInWithEmailAndPassword(email, password);
-        setLoggedIn(true);
-        setFullname(auth.currentUser.displayName);
-        return true;
-    } catch (e) {
-        setError(e);
-    }
-}
-else {
-    return false;
-}
-    };
 
 
   
@@ -50,7 +25,7 @@ else {
     //check if email auth exists
     if (emailInput !== "") {
         console.log(emailInput);
-      const emailAuth = await auth.fetchSignInMethodsForEmail(emailInput);
+      const emailAuth = await fetchSignInMethodsForEmail(auth, emailInput);
       console.log(emailAuth);
       if (emailAuth.length > 0) {
         setError("");
@@ -65,45 +40,7 @@ else {
     }
   };
 
-  const login = async (email, password) => {
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      setLoggedIn(true);
-      await SecureStore.setItemAsync("email", email);
-      await SecureStore.setItemAsync("password", password );
-      setFullname(auth.currentUser.displayName);
 
-    } catch (e) {
-      setError(e);
-      return false
-    }
-  };
-
-  const logout = async () => {
-    try {
-      await auth.signOut();
-    } catch (e) {
-      setError(e);
-    }
-  };
-
-  const register = async (email, password) => {
-    try {
-      await auth.createUserWithEmailAndPassword(email, password);
-    } catch (e) {
-      setError(e);
-    }
-  };
-
-  const getProfileData = async () => {
-    const user = auth.currentUser;
-    if (user) {
-        console.log(user.displayName);
-      setFullname(user.displayName);
-      return user.displayName;
-    }
-
-  };
 
 
   const addLocation = async (location) => {
@@ -120,9 +57,6 @@ else {
     <AccountContext.Provider
       value={{
         user,
-        login,
-        logout,
-        register,
         error,
         loading,
         setLoading,
@@ -130,9 +64,6 @@ else {
         checkEmail,
         emailInput,
         setEmailInput,
-        fullname,
-        getProfileData,
-        attemptSignIn,
       }}
     >
       {children}

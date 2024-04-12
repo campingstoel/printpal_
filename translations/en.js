@@ -22,7 +22,7 @@ export default  {
     payments: 'Payments',
     activity: 'Activity',
     profileCompletion: 'Profile Completion',
-    profileCompletionDescription: 'Complete your profile to get more out of PrintPal',
+    profileCompletionDescription: 'Complete your profile\nto get more out of PrintPal',
     printPalCredits: 'PrintPal Credits',
     printPalSettings: 'PrintPal Settings',
     appearance: 'Appearance',

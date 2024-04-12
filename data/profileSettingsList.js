@@ -1,41 +1,50 @@
+import { useLanguageState } from "../scripts/languagehandler";
 
-export const profileSettingsList = [
+export default function ProfileSettings () {
+    const { translations } = useLanguageState();
+const profileSettingsList = [
     {
         id: 2,
-        title: "Appearance",
+        title: translations.appearance,
+        dataTitle: "Appearance",
         subTitle: "Change the app theme",
         icon: 'color-palette',
         onPress: 'popup'
     },
     {
         id: 3,
-        title: "Language",
+        title: translations.language,
+        dataTitle: "Language",
         subTitle: "Change the app language",
         icon: 'globe',
         onPress: 'popup'
     },
     {
         id: 4,
-        title: "Business Profile",
+        title: translations.businessProfile,
+        dataTitle: "Business Profile",
         subTitle: "Set up your business profile",
         icon: 'briefcase',
     },
     
     {
         id: 5,
-        title: "Privacy",
+        title: translations.privacy,
+        dataTitle: "Privacy",
         subTitle: "Manage your privacy settings",
         icon: 'lock-closed',
     },
     {
         id: 6,
-        title: "Contact Us",
+        title: translations.contactUs,
+        dataTitle: "Contact Us",
         subTitle: "Get in touch with us",
         icon: 'mail',
     },
     {
         id: 7,
-        title: "About Us",
+        title: translations.aboutUs,
+        dataTitle: "About Us",
         subTitle: "Learn more about us",
         icon: 'information-circle',
 
@@ -43,7 +52,7 @@ export const profileSettingsList = [
 
     {
         id: 8,
-        title: "Log Out",
+        title: translations.logOut,
         subTitle: "Log out of your account",
         icon: 'log-out',
     },
@@ -51,3 +60,7 @@ export const profileSettingsList = [
 
     
 ];
+
+return profileSettingsList;
+
+}
