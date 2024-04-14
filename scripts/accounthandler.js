@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { auth } from "../auth/firebase";
+import { auth } from "../firebase/firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged, fetchSignInMethodsForEmail } from "firebase/auth";
-import db from "../auth/firebase";
+import db from "../firebase/firebase";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const AccountContext = createContext();
@@ -22,14 +22,10 @@ export const AccountProvider = ({ children }) => {
 
 
   const checkEmail = async () => {
-    //check if email auth exists
     if (emailInput !== "") {
-        console.log(emailInput);
       const emailAuth = await fetchSignInMethodsForEmail(auth, emailInput);
-      console.log(emailAuth);
       if (emailAuth.length > 0) {
         setError("");
-        console.log("yes");
         return 'yes';
       } else {
         setError("");

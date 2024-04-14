@@ -5,10 +5,11 @@ import button from "../../styles/button";
 import Button from "../atoms/Button";
 import index from "../../styles";
 import colors from "../../styles/colors";
+import { useSearchState } from "../../scripts/searchhandler";
 
 export default function SearchBar({ styles, iconStyles, translations, themeColors }) {
   const navigation = useNavigation();
-  const [search, setSearch] = useState("");
+  const { search, setSearch } = useSearchState();
 
   return (
     <View style={[index.row, index.fullWidth, index.centered, index.padHor20, { gap: 10}, styles]}>
@@ -31,7 +32,7 @@ export default function SearchBar({ styles, iconStyles, translations, themeColor
         />
         <Button
           onPress={() => {
-            navigation.navigate("PrintShops", { search });
+            navigation.navigate('Search');
           }}
           style={[button.icon, button.transparent]}
           icon={"arrow-forward-outline"}

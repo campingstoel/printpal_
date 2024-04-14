@@ -11,10 +11,12 @@ import { Platform } from "react-native";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
 import colors from "../../styles/colors";
+import { useLanguageState } from "../../scripts/languagehandler";
 
 export default function Answers({ props }) {
   const { questionNumber, decrementQuestionNumber, allAnswers, updateAnswer } =
     useAnswerState();
+  const {translations} = useLanguageState();
 
   const { error, nextQuestionHandler } = useQuestionHandlerState();
 
@@ -143,6 +145,17 @@ export default function Answers({ props }) {
             
           
           </View>
+
+        ) : null
+
+      }
+      {
+        props.questionType == 'Confirm' ? (
+          <Button
+            onPress={() => handleNextQuestion()}
+            style={[button.large, index.alignSelfCenter, {position:'absolute', bottom:20}]}
+            text={translations.questionnaire.confirmButtonText}
+          />
 
         ) : null
 

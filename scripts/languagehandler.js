@@ -16,7 +16,6 @@ export const LanguageProvider = ({ children }) => {
             try {
                 const storedLanguage = await AsyncStorage.getItem('language');
                 if (storedLanguage) {
-                  console.log(storedLanguage);
                     setLanguage(storedLanguage);
                     switch(storedLanguage) {
                       case 'en':

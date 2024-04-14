@@ -6,6 +6,7 @@ import { ThemeProvider } from "./themehandler";
 import { PopupProvider } from "./popuphandler";
 import { AccountProvider } from "./accounthandler";
 import { RegistrationProvider } from "./registrationhandler";
+import { SearchProvider } from "./searchhandler";
 
 import { createContext, useState, useContext } from "react";
 
@@ -20,7 +21,9 @@ export const ContextHandlerProvider = ({ children }) => {
             <LocationProvider>
               <AnswerProvider>
                 <PopupProvider>
+                  <SearchProvider>
                   <QuestionHandlerProvider>{children}</QuestionHandlerProvider>
+                  </SearchProvider>
                 </PopupProvider>
               </AnswerProvider>
             </LocationProvider>

@@ -103,6 +103,8 @@ export default {
             availabilityFalseAction: 'Selecteer minstens één dag.',
             inAppMessagingTitle: 'In-app Berichten',
             inAppMessagingDescription: 'Wil je in-app berichten ontvangen?',
+            confirmDescription: 'We behandelen je verzoek zo snel mogelijk! Tot die tijd kun je gebruik maken van de klant functies van PrintPal.',
+            confirmButtonText: 'Bevestig je registratie',
         },
         logIn: 'Inloggen',
         register: 'Registreren',

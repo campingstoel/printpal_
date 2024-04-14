@@ -12,9 +12,12 @@ import darkmodeColors from "../../styles/darkmodecolors";
 import { useThemeState } from "../../scripts/themehandler";
 import colors from "../../styles/colors";
 import { useEffect, useState } from "react";
-import { AuthStore, imageStore } from "../../auth/store";
+import { AuthStore, imageStore, dataStore } from "../../firebase/store";
+import { PrintShopStore } from "../../firebase/printshops";
 import SplashScreen from "../organisms/SplashScreen";
+import { getPrintShops } from "../../firebase/printshops";
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
+import { useLocationState } from "../../scripts/location";
 
 const { height } = Dimensions.get('window');
 
@@ -25,6 +28,20 @@ export default function Home() {
   const {translations} = useLanguageState();
   const {initialized, isLoggedIn} = AuthStore.useState();
   const {images, loadedImages} = imageStore.useState();
+  const {data, loadedData} = dataStore.useState();
+  const {printShops, loadedPrintShops} = PrintShopStore.useState();
+  const {location, getLocation} = useLocationState();
+
+
+  useEffect(() => {
+    if(isLoggedIn && loadedImages && loadedPrintShops) {
+      dataStore.update(s => {s.loadedData = true});
+    }
+    getLocation().then(() => {
+      if(location) getPrintShops(location);
+    });
+  }
+  , [isLoggedIn, loadedImages, loadedPrintShops]);
  
   
   useEffect(() => {
@@ -45,15 +62,15 @@ export default function Home() {
     <View style={[index.wrapper, index.alignCenter, themeColors.bgWhite, {height:height}]}>
             <StatusBar backgroundColor={`${themeColors.bgWhite.backgroundColor}`}/>
             
-      <HomeHeader headerText={translations.home.title} page={'Home'} translations={translations} themeColors={themeColors} />
+      <HomeHeader headerText={translations.home.title} page={'Home'} translations={translations} themeColors={themeColors} loaded={loadedData} />
 
       <View style={[index.body, index.padHor20, themeColors.bgWhite]}>
 
       <SearchBar styles={[index.padHor20]}  translations={translations} themeColors={themeColors} />
 
         <ScrollView showsVerticalScrollIndicator={false}>
-        <Filters headerText="Services" page="Home" styles={{paddingHorizontal:0}} themeColors={themeColors}/>
-        <Stories  translations={translations} themeColors={themeColors}/>
+        <Filters headerText="Services" page="Home" styles={{paddingHorizontal:0}} themeColors={themeColors} loaded={loadedData}/>
+        <Stories  translations={translations} themeColors={themeColors} loaded={loadedData}/>
         </ScrollView>
       </View>
       <Navbar page="Home" themeColors={themeColors} />

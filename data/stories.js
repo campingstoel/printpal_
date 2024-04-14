@@ -1,4 +1,4 @@
-import { imageStore } from "../auth/store";
+import { imageStore } from "../firebase/store";
 
 export default function StoriesList() {
   const {images} = imageStore.useState();

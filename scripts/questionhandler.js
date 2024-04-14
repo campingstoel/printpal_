@@ -53,9 +53,6 @@ export const QuestionHandlerProvider = ({ children }) => {
     setError("");
     incrementQuestionNumber();
 
-    if (props.questionType === "Confirm") {
-        setFinished(true);
-    }
 };
 
   const answerValidationHandler = (fieldName, text, falseAction) => {
@@ -69,7 +66,7 @@ export const QuestionHandlerProvider = ({ children }) => {
         }
       }
       if (fieldName == "name" || fieldName == "businessName") {
-        if (text.match(/^[a-zA-Z]+$/) && text.length <= 20) {
+        if (text.match(/^[a-zA-Z\s]{3,20}$/)) {
           setError("");
           return true;
         } else {

@@ -22,7 +22,7 @@ import Header from "../atoms/Header";
 import header from "../../styles/header";
 import { Picker } from "@react-native-picker/picker";
 import SplashScreen from "../organisms/SplashScreen";
-import { AuthStore } from "../../auth/store";
+import { AuthStore } from "../../firebase/store";
 
 
 const { height } = Dimensions.get("window");

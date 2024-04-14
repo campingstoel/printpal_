@@ -1,26 +1,31 @@
 import { StyleSheet } from 'react-native';
+import { PixelRatio } from 'react-native';
+
+const fontScale = PixelRatio.getFontScale();
+const getFontSize = size => size / fontScale;
+
 
 const header =  StyleSheet.create({
     large : {
-        fontSize: 35,
+        fontSize: getFontSize(40),
     },
     medium : {
-        fontSize: 30,
+        fontSize: getFontSize(30),
     },
     small : {
-        fontSize: 25,
+        fontSize: getFontSize(25),
     },
     tiny : {
-        fontSize: 20,
+        fontSize: getFontSize(20),
     },
     interMedium : {
-        fontSize: 17,
+        fontSize: getFontSize(17),
     },
     paragraph : {
-        fontSize: 15,
+        fontSize: getFontSize(15),
     },
     smallest : {
-        fontSize: 13,
+        fontSize: getFontSize(13),
     },
     bold : {
         fontFamily: 'Poppins-Bold',

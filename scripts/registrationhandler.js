@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { auth, geoFirestore } from '../auth/firebase';
-import db from '../auth/firebase';
+import { auth, geoFirestore } from '../firebase/firebase';
+import db from '../firebase/firebase';
 import { formValidator } from './formValidator';
 
 const RegistrationContext = createContext();
@@ -12,7 +12,6 @@ export const RegistrationProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [registrationStep, setRegistrationStep] = useState(1);
     const [allAnswers, setAllAnswers] = useState({});
-    console.log(allAnswers);
 
 
 

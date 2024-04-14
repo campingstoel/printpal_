@@ -15,8 +15,9 @@ import index from "../../styles";
 import HeaderNames from "../../data/headerNames";
 import Icon from "../atoms/Icon";
 import colors from "../../styles/colors";
+import ShimmerPlaceHolder from "../atoms/Shimmer";
 
-export default function HomeHeader({ headerText, headerImage, page, styles, translations, themeColors }) {
+export default function HomeHeader({ headerText, headerImage, page, styles, translations, themeColors, loaded }) {
   const headerNames = HeaderNames()
   return (
     <View style={[index.fullWidth, index.column, index.mb20, themeColors.bgWhite, styles]}>
@@ -24,8 +25,7 @@ export default function HomeHeader({ headerText, headerImage, page, styles, tran
           <Header
             style={[header.small, header.bold, themeColors.black]}
             text={headerText}
-          />
-          
+          /> 
         </View>
         <View
           style={[index.alignCenter, index.row, index.fullWidth, index.justifyCenter, index.mt30, index.flexWrap, index.padHor10, index.gap10, page == "Search" ? {marginTop:100} : null]
@@ -33,10 +33,12 @@ export default function HomeHeader({ headerText, headerImage, page, styles, tran
         >
           {
             headerNames.map((item) => (
+              loaded ?
               <TouchableOpacity key={item.id} style={[homeheader.filter, index.row, index.flexStart, index.alignCenter, index.padHor20, index.shadow, themeColors.bgButtonWhite, index.br50, index.gap10]}>
                 <Icon icon={item.icon} customSize={30} iconColor={`${themeColors.bgBlack.backgroundColor}`} />
                 <Header style={[header.smallest, header.semiBold, themeColors.black]} text={item.text} />
               </TouchableOpacity>
+              : <ShimmerPlaceHolder key={item.id} style={[homeheader.filter, index.row, index.flexStart, index.alignCenter, index.padHor20, index.shadow, themeColors.bgButtonWhite, index.br50, index.gap10]} />
             ))
         }
         </View>

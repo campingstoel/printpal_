@@ -1,6 +1,8 @@
 // questionContext.js
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import QuestionsList from '../data/questions';
+import { createPrintShop } from '../firebase/printshops';
+import { AuthStore } from '../firebase/store';
 
 const AnswerContext = createContext();
 
@@ -8,6 +10,7 @@ export const AnswerProvider = ({ children }) => {
     const [questionNumber, setQuestionNumber] = useState(1);
     const questions = QuestionsList();
     const [finished, setFinished] = useState(false);
+    const { user } = AuthStore.useState();
     const [progressText, setProgressText] = useState('Lets begin...')
     const progressMessages = [
         { threshold: 0, message: 'Lets begin...' },
@@ -21,14 +24,24 @@ export const AnswerProvider = ({ children }) => {
     const [allAnswers, setAllAnswers] = useState({}); 
 
     const updateAnswer = (objectSubType, answerData) => {
-        console.log(objectSubType, answerData);
       setAllAnswers((prevAnswers) => ({
         ...prevAnswers,
         [objectSubType]: answerData,
       }));
     };
+    //if the last question is answered add the printshop to the database
+    useEffect(() => {
+        if(finished) {
+            createPrintShop(user, allAnswers);
+            AuthStore.update((s) => {
+                s.completedBusinessProfile = true;
+            }
+            );
+        }
+    }, [finished]);
 
     const incrementQuestionNumber = () => {
+        if(questionNumber === questions.length) setFinished(true);
         setQuestionNumber(prevNumber => prevNumber + 1);
     };
 

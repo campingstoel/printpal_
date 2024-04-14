@@ -1,6 +1,6 @@
 
 import { useLanguageState } from "../scripts/languagehandler";
-import { imageStore } from "../auth/store";
+import { imageStore } from "../firebase/store";
 
 export default function QuestionsList() {
   const {images} = imageStore.useState();
@@ -86,7 +86,7 @@ const questions = [
     title: translations.questionnaire.printingServicesTitle,
     question: translations.questionnaire.printingServicesDescription,
     questionType: "Multiple",
-    answers: [translations.questionnaire.printingServicesAnswers.a4, translations.questionnaire.printingServicesAnswers.a3, translations.questionnaire.printingServicesAnswers.color, translations.questionnaire.printingServicesAnswers.blackAndWhite, translations.questionnaire.printingServicesAnswers.poster, translations.questionnaire.printingServicesAnswers.binding, translations.questionnaire.printingServicesAnswers.lamination],
+    answers: [translations.questionnaire.printingServicesAnswers.a4, translations.questionnaire.printingServicesAnswers.a3, translations.questionnaire.printingServicesAnswers.color, translations.questionnaire.printingServicesAnswers.blackAndWhite, translations.questionnaire.printingServicesAnswers.poster,translations.questionnaire.printingServicesAnswers.lamination],
     objectSubType: "services",
     falseAction: translations.questionnaire.printingServicesFalseAction,
     image : {
@@ -126,10 +126,10 @@ const questions = [
     },
   },
   {
-    id: 11,
+    id: 10,
     title: "Confirm",
     question:
-      "We will handle your request as soon as possible. Untill then, you will be able to access customer app features.",
+    translations.questionnaire.confirmDescription,
     questionType: "Confirm",
     image : {
       uri: images.find((image) => image.includes("name")),

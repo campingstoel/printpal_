@@ -11,9 +11,9 @@ import {
   import colors from "../../styles/colors";
   import profileSettings from "../../data/profileSettingsList";
   import { usePopupState } from "../../scripts/popuphandler";
-  import { appSignOut } from "../../auth/store";
+  import { appSignOut } from "../../firebase/store";
   
-  export default function ProfileSettings({themeColors, translations }) {
+  export default function ProfileSettings({themeColors, translations, completedBusinessProfile }) {
     const navigation = useNavigation();
     const {showPopup, changePopupVisibility, popupSubject} = usePopupState();
     const profileSettingsList = profileSettings();
@@ -32,6 +32,7 @@ import {
               text={translations.profile.printPalSettings}
             />
             {profileSettingsList.map((setting) => (
+              setting.dataTitle === 'Business Profile' && completedBusinessProfile ? null : (
                 <TouchableOpacity
                     style={[
                     index.row,
@@ -63,6 +64,8 @@ import {
                     </View>
                     <Icon icon="chevron-forward" iconColor={`${themeColors.bgBlack.backgroundColor}`} />
                 </TouchableOpacity>
+              )
+              
                 ))}
           </View>
 

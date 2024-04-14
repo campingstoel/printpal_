@@ -11,7 +11,7 @@ import Icon from "../atoms/Icon";
 import colors from "../../styles/colors";
 import Button from "../atoms/Button";
 import button from "../../styles/button";
-import { imageStore, AuthStore } from "../../auth/store";
+import { imageStore, AuthStore } from "../../firebase/store";
 import { useState } from "react";
 
 

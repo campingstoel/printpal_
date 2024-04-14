@@ -8,12 +8,15 @@ import { useEffect } from "react";
 import { useThemeState } from "../../scripts/themehandler";
 import colors from "../../styles/colors";
 import darkmodeColors from "../../styles/darkmodecolors";
+import { PrintShopStore } from "../../firebase/printshops";
+
 const { height } = Dimensions.get("window");
 
 export default function Map() {
     const { location, getLocation } = useLocationState();
     const {theme, changeTheme} = useThemeState();
     const themeColors = theme === 'Light mode' ? colors : darkmodeColors;
+    const {printShops, loadedPrintShops} = PrintShopStore.useState();
 
     
     useEffect(() => {
@@ -33,7 +36,8 @@ return (
     <Mapbox 
 location={location}
 style={{ flex: 1, borderRadius: 0 }}
-     />
+data={printShops}
+    />
     <Navbar page={'Home'} themeColors={themeColors} />
   </View>
     : null

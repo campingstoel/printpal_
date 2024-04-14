@@ -9,8 +9,9 @@ import { ScrollView } from "react-native-gesture-handler";
 import index from "../../styles";
 import colors from "../../styles/colors";
 import StoriesList from "../../data/stories";
+import ShimmerPlaceHolder from "../atoms/Shimmer";
 
-export default function Stories({translations, themeColors}) {
+export default function Stories({translations, themeColors, loaded}) {
   const navigation = useNavigation();
   const storiesData = StoriesList();
 
@@ -26,6 +27,7 @@ export default function Stories({translations, themeColors}) {
       <Header style={[header.bold, header.tiny, themeColors.black]} text={translations.story.title} />
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         {storiesData.map((story) => (
+          loaded ?
           <View
             key={story.id}
             style={[
@@ -57,6 +59,7 @@ export default function Stories({translations, themeColors}) {
                 ? story.description.substring(0, 24) + "..."
                 : story.description} />
           </View>
+          : <ShimmerPlaceHolder key={story.id} style={[stories.story, index.mt20, index.br20, index.mh5, index.pad10, themeColors.bgGrey, { width: 300, height: 200 }]} />
         ))}
       </ScrollView>
     </View>

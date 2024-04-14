@@ -14,15 +14,22 @@ import { useLanguageState } from "../../scripts/languagehandler";
 import darkmodeColors from "../../styles/darkmodecolors";
 import { useThemeState } from "../../scripts/themehandler";
 import colors from "../../styles/colors";
+import { getPrintShops } from "../../firebase/printshops";
+import { useLocationState } from "../../scripts/location";
+import { useRoute } from "@react-navigation/native";
+import { useSearchState } from "../../scripts/searchhandler";
 
 const { height } = Dimensions.get('window');
 
-export default function Search() {
+export default function Search({params}) {
   const navigation = useNavigation();
   const [refreshing, setRefreshing] = useState(false);
   const {translations} = useLanguageState();
   const {theme, changeTheme} = useThemeState();
   const themeColors = theme === 'Light mode' ? colors : darkmodeColors;
+  const {location, getLocation} = useLocationState();
+  const route = useRoute();
+  const {search, filter, setFilter} = useSearchState();
 
 
 
@@ -30,8 +37,16 @@ export default function Search() {
 
   const onRefresh = useCallback(() => {
     setRefreshing(true);
+    getPrintShops(location, filter, search);
     setRefreshing(false)
   }, []);
+
+  useEffect(() => { 
+    getLocation().then(() => {
+      if(location) getPrintShops(location, filter, search);
+    });
+  }
+  , [filter, search]);
 
 
   return (

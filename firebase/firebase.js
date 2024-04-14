@@ -3,6 +3,7 @@ import { getAuth, initializeAuth, getReactNativePersistence } from "firebase/aut
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { GeoFirestore } from 'geofirestore';
 
 
 
@@ -24,4 +25,4 @@ export const auth = initializeAuth(app, {
 
 export const db = getFirestore(app); 
 export const storage = getStorage(app);
-    
+export const geoFirestore = new GeoFirestore(db);

@@ -7,22 +7,24 @@ import index from "../../styles";
 import { useNavigation } from "@react-navigation/native";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
-import { imageStore } from "../../auth/store";
+import { imageStore } from "../../firebase/store";
 import ShimmerPlaceHolder from "../atoms/Shimmer";
+import { useSearchState } from "../../scripts/searchhandler";
 
-export default function Filters({ page, styles, themeColors, translations }) {
+export default function Filters({ page, styles, themeColors, translations, loaded }) {
   const filterNames = FilterNames();
   const filterProps =
     page == "Home" ? filterNames.slice(0, 5) : filterNames.slice(0, 3);
   const navigation = useNavigation();
   const {images, loadedImages} = imageStore.useState();
+  const {search, filter, setFilter} = useSearchState();
 
   return (
     <View style={[index.padHor10, styles]}>
       {page == "Home" ? (
         <View style={[index.spaceBetween, index.row, index.flexWrap, index.fullWidth, index.mt20]}>
           {filterProps.map((item) => (
-            loadedImages ?
+            loaded ?
             <FilterBlock
               key={item.id}
               text={item.text}
@@ -37,7 +39,7 @@ export default function Filters({ page, styles, themeColors, translations }) {
 
 
 
-{loadedImages ?  
+{loaded ?  
           <FilterBlock
             key="View more"
             text={"View more"}
@@ -60,7 +62,12 @@ export default function Filters({ page, styles, themeColors, translations }) {
             key={item.id}
             text={item.text}
             image={item.image}
-            onPress={item.onPress}
+            onPress={
+              () => {
+                setFilter(item.dataText);
+                console.log(filter);
+              }
+            }
             themeColors={themeColors}
             styles={{width: '31%', height: 120, aspectRatio: 167/145}}
           />

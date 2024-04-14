@@ -23,6 +23,7 @@
     "expo-secure-store": "~12.8.1",
     "expo-splash-screen": "~0.26.4",
     "expo-status-bar": "~1.11.1",
+    "expo-web-browser": "~12.8.2",
     "firebase": "^10.10.0",
     "geofirestore": "^5.2.0",
     "pullstate": "^1.25.0",
@@ -40,8 +41,7 @@
     "react-native-shimmer-placeholder": "^2.0.9",
     "react-native-svg": "14.1.0",
     "react-native-vector-icons": "^10.0.3",
-    "react-native-web": "~0.19.6",
-    "expo-web-browser": "~12.8.2"
+    "react-native-web": "~0.19.6"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

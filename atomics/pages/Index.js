@@ -12,10 +12,10 @@ import AccountPage from "./AccountPage";
 import Login from "./Login";
 import Register from "./Register";
 import ChatsPage from "./ChatsPage";
-import { auth } from "../../auth/firebase";
+import { auth } from "../../firebase/firebase";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { AuthStore } from "../../auth/store";
+import { AuthStore } from "../../firebase/store";
 
 
 const Stack = createStackNavigator();

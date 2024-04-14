@@ -103,6 +103,8 @@ export default {
         availabilityFalseAction: 'Wähle mindestens einen Tag aus.',
         inAppMessagingTitle: 'In-App-Nachrichten',
         inAppMessagingDescription: 'Möchtest du In-App-Nachrichten erhalten?',
+        confirmDescription: 'Wir werden Ihre Anfrage schnellstmöglich bearbeiten! Bis dahin können Sie die Kundenfunktionen von PrintPal nutzen.',
+        confirmButtonText: 'Bestätigen',
     },
     logIn: 'Anmelden',
     register: 'Registrieren',

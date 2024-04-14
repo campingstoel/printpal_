@@ -8,7 +8,7 @@ import darkmodeColors from "../../styles/darkmodecolors";
 import { useThemeState } from "../../scripts/themehandler";
 import colors from "../../styles/colors";
 import { useEffect, useState } from "react";
-import { AuthStore } from "../../auth/store";
+import { AuthStore } from "../../firebase/store";
 import Header from "../atoms/Header";
 import header from "../../styles/header";
 
@@ -20,7 +20,6 @@ export default function ChatsPage() {
   const themeColors = theme === 'Light mode' ? colors : darkmodeColors;
   const {translations} = useLanguageState();
   const {initialized, isLoggedIn, accountType} = AuthStore.useState();
-  console.log(accountType);
 
 
  
@@ -34,7 +33,7 @@ export default function ChatsPage() {
             <StatusBar backgroundColor={`${themeColors.bgWhite.backgroundColor}`}/>
             
       <View style={[index.padHor20, themeColors.bgWhite]}>
-      <Header text={accountType == 'Customer' ? translations.chats.titleCustomer : translations.chats.titleBusiness} style={[header.bold, header.medium, index.mt20, themeColors.black]} />
+      <Header text={accountType == 'Customer' ? translations.chats.titleCustomer : translations.chats.titlePrintshop} style={[header.bold, header.medium, index.mt20, themeColors.black]} />
 
         <ScrollView showsVerticalScrollIndicator={false}>
         </ScrollView>

@@ -6,7 +6,7 @@ import { StatusBar } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { signInWithEmailAndPassword, onAuthStateChanged, fetchSignInMethodsForEmail } from "firebase/auth";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { auth } from './auth/firebase';
+import { auth } from './firebase/firebase';
 import { useEffect } from 'react';
 
 

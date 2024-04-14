@@ -103,6 +103,8 @@ export default {
         availabilityFalseAction: 'Please select at least one day.',
         inAppMessagingTitle: 'In-app Messaging',
         inAppMessagingDescription: 'Do you want to receive in-app messages?',
+        confirmDescription:'We will handle your request as soon as possible. Untill then, you will be able to access customer app features.',
+        confirmButtonText: 'Confirm registration',
     },
     logIn: 'Log In',
     signUp: 'Sign Up',

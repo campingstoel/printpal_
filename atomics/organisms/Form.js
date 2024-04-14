@@ -21,7 +21,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { useState } from "react";
 import Icon from "../atoms/Icon";
 import { useNavigation } from "@react-navigation/native";
-import { appSignIn } from "../../auth/store";
+import { appSignIn } from "../../firebase/store";
 
 
 export default function Form({ themeColors, page, translations}) {
