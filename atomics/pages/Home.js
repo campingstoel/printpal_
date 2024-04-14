@@ -18,6 +18,7 @@ import SplashScreen from "../organisms/SplashScreen";
 import { getPrintShops } from "../../firebase/printshops";
 import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 import { useLocationState } from "../../scripts/location";
+import { getImages } from "../../firebase/store";
 
 const { height } = Dimensions.get('window');
 
@@ -26,7 +27,7 @@ export default function Home() {
   const {theme, changeTheme} = useThemeState();
   const themeColors = theme === 'Light mode' ? colors : darkmodeColors;
   const {translations} = useLanguageState();
-  const {initialized, isLoggedIn} = AuthStore.useState();
+  const {initialized, isLoggedIn, user} = AuthStore.useState();
   const {images, loadedImages} = imageStore.useState();
   const {data, loadedData} = dataStore.useState();
   const {printShops, loadedPrintShops} = PrintShopStore.useState();
@@ -47,7 +48,7 @@ export default function Home() {
   useEffect(() => {
     if(!initialized) return;
     if(isLoggedIn) {
-      navigation.navigate("Home");
+      getImages(user);
     }
     else {
       navigation.navigate("AccountPage");

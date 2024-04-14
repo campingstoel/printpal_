@@ -18,16 +18,33 @@
       "supportsTablet": true
     },
     "android": {
+      "versionCode": 4,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.cter079.printpal"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-font"
+      
+      "expo-font",
+      [
+      "expo-build-properties",
+      {
+        "android": {
+          "enableProguardInReleaseBuilds": true
+        }
+      }
+
     ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "e2e58801-2c10-419f-ad00-8fcd7d251726"
+      }
+    }
   }
 }

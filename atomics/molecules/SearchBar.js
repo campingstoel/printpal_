@@ -24,10 +24,13 @@ export default function SearchBar({ styles, iconStyles, translations, themeColor
             fontFamily: "Poppins-Bold",
             color: `${themeColors.bgBlack.backgroundColor}`,
             fontSize: 12,
+
           }}
           placeholder= {translations.search.placeholder}
           placeholderTextColor={`${themeColors.bgBlack.backgroundColor}`}
           value={search}
+          allowFontScaling={false}
+          maxFontSizeMultiplier={1} 
           onChangeText={setSearch}
         />
         <Button

@@ -138,8 +138,17 @@ export const appRegister = async (email, password) => {
   }
 };
 
-const getImages = async () => {
+export const getImages = async (user) => {
   const images = [];
+  //only get images if the user is logged in
+  if (!user) {
+    imageStore.update((s) => {
+      s.loadedImages = true;
+    });
+    return;
+  }
+
+
   const imagesRef = ref(storage, "images/");
   const imagesList = await listAll(imagesRef);
 
@@ -160,4 +169,3 @@ const getImages = async () => {
 
 };
 
-getImages();

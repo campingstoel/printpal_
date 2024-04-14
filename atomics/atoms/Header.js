@@ -5,6 +5,6 @@ import header from "../../styles/header";
 export default function Header({ style, text }) {
 
   return (
-    <Text style={[header.header, style]}>{text}</Text>
+    <Text allowFontScaling={false} maxFontSizeMultiplier={1}  style={[header.header, style]}>{text}</Text>
   );
 }

@@ -32,9 +32,8 @@ export default function ListItem({
             style={[header.text, header.paragraph, themeColors.grey]}
           />
         </View>
-        <Text style={[header.text, header.paragraph, themeColors.grey]}>
-          {services}
-        </Text>
+        <Header text={services} style={[header.text, header.paragraph, themeColors.grey]}/>
+  
       </TouchableOpacity>
       <TouchableOpacity
         style={[listItem.contactButton, index.pad10, index.m5, index.centered, style]}
